@@ -1,0 +1,134 @@
+[
+  {
+    "version": "0.30.0",
+    "url": "https://files.pythonhosted.org/packages/63/16/7deecf8c79936409fd11e1b374cb43775f6be959d803a3ae5405ecb9f09a/mlx_lm-0.30.0-py3-none-any.whl",
+    "wheel_sha256": "b30389d25a848f07c91a4896de8ea3edda61c38019df6f44e7bd0e2bc9a153eb",
+    "uploaded": "2025-12-18T21:45:14.426904Z",
+    "module_sha256": "3aade00f7359e07b3c163959634e5f041913217e63467e29a57cb6e3093c4855",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "da8f4c7d9c8651c2600a19bf0975d6be57b78b12fdafb72bd2e0907122664828",
+    "first_line": 1032,
+    "last_line": 1133
+  },
+  {
+    "version": "0.30.2",
+    "url": "https://files.pythonhosted.org/packages/f3/23/96068585f05388bb0df17cd4e25aec651eecadcf2811876534970d73029c/mlx_lm-0.30.2-py3-none-any.whl",
+    "wheel_sha256": "f0cec69b859698f07c840e06d6462a1ddafaaf4f701fc4d61c707acde1484971",
+    "uploaded": "2026-01-06T02:33:03.208975Z",
+    "module_sha256": "57db39fa48af898d72624a40b0cb1986c480c0ade1c74f7513e7338f7760939a",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "c5deb23e6c15d9954eb0af287969ee3908348d8962c0c1a9accd3deeabf294e0",
+    "first_line": 1049,
+    "last_line": 1142
+  },
+  {
+    "version": "0.30.4",
+    "url": "https://files.pythonhosted.org/packages/f0/e0/6a58531e408620b7fcc6e62fb61f0c32f6cab530cafb54ca233114784698/mlx_lm-0.30.4-py3-none-any.whl",
+    "wheel_sha256": "b5a7f1a545fdcde63666edc13815f3eecfd7492fd065d31484c30f61b4e1cf83",
+    "uploaded": "2026-01-19T16:14:18.946223Z",
+    "module_sha256": "8b48ab2c9365fec785b6a46a30eb48e45182c152798ccdf66d819e63562fe15d",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "c5deb23e6c15d9954eb0af287969ee3908348d8962c0c1a9accd3deeabf294e0",
+    "first_line": 1045,
+    "last_line": 1138
+  },
+  {
+    "version": "0.30.5",
+    "url": "https://files.pythonhosted.org/packages/89/ba/66db6e1e5f1ef506655b562932f6bd8f72600116d5f31f92d71c1f200b3f/mlx_lm-0.30.5-py3-none-any.whl",
+    "wheel_sha256": "a80bc8e3efdebe81813b0f6eb403fb66a7a15071e256f4e7102ada986acb75bb",
+    "uploaded": "2026-01-25T15:29:28.290323Z",
+    "module_sha256": "0b646085d60b506c42c9794e6c9086d93497635b7e3e82e853cf5d8b6de19350",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "c5deb23e6c15d9954eb0af287969ee3908348d8962c0c1a9accd3deeabf294e0",
+    "first_line": 1045,
+    "last_line": 1138
+  },
+  {
+    "version": "0.30.6",
+    "url": "https://files.pythonhosted.org/packages/20/5f/01d281f1fa8a1521d5936659beb4f5ab1f32b463d059263cf9d4cef969d9/mlx_lm-0.30.6-py3-none-any.whl",
+    "wheel_sha256": "a7405bd581eacc4bf8209d7a6b7f23629585a0d7c6740c2a97e51fee35b3b0e1",
+    "uploaded": "2026-02-04T21:27:43.222442Z",
+    "module_sha256": "2c3f87804659f0ad3652848fd82a29a4c188d1259eabe83cf396e88303bdc21c",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "b16d8f707d2c58c77bc203bfcdde74ae1d7d21abd1d9d3eb1fbc5e609b638117",
+    "first_line": 1181,
+    "last_line": 1280
+  },
+  {
+    "version": "0.30.7",
+    "url": "https://files.pythonhosted.org/packages/1e/17/a41c798a3d9cbdc47f39c6db5bba4c2cd199203ead26bf911cb03b644070/mlx_lm-0.30.7-py3-none-any.whl",
+    "wheel_sha256": "17442a4bf01c4c2d3bca1e647712fe44f19890c3f1eadc8589d389e57b44b9bf",
+    "uploaded": "2026-02-12T18:41:10.236810Z",
+    "module_sha256": "91d8d960861c905d48b31a282dca23593b515a1853f4cd742fb8aace9893bc23",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "b16d8f707d2c58c77bc203bfcdde74ae1d7d21abd1d9d3eb1fbc5e609b638117",
+    "first_line": 1181,
+    "last_line": 1280
+  },
+  {
+    "version": "0.31.1",
+    "url": "https://files.pythonhosted.org/packages/3b/8e/2e40713fc673d7268e32222752919075c0024b02635af56531d9ee8317b5/mlx_lm-0.31.1-py3-none-any.whl",
+    "wheel_sha256": "bfc3e08e919b87bebb6fe2dbea980ece8ae8ee7132b31421aa0923c4286ecfa0",
+    "uploaded": "2026-03-11T02:02:54.973183Z",
+    "module_sha256": "6fc92712ecd0397a822c46a3606108b62cbd9b158c67aa5fd1f1556926dfa74e",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "d567f244feee04263c2ed1935202d80c073d2d3fd67d3841bf4db5dd275704b1",
+    "first_line": 1323,
+    "last_line": 1429
+  },
+  {
+    "version": "0.31.2",
+    "url": "https://files.pythonhosted.org/packages/d5/67/63b032a4f11d1a634f26cedf4c5e0e33ea027bf189b1a10e1cac2653db92/mlx_lm-0.31.2-py3-none-any.whl",
+    "wheel_sha256": "a90a7905031b2580b4923f92e0fb156ca287f452bb1a9e41a60dcbc971532d46",
+    "uploaded": "2026-04-07T21:36:49.859683Z",
+    "module_sha256": "b21c6c29cd9d4695105c511be9cccbb023a58861154c9c1a67314d6164e82b45",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "ff1b7066707c9ff2ae3425d143c2a8f229bf776e5ad5df1acd84307ecb3d55bf",
+    "first_line": 1246,
+    "last_line": 1353
+  },
+  {
+    "version": "0.31.3",
+    "url": "https://files.pythonhosted.org/packages/90/02/9a67b8e4f87e3e2e5cd7b1ad79304b93c09a0db6af34bee75e6551c06c60/mlx_lm-0.31.3-py3-none-any.whl",
+    "wheel_sha256": "758cfddf1180053b7613db76fad3d246a331a2a905808e1164a275621fc983b8",
+    "uploaded": "2026-04-22T07:37:25.965952Z",
+    "module_sha256": "cdfcb4ac848636f9927851a0ec7a951584526530cb7832ba58049e4a9144db8b",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "ff1b7066707c9ff2ae3425d143c2a8f229bf776e5ad5df1acd84307ecb3d55bf",
+    "first_line": 1259,
+    "last_line": 1366
+  },
+  {
+    "version": "0.32.0",
+    "url": "https://files.pythonhosted.org/packages/88/ed/99cd7d36a1671851b41df06b59b73825bb95b8ab8b388ac871ddf9ae1523/mlx_lm-0.32.0-py3-none-any.whl",
+    "wheel_sha256": "9a0f3843135fd88d36ad791f0d82210cdc4130c5c1cb5416f5f0c4b56a135778",
+    "uploaded": "2026-10-01T04:44:40.740240Z",
+    "module_sha256": "57392576de114af80ede723976b9dd156dc234f856b9943b8b44b8b78bc27f79",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "81c7a8831076b3003ee668904cfe86074d40eb4a84b9e921bac31135f5edeed1",
+    "first_line": 1257,
+    "last_line": 1367
+  },
+  {
+    "version": "0.32.1",
+    "url": "https://files.pythonhosted.org/packages/ac/68/6333ecba60e36829f4e55ed1abd7eff39f491fc93e68b02985507e94b7e9/mlx_lm-0.32.1-py3-none-any.whl",
+    "wheel_sha256": "0b2dddbe3d4b9678aad3c18fec6ba20d25084497fe0aa67f3fee6abd156ee059",
+    "uploaded": "2026-10-15T21:22:28.573592Z",
+    "module_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "81c7a8831076b3003ee668904cfe86074d40eb4a84b9e921bac31135f5edeed1",
+    "first_line": 1409,
+    "last_line": 1519
+  },
+  {
+    "version": "0.32.2",
+    "url": "https://files.pythonhosted.org/packages/d1/4f/000eefdeb41388782b47e7f39904cf2d9e7e49a60df5e172097c358dba8e/mlx_lm-0.32.2-py3-none-any.whl",
+    "wheel_sha256": "5c0991248cfff5872503d74f466d2532dd8cb7fb3670cb9be7a06d7305dadc04",
+    "uploaded": "2026-10-16T02:49:33.320649Z",
+    "module_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+    "license_sha256": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "method_sha256": "81c7a8831076b3003ee668904cfe86074d40eb4a84b9e921bac31135f5edeed1",
+    "first_line": 1409,
+    "last_line": 1519
+  }
+]

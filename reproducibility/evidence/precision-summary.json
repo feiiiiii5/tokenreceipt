@@ -1,0 +1,40 @@
+{
+  "prompts": 12,
+  "rows": 108,
+  "native_dtype": [
+    "mlx.core.bfloat16"
+  ],
+  "score_mass": {
+    "archive": {
+      "sum_above_1": 48,
+      "sum_above_1_plus_1e-6": 48,
+      "max_mass": 1.1195404879639588
+    },
+    "native": {
+      "sum_above_1": 46,
+      "sum_above_1_plus_1e-6": 46,
+      "max_mass": 1.0661443762320029
+    },
+    "fp32": {
+      "sum_above_1": 0,
+      "sum_above_1_plus_1e-6": 0,
+      "max_mass": 0.9999935789039724
+    },
+    "cast_fp32_norm": {
+      "sum_above_1": 46,
+      "sum_above_1_plus_1e-6": 46,
+      "max_mass": 1.0661443762320029
+    }
+  },
+  "versions": {
+    "mlx": "0.32.2",
+    "mlx_lm": "0.32.2",
+    "transformers": "5.14.1"
+  },
+  "eos_ids": [
+    2
+  ],
+  "stock_candidate_map_matches_archive": 58,
+  "stock_sample_score_matches_archive": 94,
+  "native_normalizer_equals_rounded_fp32": 108
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "label": "absent",
+    "source_position": 4,
+    "native_id": 24313,
+    "native_logprob": -4.4375,
+    "text": " monumental",
+    "alternatives": [
+      {
+        "id": 6277,
+        "token": "\u0120architecture",
+        "logprob": -2.25
+      },
+      {
+        "id": 11301,
+        "token": "\u0120architectural",
+        "logprob": -2.25
+      },
+      {
+        "id": 260,
+        "token": "\u0120the",
+        "logprob": -2.375
+      },
+      {
+        "id": 1205,
+        "token": "\u0120human",
+        "logprob": -2.75
+      },
+      {
+        "id": 25854,
+        "token": "\u0120towering",
+        "logprob": -3.375
+      }
+    ]
+  },
+  {
+    "label": "first",
+    "source_position": 0,
+    "native_id": 788,
+    "native_logprob": -1.25,
+    "text": "In",
+    "alternatives": [
+      {
+        "id": 788,
+        "token": "In",
+        "logprob": -1.25
+      },
+      {
+        "id": 504,
+        "token": "The",
+        "logprob": -1.625
+      },
+      {
+        "id": 2122,
+        "token": "There",
+        "logprob": -3.625
+      },
+      {
+        "id": 33,
+        "token": "1",
+        "logprob": -3.75
+      },
+      {
+        "id": 57,
+        "token": "I",
+        "logprob": -3.875
+      }
+    ]
+  }
+]

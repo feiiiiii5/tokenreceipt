@@ -1,0 +1,22 @@
+{
+  "results": {
+    "counts": {
+      "questions": 80,
+      "outer_wrong": 26,
+      "heuristic_issued": 24,
+      "heuristic_wrong": 0,
+      "heuristic_fixed": 6,
+      "oracle_issued": 24,
+      "oracle_wrong": 0,
+      "oracle_fixed": 6,
+      "bounds_issued": 1,
+      "bounds_wrong": 0,
+      "bounds_fixed": 1
+    },
+    "position_checks": {
+      "responses": 320,
+      "uninformative": 2,
+      "exact_score_wire": 3
+    }
+  }
+}

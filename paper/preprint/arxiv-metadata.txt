@@ -1,0 +1,20 @@
+Title
+When a Language Model Server Reports a Different Token
+
+Authors
+Yufeiyang Chen
+
+Abstract
+Applications use the probability attached to a generated token to score answers and update policies. Does the reported probability belong to the token the model sampled? We test the formatter on the same sampling event with the list of alternatives enabled and suppressed. On two live MLX-LM releases, asking for alternatives caused the first alternative to replace the sampled token in the metadata. A release census locates the regression across eight consecutive versions. On 64 public prompts, 528 of 1,488 positions named the wrong token. Five alternatives omitted the sampled token at 204 positions. We show why even a client given the true IDs cannot always recover which answer had the highest score. On 80 fresh four-answer groups, a seeded replay issued 76 rankings, all matching the original sampled-score rankings. Four repeated requests passed the matching checks despite returning different score sequences. On 2,108 held-out science questions, ranking the same answers by the sampled scores and by the reported scores selected different texts on 846 questions. Correctness changed in both directions. A controlled online sentiment learner lost 1.90 percentage points of expected correctness across 128 training seeds. A second workload confirmed changes to actual decoder updates but did not establish a performance loss. The artifact includes a source patch, a regression test without model weights, and paired observations that distinguish score substitution from other token-reporting failures.
+
+Suggested primary category
+cs.SE
+
+Suggested cross-list
+cs.CL
+
+Comments
+20 pages, 2 figures. Selected replication materials at https://github.com/feiiiiii5/tokenreceipt
+
+Journal reference and DOI
+Leave blank.

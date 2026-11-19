@@ -1,0 +1,2835 @@
+{
+  "strata": {
+    "eng_Latn": {
+      "attempted": 12,
+      "http_responses_200": 24,
+      "target_script_responses": 12,
+      "omitted_streaming_eos": 2,
+      "aligned_pairs": 12,
+      "aligned_positions": 184,
+      "loss_affected_pairs": 0,
+      "loss_positions": 0,
+      "characters_affected": 0,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_truncated_tail": 0,
+      "stream_truncated_tail": 0,
+      "stream_exact": 12,
+      "nonstream_exact": 12
+    },
+    "vie_Latn": {
+      "attempted": 12,
+      "http_responses_200": 24,
+      "target_script_responses": 12,
+      "omitted_streaming_eos": 0,
+      "aligned_pairs": 12,
+      "aligned_positions": 192,
+      "loss_affected_pairs": 12,
+      "loss_positions": 66,
+      "characters_affected": 37,
+      "byte_field_differences": 79,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_truncated_tail": 0,
+      "stream_truncated_tail": 4,
+      "stream_lossy_match": 4,
+      "nonstream_mismatch": 12,
+      "stream_exact": 8
+    },
+    "arb_Arab": {
+      "attempted": 12,
+      "http_responses_200": 24,
+      "target_script_responses": 12,
+      "omitted_streaming_eos": 0,
+      "aligned_pairs": 12,
+      "aligned_positions": 192,
+      "loss_affected_pairs": 12,
+      "loss_positions": 71,
+      "characters_affected": 40,
+      "byte_field_differences": 83,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_truncated_tail": 0,
+      "stream_truncated_tail": 3,
+      "stream_exact": 9,
+      "nonstream_mismatch": 12,
+      "stream_lossy_match": 3
+    },
+    "hin_Deva": {
+      "attempted": 12,
+      "http_responses_200": 24,
+      "target_script_responses": 12,
+      "omitted_streaming_eos": 0,
+      "aligned_pairs": 12,
+      "aligned_positions": 192,
+      "loss_affected_pairs": 12,
+      "loss_positions": 85,
+      "characters_affected": 51,
+      "byte_field_differences": 104,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_truncated_tail": 0,
+      "stream_truncated_tail": 2,
+      "stream_exact": 10,
+      "nonstream_mismatch": 12,
+      "stream_lossy_match": 2
+    },
+    "jpn_Jpan": {
+      "attempted": 12,
+      "http_responses_200": 24,
+      "target_script_responses": 12,
+      "omitted_streaming_eos": 0,
+      "aligned_pairs": 12,
+      "aligned_positions": 192,
+      "loss_affected_pairs": 12,
+      "loss_positions": 157,
+      "characters_affected": 76,
+      "byte_field_differences": 164,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_truncated_tail": 0,
+      "stream_truncated_tail": 5,
+      "stream_lossy_match": 5,
+      "nonstream_mismatch": 12,
+      "stream_exact": 7
+    },
+    "zho_Hans": {
+      "attempted": 12,
+      "http_responses_200": 24,
+      "target_script_responses": 12,
+      "omitted_streaming_eos": 0,
+      "aligned_pairs": 12,
+      "aligned_positions": 192,
+      "loss_affected_pairs": 12,
+      "loss_positions": 157,
+      "characters_affected": 69,
+      "byte_field_differences": 163,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_truncated_tail": 0,
+      "stream_truncated_tail": 5,
+      "stream_exact": 7,
+      "nonstream_mismatch": 12,
+      "stream_lossy_match": 5
+    },
+    "tha_Thai": {
+      "attempted": 12,
+      "http_responses_200": 24,
+      "target_script_responses": 12,
+      "omitted_streaming_eos": 0,
+      "aligned_pairs": 12,
+      "aligned_positions": 192,
+      "loss_affected_pairs": 12,
+      "loss_positions": 172,
+      "characters_affected": 86,
+      "byte_field_differences": 175,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_truncated_tail": 0,
+      "stream_truncated_tail": 3,
+      "stream_exact": 9,
+      "nonstream_mismatch": 12,
+      "stream_lossy_match": 3
+    }
+  },
+  "completed_characters_by_script": {
+    "non-ASCII Latin": 37,
+    "Arabic": 40,
+    "Devanagari": 51,
+    "Han": 92,
+    "Kana": 52,
+    "Other": 1,
+    "Thai": 86
+  },
+  "pairs": [
+    {
+      "language": "eng_Latn",
+      "index": 156,
+      "rank": 1,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 111,
+      "rank": 2,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 718,
+      "rank": 3,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 567,
+      "rank": 4,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 494,
+      "rank": 5,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "stop",
+        "stop"
+      ],
+      "metadata_rows": [
+        11,
+        10
+      ],
+      "generated_positions": [
+        11,
+        11
+      ],
+      "target_script": true,
+      "aligned_positions": 10,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 282,
+      "rank": 6,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 873,
+      "rank": 7,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 417,
+      "rank": 8,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "stop",
+        "stop"
+      ],
+      "metadata_rows": [
+        15,
+        14
+      ],
+      "generated_positions": [
+        15,
+        15
+      ],
+      "target_script": true,
+      "aligned_positions": 14,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 22,
+      "rank": 9,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 110,
+      "rank": 10,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 91,
+      "rank": 11,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "eng_Latn",
+      "index": 275,
+      "rank": 12,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 0,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "exact",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 0,
+      "characters_affected": 0
+    },
+    {
+      "language": "vie_Latn",
+      "index": 156,
+      "rank": 1,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 9,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 6,
+      "characters_affected": 4
+    },
+    {
+      "language": "vie_Latn",
+      "index": 111,
+      "rank": 2,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 6,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 3
+    },
+    {
+      "language": "vie_Latn",
+      "index": 718,
+      "rank": 3,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 4
+    },
+    {
+      "language": "vie_Latn",
+      "index": 567,
+      "rank": 4,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 8,
+      "characters_affected": 4
+    },
+    {
+      "language": "vie_Latn",
+      "index": 494,
+      "rank": 5,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 7,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 5,
+      "characters_affected": 3
+    },
+    {
+      "language": "vie_Latn",
+      "index": 282,
+      "rank": 6,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 7,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 6,
+      "characters_affected": 3
+    },
+    {
+      "language": "vie_Latn",
+      "index": 873,
+      "rank": 7,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 6,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 5,
+      "characters_affected": 3
+    },
+    {
+      "language": "vie_Latn",
+      "index": 417,
+      "rank": 8,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 4,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 4,
+      "characters_affected": 2
+    },
+    {
+      "language": "vie_Latn",
+      "index": 22,
+      "rank": 9,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 7,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 5,
+      "characters_affected": 3
+    },
+    {
+      "language": "vie_Latn",
+      "index": 110,
+      "rank": 10,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 7,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 3
+    },
+    {
+      "language": "vie_Latn",
+      "index": 91,
+      "rank": 11,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 2,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 2,
+      "characters_affected": 1
+    },
+    {
+      "language": "vie_Latn",
+      "index": 275,
+      "rank": 12,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 7,
+      "characters_affected": 4
+    },
+    {
+      "language": "arb_Arab",
+      "index": 156,
+      "rank": 1,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 6,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 4,
+      "characters_affected": 3
+    },
+    {
+      "language": "arb_Arab",
+      "index": 111,
+      "rank": 2,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 4,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 4,
+      "characters_affected": 2
+    },
+    {
+      "language": "arb_Arab",
+      "index": 718,
+      "rank": 3,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 4
+    },
+    {
+      "language": "arb_Arab",
+      "index": 567,
+      "rank": 4,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 7,
+      "characters_affected": 4
+    },
+    {
+      "language": "arb_Arab",
+      "index": 494,
+      "rank": 5,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 5,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 4,
+      "characters_affected": 2
+    },
+    {
+      "language": "arb_Arab",
+      "index": 282,
+      "rank": 6,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 7,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 4,
+      "characters_affected": 3
+    },
+    {
+      "language": "arb_Arab",
+      "index": 873,
+      "rank": 7,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 7,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 5,
+      "characters_affected": 3
+    },
+    {
+      "language": "arb_Arab",
+      "index": 417,
+      "rank": 8,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 8,
+      "characters_affected": 4
+    },
+    {
+      "language": "arb_Arab",
+      "index": 22,
+      "rank": 9,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 8,
+      "characters_affected": 4
+    },
+    {
+      "language": "arb_Arab",
+      "index": 110,
+      "rank": 10,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 7,
+      "characters_affected": 4
+    },
+    {
+      "language": "arb_Arab",
+      "index": 91,
+      "rank": 11,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 6,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 3
+    },
+    {
+      "language": "arb_Arab",
+      "index": 275,
+      "rank": 12,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 8,
+      "characters_affected": 4
+    },
+    {
+      "language": "hin_Deva",
+      "index": 156,
+      "rank": 1,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 4
+    },
+    {
+      "language": "hin_Deva",
+      "index": 111,
+      "rank": 2,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 6,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 5,
+      "characters_affected": 3
+    },
+    {
+      "language": "hin_Deva",
+      "index": 718,
+      "rank": 3,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 6,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 5,
+      "characters_affected": 3
+    },
+    {
+      "language": "hin_Deva",
+      "index": 567,
+      "rank": 4,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 10,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 8,
+      "characters_affected": 5
+    },
+    {
+      "language": "hin_Deva",
+      "index": 494,
+      "rank": 5,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 10,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 8,
+      "characters_affected": 5
+    },
+    {
+      "language": "hin_Deva",
+      "index": 282,
+      "rank": 6,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 4
+    },
+    {
+      "language": "hin_Deva",
+      "index": 873,
+      "rank": 7,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 10,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 10,
+      "characters_affected": 5
+    },
+    {
+      "language": "hin_Deva",
+      "index": 417,
+      "rank": 8,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 8,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 6,
+      "characters_affected": 4
+    },
+    {
+      "language": "hin_Deva",
+      "index": 22,
+      "rank": 9,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 11,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 9,
+      "characters_affected": 5
+    },
+    {
+      "language": "hin_Deva",
+      "index": 110,
+      "rank": 10,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 5,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 3,
+      "characters_affected": 2
+    },
+    {
+      "language": "hin_Deva",
+      "index": 91,
+      "rank": 11,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 12,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 10,
+      "characters_affected": 6
+    },
+    {
+      "language": "hin_Deva",
+      "index": 275,
+      "rank": 12,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 10,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 9,
+      "characters_affected": 5
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 156,
+      "rank": 1,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 13,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 12,
+      "characters_affected": 6
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 111,
+      "rank": 2,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 718,
+      "rank": 3,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 16,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 16,
+      "characters_affected": 8
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 567,
+      "rank": 4,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 12,
+      "characters_affected": 6
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 494,
+      "rank": 5,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 12,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 11,
+      "characters_affected": 5
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 282,
+      "rank": 6,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 13,
+      "characters_affected": 6
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 873,
+      "rank": 7,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 417,
+      "rank": 8,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 13,
+      "characters_affected": 5
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 22,
+      "rank": 9,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 15,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 110,
+      "rank": 10,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 12,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 12,
+      "characters_affected": 6
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 91,
+      "rank": 11,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "jpn_Jpan",
+      "index": 275,
+      "rank": 12,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 12,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 12,
+      "characters_affected": 6
+    },
+    {
+      "language": "zho_Hans",
+      "index": 156,
+      "rank": 1,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 13,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 13,
+      "characters_affected": 6
+    },
+    {
+      "language": "zho_Hans",
+      "index": 111,
+      "rank": 2,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 11,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 10,
+      "characters_affected": 4
+    },
+    {
+      "language": "zho_Hans",
+      "index": 718,
+      "rank": 3,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 12,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 12,
+      "characters_affected": 5
+    },
+    {
+      "language": "zho_Hans",
+      "index": 567,
+      "rank": 4,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 13,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 11,
+      "characters_affected": 5
+    },
+    {
+      "language": "zho_Hans",
+      "index": 494,
+      "rank": 5,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 15,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 14,
+      "characters_affected": 5
+    },
+    {
+      "language": "zho_Hans",
+      "index": 282,
+      "rank": 6,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 13,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 13,
+      "characters_affected": 5
+    },
+    {
+      "language": "zho_Hans",
+      "index": 873,
+      "rank": 7,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "zho_Hans",
+      "index": 417,
+      "rank": 8,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 15,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 14,
+      "characters_affected": 6
+    },
+    {
+      "language": "zho_Hans",
+      "index": 22,
+      "rank": 9,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 6
+    },
+    {
+      "language": "zho_Hans",
+      "index": 110,
+      "rank": 10,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 15,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "zho_Hans",
+      "index": 91,
+      "rank": 11,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 15,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 15,
+      "characters_affected": 7
+    },
+    {
+      "language": "zho_Hans",
+      "index": 275,
+      "rank": 12,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 13,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 13,
+      "characters_affected": 6
+    },
+    {
+      "language": "tha_Thai",
+      "index": 156,
+      "rank": 1,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "tha_Thai",
+      "index": 111,
+      "rank": 2,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "tha_Thai",
+      "index": 718,
+      "rank": 3,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 15,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "tha_Thai",
+      "index": 567,
+      "rank": 4,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 16,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 16,
+      "characters_affected": 8
+    },
+    {
+      "language": "tha_Thai",
+      "index": 494,
+      "rank": 5,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 15,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "tha_Thai",
+      "index": 282,
+      "rank": 6,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "tha_Thai",
+      "index": 873,
+      "rank": 7,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 16,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 16,
+      "characters_affected": 8
+    },
+    {
+      "language": "tha_Thai",
+      "index": 417,
+      "rank": 8,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 13,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "lossy_match",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": true,
+      "loss_positions": 12,
+      "characters_affected": 6
+    },
+    {
+      "language": "tha_Thai",
+      "index": 22,
+      "rank": 9,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 16,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 16,
+      "characters_affected": 8
+    },
+    {
+      "language": "tha_Thai",
+      "index": 110,
+      "rank": 10,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "tha_Thai",
+      "index": 91,
+      "rank": 11,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    },
+    {
+      "language": "tha_Thai",
+      "index": 275,
+      "rank": 12,
+      "http_status": [
+        200,
+        200
+      ],
+      "finish_reason": [
+        "length",
+        "length"
+      ],
+      "metadata_rows": [
+        16,
+        16
+      ],
+      "generated_positions": [
+        16,
+        16
+      ],
+      "target_script": true,
+      "aligned_positions": 16,
+      "byte_field_differences": 14,
+      "label_differences": 0,
+      "score_differences": 0,
+      "nonstream_reproduction": "mismatch",
+      "stream_reproduction": "exact",
+      "nonstream_truncated_tail": false,
+      "stream_truncated_tail": false,
+      "loss_positions": 14,
+      "characters_affected": 7
+    }
+  ]
+}

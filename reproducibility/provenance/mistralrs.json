@@ -1,0 +1,50 @@
+{
+  "engine": {
+    "release": "https://github.com/EricLBuehler/mistral.rs/releases/tag/v0.9.5",
+    "commit": "465191d0b0a7e2432d327b0de06204ab3f94d3a2",
+    "binary_archive": "https://github.com/EricLBuehler/mistral.rs/releases/download/v0.9.5/mistralrs-metal-aarch64-apple-darwin.tar.gz",
+    "publisher_archive_sha256": "dcfb2e6c43692e391e3bfa8a0f1e3140447a492d5af0ae00731476eb67641815",
+    "observed_archive_sha256": "dcfb2e6c43692e391e3bfa8a0f1e3140447a492d5af0ae00731476eb67641815",
+    "observed_executable_sha256": "63980ead69a65963cdd988e392d6bab8d63a3e6dce63ecf4ad18d45821eb6a61",
+    "observed_cli_version": "mistralrs 0.9.5",
+    "candle_core": {
+      "version": "0.11.0",
+      "revision": "66a8cf184a5a519671454066b1b9efd446ec9f5c"
+    },
+    "source_sha256": {
+      "Cargo.toml": "aaf3c3dba4dc0034ecea028d10f690f974d063462ae9baa262cbe7d4837ebe75",
+      "mistralrs-core/src/sampler.rs": "2efa379559f4de8466132dd2134181ec44552a433fa0f17a48546a3277de39ac",
+      "mistralrs-core/src/response.rs": "91d7327b12eb2f08b7c50d200e8f3a3302393066426e0496b821f2df33f0e138",
+      "mistralrs-core/src/pipeline/sampling.rs": "82c22dd97914c05a6e2e5e044d851de70497d49a3aa52a4829263dbc469cb66f",
+      "mistralrs-core/src/sequence.rs": "288f055d5fcdcff3b365de9987b5a428aa60cf5ce54ceeb77ed14370fedeaea2",
+      "mistralrs-server-core/src/chat_completion.rs": "3e2fbb243203b7792183acc9a00d4367515e32a61197eaa129258a7310f7a03c",
+      "mistralrs-server-core/src/openai.rs": "df769692f1f91d932b66384e8b4c4977a05d197d7b7f49a89efe0e12ced0fd7d"
+    }
+  },
+  "model": {
+    "id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "sha256": {
+      "config.json": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+      "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+      "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+      "model.safetensors": "5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c",
+      "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+      "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+      "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+    }
+  },
+  "host": {
+    "architecture": "arm64",
+    "os": "macOS 27.3 (26C5047e)",
+    "physical_memory_gib": 16,
+    "inference": "Candle CPU and model dtype f32 in the published macOS Metal-capable build",
+    "reference": {
+      "torch": "2.14.1",
+      "transformers": "5.12.1",
+      "tokenizers": "0.22.2",
+      "python": "3.12.8 (main, Jan 14 2025, 23:36:58) [Clang 19.1.6 ]"
+    }
+  }
+}

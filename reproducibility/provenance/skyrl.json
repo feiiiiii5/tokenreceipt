@@ -1,0 +1,34 @@
+{
+  "commit": "5fabb23982789adc04c56e9d45bbea117447d170",
+  "source_sha256": "129d2df8cb7a5056a083cff35df84f9bb07dd32a494a46ac5487c2ff7a2c383a",
+  "strata": {
+    "stock-k1": {
+      "positions": 144,
+      "missing_in_top_n": 44,
+      "skyrl_clamped": 44,
+      "recovered_from_top_n": 100,
+      "backend_complete_correct": 144
+    },
+    "stock-k5": {
+      "positions": 144,
+      "missing_in_top_n": 17,
+      "skyrl_clamped": 17,
+      "recovered_from_top_n": 127,
+      "backend_complete_correct": 144
+    },
+    "eager-k1": {
+      "positions": 144,
+      "missing_in_top_n": 36,
+      "skyrl_clamped": 36,
+      "recovered_from_top_n": 108,
+      "backend_complete_correct": 144
+    },
+    "eager-k5": {
+      "positions": 144,
+      "missing_in_top_n": 12,
+      "skyrl_clamped": 12,
+      "recovered_from_top_n": 132,
+      "backend_complete_correct": 144
+    }
+  }
+}

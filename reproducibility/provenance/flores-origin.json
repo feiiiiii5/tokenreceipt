@@ -1,0 +1,17 @@
+{
+  "dataset": "FLORES-200 devtest",
+  "publisher": "Meta AI",
+  "license": "CC BY-SA 4.0",
+  "mirror": "https://huggingface.co/datasets/DGME/FLORES-200",
+  "revision": "8a8758a392e429432f6e95fcac1445550a4d3ccd",
+  "all_rows_per_language": 1012,
+  "source_file_sha256": {
+    "eng_Latn": "612e9fbe87997617c0fa8fa8929654a4f49b728d96738112c2b86ef6a1d78d88",
+    "vie_Latn": "86b70984f053cae5f5d554bc9e9d00397773b8325bed7e12e7695c2e61897cb0",
+    "arb_Arab": "ff09a52e63884e9b5bb1083780b58f37d3d14acb0c58c6b1f1f2544ecea12ff8",
+    "hin_Deva": "5f5fd39acadca29fb044a0398e81869e48f37de979df086f2fad4a7d1fd2d015",
+    "jpn_Jpan": "36b8e392ae9404a20e8448c731d16d957ac1b94588d97fb691128ae706b63606",
+    "zho_Hans": "b30158b1b76f7cee08530d8127a9769f4512597c7eefe97ae1ccf630d5b6e7fd",
+    "tha_Thai": "d9bed1bf963821eab20051b18674950f345b67b0d0925290eaa6836eb06e76ca"
+  }
+}

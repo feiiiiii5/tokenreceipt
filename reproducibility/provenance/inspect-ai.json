@@ -1,0 +1,9 @@
+{
+  "repo": "https://github.com/UKGovernmentBEIS/inspect_ai.git",
+  "revision": "8379140fd6d2184b669b6f3cea58e18009bde507",
+  "sha256": {
+    "src/inspect_ai/model/_openai.py": "6d3f4501b2745063cde20a1b19f9018c28bf1d5fb2314e5edd0f5d54ac1d03a6",
+    "src/inspect_ai/agent/_bridge/google_api_impl.py": "7ded2e6e0411e0ba20bad27033d4289c7b42953cec95bcde5ddbe3986d7a37a6",
+    "LICENSE": "c593c2afc81388521eaeb03f0d1a4b01bc3e5147ed9cb16c1f129e5be353b6af"
+  }
+}

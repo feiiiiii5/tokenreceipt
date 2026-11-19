@@ -1,0 +1,518 @@
+[
+  {
+    "version": "0.30.0",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "parallel-arrays",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          24313,
+          -4.4375
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "parallel-arrays",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.30.2",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "parallel-arrays",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          24313,
+          -4.4375
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "parallel-arrays",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.30.4",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "parallel-arrays",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          24313,
+          -4.4375
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "parallel-arrays",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.30.5",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "parallel-arrays",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          24313,
+          -4.4375
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "parallel-arrays",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.30.6",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.30.7",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.31.1",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.31.2",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.31.3",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.32.0",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.32.1",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  },
+  {
+    "version": "0.32.2",
+    "cases": [
+      {
+        "label": "absent",
+        "schema": "per-position",
+        "native": [
+          24313,
+          -4.4375
+        ],
+        "omitted": [
+          24313,
+          -4.4375
+        ],
+        "five": [
+          6277,
+          -2.25
+        ],
+        "id_error": true,
+        "score_error": true,
+        "control_fields_ok": true
+      },
+      {
+        "label": "first",
+        "schema": "per-position",
+        "native": [
+          788,
+          -1.25
+        ],
+        "omitted": [
+          788,
+          -1.25
+        ],
+        "five": [
+          788,
+          -1.25
+        ],
+        "id_error": false,
+        "score_error": false,
+        "control_fields_ok": true
+      }
+    ]
+  }
+]

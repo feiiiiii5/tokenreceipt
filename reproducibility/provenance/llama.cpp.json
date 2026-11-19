@@ -1,0 +1,96 @@
+{
+  "engine": {
+    "stable_release": "v1.0.0",
+    "release_link": "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0",
+    "published_build": "b12359",
+    "observed_version": "1.0.0-dev (build 12359, commit b1b770d90)",
+    "commit": "b1b770d90d94cad9e9ea5b993bdbc383a522fb28",
+    "source_archive_url": "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/refs/tags/b12359",
+    "source_archive_sha256": "e2eadc0fd06f81abea3b8012584e67bea3b403d91bcd1b3072b656cbcb2fb4bb",
+    "macos_arm64_archive_url": "https://github.com/ggml-org/llama.cpp/releases/download/b12359/llama-b12359-bin-macos-arm64.tar.gz",
+    "macos_arm64_archive_sha256": "82b00abc740160e1b9980e6cc79c117345fa34af058c80e6c0a69aa8ddccde75",
+    "llama_server_executable_sha256": "685941b8df982e4e205fd20492f9aaa9418f2d1224ba3d311a686abd0edb0439",
+    "libllama_sha256": "dfc60f3c5001e4cd75fd09dca393c4f825dcce3856709ff0faed57344aab6215",
+    "converter_sha256": "297502d115010e97b996e20dc9cdcfc90ee293df9b616259e5a646b64f410630",
+    "compiled_witness_sha256": "f723eebb1ce7393647464b5c9509cca93e98dd73235318be2ac471ce35c9518b"
+  },
+  "model": {
+    "repository": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "revision_link": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/tree/12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "local_checkpoint_sha256": {
+      "config.json": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+      "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+      "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+      "model.safetensors": "5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c",
+      "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+      "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+      "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+    },
+    "verification": "The weights SHA-256 matched X-Linked-ETag from the pinned Hugging Face publisher file. All seven accompanying cached files were byte-compared to downloads at that revision.",
+    "f16_gguf_sha256": "8b92284c3eb00b21c00631df294c728924737d95be51e13581205267fed4d1b6"
+  },
+  "host": {
+    "os": "macOS 27.3 arm64",
+    "clang": "Apple clang version 21.0.0 (clang-2100.4.1.1)",
+    "cpython": "3.12.8",
+    "torch": "2.14.1",
+    "transformers": "5.12.1",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.22.2",
+    "numpy": "2.5.3",
+    "gguf": "0.19.0 (bundled converter source)",
+    "sentencepiece": "0.2.1 (temporary dependency directory)"
+  },
+  "saved_content_sha256": {
+    "PROTOCOL.md": "9a374ccaee6abc214465dd3f64362b7fd3c933aa2f3e4b626cf64fb2a603afd9",
+    "inputs.json": "7c6e7ba65fb838b0e807a381b7d60a9d11c00141b50aa6a7c9166a89ce9d3489",
+    "witness.cpp": "f640da01085478bf45d7080d834c2fd4ecb1215322f55c340397db1e312eaf74",
+    "collect.py": "21545027b0bfcedf6b30e4895802b757462cf27d1cb903290c6fbb288e56860e",
+    "run.py": "8ef0f3061b88da031d7d843282e2fa13a39d41d610373d2c75af23aebd14e129",
+    "convert.py": "bd5556a2dee32103ed8e0302bc082a2b79167b83c00720817b93b2fdaea160de",
+    "audit.py": "b2c231a6bf4f42d3215b34ca17555010381c2295582d09d861ba219ea82a058d",
+    "utf8_check.py": "5c48de31af1f04dedd1b3a4d83e16c71f08af17a8260b8c3ae3d336c5bcedc63",
+    "utf8.json": "92983582412f1a2466fcb403b44a7691b5f01777dadaf0316ce169c3ebc13d4d",
+    "inference-001/requests.jsonl": "234013e42ae7c2032cf945a9d73e6fd700df67aaa30eb02fa099c794dfdf4ac9",
+    "inference-001/witness.tsv": "bc219fd3953c84cf86f1164f2540521b37619fe7dd5c5c6ae33e9dd6aaa1893a",
+    "inference-001/summary.json": "890db3731585c06df9c422cbf8f04db2ef61651717c18770317519cfc1016c8a",
+    "inference-001/freeze.json": "efd230bd9bb7a8163aefb454fc308645e71c15647a78784f66a776d8ba334d72"
+  },
+  "watchdog_attempts": [
+    {
+      "attempt": "conversion-001",
+      "time_utc": "2026-11-18T12:57:08.442318+00:00",
+      "wall_time_s": 5.287,
+      "exit_code": 1,
+      "stop_reason": null,
+      "peak_sampled_family_rss_mib": 346.56,
+      "pressure_levels": [
+        1
+      ]
+    },
+    {
+      "attempt": "conversion-002",
+      "time_utc": "2026-11-18T12:57:56.401438+00:00",
+      "wall_time_s": 6.329,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_sampled_family_rss_mib": 579.41,
+      "pressure_levels": [
+        1
+      ]
+    },
+    {
+      "attempt": "inference-001",
+      "time_utc": "2026-11-18T12:58:44.848195+00:00",
+      "wall_time_s": 24.249,
+      "exit_code": 0,
+      "stop_reason": null,
+      "peak_sampled_family_rss_mib": 449.12,
+      "pressure_levels": [
+        1
+      ]
+    }
+  ]
+}

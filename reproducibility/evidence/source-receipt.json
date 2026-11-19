@@ -1,0 +1,26 @@
+{
+  "manifest_sha256": "3fd585f731ff7176b6578329d060f9e2a83b269c9b59ccdb8a3d98cc59e53682",
+  "manifest_entries": 2203,
+  "selected_source_sha256": {
+    "data/ifeval-expected.json": "d449ce6da140f3549ced20806c1bbc000bee003aeb99afe861a00908a160cda4",
+    "extra/upstream-patch/http/http.jsonl": "ea83b38ea2a7758e16b2db08440c55233ccb8346aa05a13199d0719d5085a016",
+    "extra/2026-11-18-wire-recovery/ambiguity.json": "fe7939edc8c47744564a3f618eeb8b6c6ebef1e8c765b56d1123d6d982f872bc",
+    "extra/2026-11-18-review/arc-recalculation.json": "190462ad97927f76fec6d6f68e84cc8c5c5896b05cd7024bd84f8c181a761b2a",
+    "generality/2026-11-18-arc-confirmation/panel.json": "4b3640873106528a231e5dd2f18e659eaa0bcb1d778b5ed9fa75c535e6027a2c",
+    "generality/multilingual-bytes/summary.json": "3b27837e73e8d8694c423c5ef127d6edf9a6081b9a8dc9a363540113dc61b81a",
+    "generality/online-learning/confirmation-sst2-t1.npz": "6467d4ae4fb7712fde1326740316174a0603ec423fbbcc6f13ba0d126df97907"
+  },
+  "arc_capture_sha256": {
+    "generality/2026-11-18-arc-confirmation/batch-0160/captures.jsonl.gz": "da414e3b724237a3267def196025e886a8f9ccebae2e5ee6a6f550c472a4704b",
+    "generality/2026-11-18-arc-confirmation/batch-0352/captures.jsonl.gz": "cf5106743ff7297d10b5eac9b5e748534ecb6e9f352a3013164cbc8296a01903",
+    "generality/2026-11-18-arc-confirmation/batch-0544/captures.jsonl.gz": "6b2a2696c0e7b58dc571af09cecc4c9063832e8f3a4f29189164a3e8f199a386",
+    "generality/2026-11-18-arc-confirmation/batch-0736/captures.jsonl.gz": "7dcdf4889fb71842cb646d7161df380cd5073f06f106b5abff696ae1e39cda25",
+    "generality/2026-11-18-arc-confirmation/batch-0928/captures.jsonl.gz": "f3422f6774042da96ce5537ad627ee116577717d185e061179a8841f19621fe1",
+    "generality/2026-11-18-arc-confirmation/batch-1120/captures.jsonl.gz": "f4e71825d6b4b7c5313d631a775c6e0d733da0199707d0731a0f7271bb9cb9cf",
+    "generality/2026-11-18-arc-confirmation/batch-1312/captures.jsonl.gz": "21157ab5967e0705e034a5bf0d669f10d5b9347d2b4ef491ef9e121f6b6bb245",
+    "generality/2026-11-18-arc-confirmation/batch-1504/captures.jsonl.gz": "edbe674ddcc494875b3ab4ed9073ec463d9828efd9b7a1434343eb08aec93c3d",
+    "generality/2026-11-18-arc-confirmation/batch-1696/captures.jsonl.gz": "f7ee7340013031a9ae456fdb7faf1d5601d5594051110d331a08ef4996c506e7",
+    "generality/2026-11-18-arc-confirmation/batch-1888/captures.jsonl.gz": "2998a3c07aa175610a595d679ba83abbd10d0e4b6446ac2893528c74dbf98796",
+    "generality/2026-11-18-arc-confirmation/batch-2080/captures.jsonl.gz": "f6431fb05d9264b0748ab03a08b80cd879f947ced8c97d31931c8f8b92e78bc4"
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "confirmation": {
+    "n_questions": 2108,
+    "n_distinct_normalized_question_stems": 2104,
+    "largest_stem_multiplicity": 2,
+    "ranking": {
+      "draw": 846,
+      "text": 846,
+      "letter": 673,
+      "native_tied": 682,
+      "outer_tied": 573,
+      "both_unique": 1306,
+      "both_unique_different_draw": 511,
+      "both_unique_different_text": 511,
+      "both_unique_different_letter": 403,
+      "disjoint_best_draw_sets": 784,
+      "disjoint_best_text_sets": 784,
+      "disjoint_best_letter_sets": 627
+    },
+    "selection_rules": {
+      "native": {
+        "correct": 470,
+        "parsed": 2025,
+        "different_text_from_native": 0,
+        "different_letter_from_native": 0,
+        "native_only_correct": 0,
+        "rule_only_correct": 0,
+        "vs_native_exact_two_sided_p": 1.0
+      },
+      "outer": {
+        "correct": 446,
+        "parsed": 1959,
+        "different_text_from_native": 846,
+        "different_letter_from_native": 673,
+        "native_only_correct": 163,
+        "rule_only_correct": 139,
+        "vs_native_exact_two_sided_p": 0.18557781760236697
+      },
+      "first": {
+        "correct": 435,
+        "parsed": 1826,
+        "different_text_from_native": 1370,
+        "different_letter_from_native": 1045,
+        "native_only_correct": 244,
+        "rule_only_correct": 209,
+        "vs_native_exact_two_sided_p": 0.11006176225559693
+      },
+      "first_valid": {
+        "correct": 501,
+        "parsed": 2100,
+        "different_text_from_native": 1264,
+        "different_letter_from_native": 935,
+        "native_only_correct": 210,
+        "rule_only_correct": 241,
+        "vs_native_exact_two_sided_p": 0.15768382899568242
+      },
+      "majority": {
+        "correct": 495,
+        "parsed": 2100,
+        "different_text_from_native": 1201,
+        "different_letter_from_native": 793,
+        "native_only_correct": 190,
+        "rule_only_correct": 215,
+        "vs_native_exact_two_sided_p": 0.23299763324727346
+      },
+      "first_letter_candidates": {
+        "correct": 508,
+        "parsed": 2100,
+        "different_text_from_native": 1081,
+        "different_letter_from_native": 708,
+        "native_only_correct": 147,
+        "rule_only_correct": 185,
+        "vs_native_exact_two_sided_p": 0.042129713088694565
+      }
+    },
+    "coverage": {
+      "rows": 69997,
+      "exp_candidate_mass_above_one": 34674,
+      "first_letter_candidates_with_score": 2099,
+      "four_identical_texts": 22
+    },
+    "maximal_exponentiated_candidate_sum_excess": 0.1299122459765405,
+    "shared_tie_priority_permutation_ranges": {
+      "draw": [
+        834,
+        866
+      ],
+      "text": [
+        834,
+        866
+      ],
+      "letter": [
+        669,
+        689
+      ],
+      "native_correct": [
+        464,
+        475
+      ],
+      "outer_correct": [
+        442,
+        456
+      ],
+      "accuracy_gap": [
+        11,
+        25
+      ],
+      "native_only_correct": [
+        155,
+        167
+      ],
+      "outer_only_correct": [
+        139,
+        145
+      ],
+      "p": [
+        0.16926513869103504,
+        0.5631244612737019
+      ]
+    }
+  },
+  "transfer": {
+    "n_questions": 160,
+    "n_distinct_normalized_question_stems": 159,
+    "largest_stem_multiplicity": 2,
+    "ranking": {
+      "draw": 49,
+      "text": 49,
+      "letter": 5,
+      "native_tied": 132,
+      "outer_tied": 108,
+      "both_unique": 25,
+      "both_unique_different_draw": 11,
+      "both_unique_different_text": 11,
+      "both_unique_different_letter": 1,
+      "disjoint_best_draw_sets": 48,
+      "disjoint_best_text_sets": 48,
+      "disjoint_best_letter_sets": 4
+    },
+    "selection_rules": {
+      "native": {
+        "correct": 136,
+        "parsed": 159,
+        "different_text_from_native": 0,
+        "different_letter_from_native": 0,
+        "native_only_correct": 0,
+        "rule_only_correct": 0,
+        "vs_native_exact_two_sided_p": 1.0
+      },
+      "outer": {
+        "correct": 137,
+        "parsed": 159,
+        "different_text_from_native": 49,
+        "different_letter_from_native": 5,
+        "native_only_correct": 1,
+        "rule_only_correct": 2,
+        "vs_native_exact_two_sided_p": 1.0
+      },
+      "first": {
+        "correct": 136,
+        "parsed": 160,
+        "different_text_from_native": 53,
+        "different_letter_from_native": 5,
+        "native_only_correct": 1,
+        "rule_only_correct": 1,
+        "vs_native_exact_two_sided_p": 1.0
+      },
+      "first_valid": {
+        "correct": 136,
+        "parsed": 160,
+        "different_text_from_native": 53,
+        "different_letter_from_native": 5,
+        "native_only_correct": 1,
+        "rule_only_correct": 1,
+        "vs_native_exact_two_sided_p": 1.0
+      },
+      "majority": {
+        "correct": 136,
+        "parsed": 160,
+        "different_text_from_native": 50,
+        "different_letter_from_native": 1,
+        "native_only_correct": 0,
+        "rule_only_correct": 0,
+        "vs_native_exact_two_sided_p": 1.0
+      },
+      "first_letter_candidates": {
+        "correct": 136,
+        "parsed": 160,
+        "different_text_from_native": 50,
+        "different_letter_from_native": 3,
+        "native_only_correct": 1,
+        "rule_only_correct": 1,
+        "vs_native_exact_two_sided_p": 1.0
+      }
+    },
+    "coverage": {
+      "rows": 1927,
+      "exp_candidate_mass_above_one": 1181,
+      "first_letter_candidates_with_score": 160,
+      "four_identical_texts": 49
+    },
+    "maximal_exponentiated_candidate_sum_excess": 0.01481804478597093,
+    "shared_tie_priority_permutation_ranges": {
+      "draw": [
+        48,
+        50
+      ],
+      "text": [
+        48,
+        50
+      ],
+      "letter": [
+        4,
+        6
+      ],
+      "native_correct": [
+        136,
+        136
+      ],
+      "outer_correct": [
+        136,
+        137
+      ],
+      "accuracy_gap": [
+        -1,
+        0
+      ],
+      "native_only_correct": [
+        1,
+        2
+      ],
+      "outer_only_correct": [
+        2,
+        2
+      ],
+      "p": [
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

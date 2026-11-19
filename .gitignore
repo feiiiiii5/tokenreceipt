@@ -1,0 +1,14 @@
+# Full review data, release preparation and account details are local.
+/private/
+/experiments/
+/paper/review/
+/AGENTS.md
+/WORKSPACE.md
+.DS_Store
+__pycache__/
+*.pyc
+/paper/preprint/source/*.aux
+/paper/preprint/source/*.blg
+/paper/preprint/source/*.log
+/paper/preprint/source/*.out
+/paper/preprint/source/main.pdf

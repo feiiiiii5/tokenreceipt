@@ -1,0 +1,84 @@
+[
+  {
+    "name": "sample-outside-candidates",
+    "ifeval_key": 3048,
+    "position_zero_based": 4,
+    "sampled": {
+      "id": 24313,
+      "logprob": -4.4375,
+      "text": " monumental"
+    },
+    "candidates": [
+      {
+        "id": 6277,
+        "token": "Ġarchitecture",
+        "logprob": -2.25
+      },
+      {
+        "id": 11301,
+        "token": "Ġarchitectural",
+        "logprob": -2.25
+      },
+      {
+        "id": 260,
+        "token": "Ġthe",
+        "logprob": -2.375
+      },
+      {
+        "id": 1205,
+        "token": "Ġhuman",
+        "logprob": -2.75
+      },
+      {
+        "id": 25854,
+        "token": "Ġtowering",
+        "logprob": -3.375
+      }
+    ],
+    "observed_k5": {
+      "id": 6277,
+      "logprob": -2.25
+    }
+  },
+  {
+    "name": "first-candidate-is-sample",
+    "ifeval_key": 3048,
+    "position_zero_based": 0,
+    "sampled": {
+      "id": 788,
+      "logprob": -1.25,
+      "text": "In"
+    },
+    "candidates": [
+      {
+        "id": 788,
+        "token": "In",
+        "logprob": -1.25
+      },
+      {
+        "id": 504,
+        "token": "The",
+        "logprob": -1.625
+      },
+      {
+        "id": 2122,
+        "token": "There",
+        "logprob": -3.625
+      },
+      {
+        "id": 33,
+        "token": "1",
+        "logprob": -3.75
+      },
+      {
+        "id": 57,
+        "token": "I",
+        "logprob": -3.875
+      }
+    ],
+    "observed_k5": {
+      "id": 788,
+      "logprob": -1.25
+    }
+  }
+]

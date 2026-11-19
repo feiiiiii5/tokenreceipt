@@ -1,0 +1,237 @@
+\begin{thebibliography}{35}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{INDRA Belief Model contributors}(2026)]{indra}
+{INDRA Belief Model contributors}.
+\newblock Local {MLX} configuration, in-call verdict scoring, and archived
+  probe battery, 2026.
+\newblock URL
+  \url{https://github.com/gyorilab/indra-belief-model/tree/74e0ffe9ea21f6f11e906cee89a2091f45be2f7d}.
+
+\bibitem[{OpenAI}(2026{\natexlab{a}})]{openai}
+{OpenAI}.
+\newblock Advanced usage: token log probabilities, 2026{\natexlab{a}}.
+\newblock URL
+  \url{https://developers.openai.com/api/docs/guides/advanced-usage}.
+
+\bibitem[{vLLM contributors}(2026)]{vllm}
+{vLLM contributors}.
+\newblock Sampling parameters and generated-token log probabilities, 2026.
+\newblock URL \url{https://docs.vllm.ai/en/v0.34.0/api/vllm/sampling_params/}.
+
+\bibitem[{OpenAI}(2026{\natexlab{b}})]{chatschema}
+{OpenAI}.
+\newblock {Chat Completions API} reference, output token log probabilities and
+  bytes, 2026{\natexlab{b}}.
+\newblock URL
+  \url{https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create}.
+
+\bibitem[{MLX-LM contributors}(2026{\natexlab{a}})]{mlxseed}
+{MLX-LM contributors}.
+\newblock Issue 1675 on random state in server sampling, 2026{\natexlab{a}}.
+\newblock URL \url{https://github.com/ml-explore/mlx-lm/issues/1675}.
+
+\bibitem[{MLX-LM contributors}(2026{\natexlab{b}})]{mlx}
+{MLX-LM contributors}.
+\newblock {MLX-LM} server, release 0.32.2, 2026{\natexlab{b}}.
+\newblock URL \url{https://pypi.org/project/mlx-lm/0.32.2/}.
+
+\bibitem[Ben~Allal et~al.(2025)Ben~Allal, Lozhkov, Bakouch, et~al.]{smol}
+Loubna Ben~Allal, Anton Lozhkov, Elie Bakouch, et~al.
+\newblock {SmolLM2}: When smol goes big --- data-centric training of a small
+  language model, 2025.
+\newblock URL \url{https://arxiv.org/abs/2502.02737}.
+
+\bibitem[Zhou et~al.(2023)Zhou, Lu, Mishra, Brahma, Basu, Luan, Zhou, and
+  Hou]{ifeval}
+Jeffrey Zhou, Tianjian Lu, Swaroop Mishra, Siddhartha Brahma, Sujoy Basu,
+  Yi~Luan, Denny Zhou, and Le~Hou.
+\newblock {Instruction-Following Evaluation for Large Language Models}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2311.07911}.
+
+\bibitem[{MLX Community}(2024)]{qwen}
+{MLX Community}.
+\newblock {Qwen2.5-0.5B-Instruct}, 4-bit checkpoint, 2024.
+\newblock URL
+  \url{https://huggingface.co/mlx-community/Qwen2.5-0.5B-Instruct-4bit/tree/a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3}.
+
+\bibitem[{MLX-LM contributors}(2026{\natexlab{c}})]{change}
+{MLX-LM contributors}.
+\newblock Change 829: support for chat parameters and a revised probability
+  response format, 2026{\natexlab{c}}.
+\newblock URL \url{https://github.com/ml-explore/mlx-lm/pull/829}.
+
+\bibitem[{llama.cpp contributors}(2026)]{llama}
+{llama.cpp contributors}.
+\newblock Native server and completion probabilities, 2026.
+\newblock URL
+  \url{https://github.com/ggml-org/llama.cpp/tree/b1b770d90d94cad9e9ea5b993bdbc383a522fb28/tools/server}.
+
+\bibitem[Kim(2026)]{murphy}
+Thomas Kim.
+\newblock Fixing silent token-id and logprob loss in llama.cpp server, measured
+  with {MURPHY}, 2026.
+\newblock URL \url{https://huggingface.co/blog/bytkim/llama-cpp-logprob-loss}.
+
+\bibitem[{mistral.rs contributors}(2026)]{mistralrs}
+{mistral.rs contributors}.
+\newblock mistral.rs v0.9.5, 2026.
+\newblock URL
+  \url{https://github.com/EricLBuehler/mistral.rs/releases/tag/v0.9.5}.
+
+\bibitem[{NLLB Team}(2022)]{flores}
+{NLLB Team}.
+\newblock No language left behind: Scaling human-centered machine translation,
+  2022.
+\newblock URL \url{https://arxiv.org/abs/2207.04672}.
+
+\bibitem[{SGLang contributors}(2026)]{sglangrel}
+{SGLang contributors}.
+\newblock {SGLang} v0.5.23, 2026.
+\newblock URL \url{https://github.com/sgl-project/sglang/releases/tag/v0.5.23}.
+
+\bibitem[{SkyRL contributors}(2026)]{skyrl}
+{SkyRL contributors}.
+\newblock Generation wire format and sampled-token probability lookup, 2026.
+\newblock URL
+  \url{https://github.com/NovaSky-AI/SkyRL/tree/5fabb23982789adc04c56e9d45bbea117447d170}.
+
+\bibitem[{Inspect AI contributors}(2026)]{inspect}
+{Inspect AI contributors}.
+\newblock {Inspect AI}: model choice conversion and agent bridges, 2026.
+\newblock URL
+  \url{https://github.com/UKGovernmentBEIS/inspect_ai/tree/8379140fd6d2184b669b6f3cea58e18009bde507}.
+
+\bibitem[{DeepEval contributors}(2026)]{gevalpkg}
+{DeepEval contributors}.
+\newblock {DeepEval} 4.3.4, {G-Eval} metric and score weighting, 2026.
+\newblock URL \url{https://pypi.org/project/deepeval/4.3.4/}.
+
+\bibitem[{OpenAI}(2026{\natexlab{c}})]{bestofapi}
+{OpenAI}.
+\newblock {Completions API}: best of several generations, 2026{\natexlab{c}}.
+\newblock URL
+  \url{https://developers.openai.com/api/reference/resources/completions/methods/create}.
+
+\bibitem[Clark et~al.(2018)Clark, Cowhey, Etzioni, Khot, Sabharwal, Schoenick,
+  and Tafjord]{arc}
+Peter Clark, Isaac Cowhey, Oren Etzioni, Tushar Khot, Ashish Sabharwal, Carissa
+  Schoenick, and Oyvind Tafjord.
+\newblock {Think you have Solved Question Answering? Try ARC, the AI2 Reasoning
+  Challenge}.
+\newblock \emph{arXiv:1803.05457}, 2018.
+\newblock \doi{10.48550/arXiv.1803.05457}.
+
+\bibitem[{Qwen Team and MLX Community}(2024)]{qwenarc}
+{Qwen Team and MLX Community}.
+\newblock {Qwen2.5-1.5B-Instruct}, 4-bit {MLX} checkpoint, 2024.
+\newblock URL
+  \url{https://huggingface.co/mlx-community/Qwen2.5-1.5B-Instruct-4bit/tree/8b403126fc14f14cfc99bb4cfa72ecbc129ea677}.
+
+\bibitem[Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
+  Klimov]{ppo}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock Proximal policy optimization algorithms, 2017.
+\newblock URL \url{https://arxiv.org/abs/1707.06347}.
+
+\bibitem[Shao et~al.(2024)Shao, Wang, Zhu, Xu, Song, Bi, Zhang, et~al.]{grpo}
+Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei
+  Zhang, et~al.
+\newblock {DeepSeekMath}: Pushing the limits of mathematical reasoning in open
+  language models, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.03300}.
+
+\bibitem[Socher et~al.(2013)Socher, Perelygin, Wu, Chuang, Manning, Ng, and
+  Potts]{sst}
+Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher~D. Manning,
+  Andrew Ng, and Christopher Potts.
+\newblock Recursive deep models for semantic compositionality over a sentiment
+  treebank.
+\newblock In \emph{Proceedings of the 2013 Conference on Empirical Methods in
+  Natural Language Processing}, pages 1631--1642, 2013.
+\newblock URL \url{https://aclanthology.org/D13-1170/}.
+
+\bibitem[Barr et~al.(2015)Barr, Harman, McMinn, Shahbaz, and Yoo]{barr}
+Earl~T. Barr, Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
+\newblock The oracle problem in software testing: A survey.
+\newblock \emph{IEEE Transactions on Software Engineering}, 41\penalty0
+  (5):\penalty0 507--525, 2015.
+\newblock \doi{10.1109/TSE.2014.2372785}.
+
+\bibitem[Segura et~al.(2016)Segura, Fraser, S{\'a}nchez, and
+  Ruiz-Cort{\'e}s]{segura}
+Sergio Segura, Gordon Fraser, Ana~B. S{\'a}nchez, and Antonio Ruiz-Cort{\'e}s.
+\newblock A survey on metamorphic testing.
+\newblock \emph{IEEE Transactions on Software Engineering}, 42\penalty0
+  (9):\penalty0 805--824, 2016.
+\newblock \doi{10.1109/TSE.2016.2532875}.
+
+\bibitem[{vLLM issue tracker}(2026)]{vllmreport}
+{vLLM issue tracker}.
+\newblock Issue 65726 on collisions in string-keyed completion probabilities,
+  2026.
+\newblock URL \url{https://github.com/vllm-project/vllm/issues/65726}.
+
+\bibitem[{llama.cpp issue tracker}(2026)]{llamareport}
+{llama.cpp issue tracker}.
+\newblock Issue 27972 on token probabilities with speculative decoding, 2026.
+\newblock URL \url{https://github.com/ggml-org/llama.cpp/issues/27972}.
+
+\bibitem[Firestone et~al.(2025)Firestone, Ugare, Singh, and
+  Misailovic]{utf8plumbing}
+Preston Firestone, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic.
+\newblock {UTF-8} plumbing: Byte-level tokenizers unavoidably enable {LLMs} to
+  generate ill-formed {UTF-8}.
+\newblock In \emph{Conference on Language Modeling}, 2025.
+\newblock URL
+  \url{https://misailo.cs.illinois.edu/papers/utf8plumbing-colm25.pdf}.
+
+\bibitem[{Ollama issue contributors}(2025)]{ollamabytes}
+{Ollama issue contributors}.
+\newblock Logprobs use the replacement character for partial {UTF-8} tokens,
+  issue 13497, 2025.
+\newblock URL \url{https://github.com/ollama/ollama/issues/13497}.
+
+\bibitem[Karvonen et~al.(2025)Karvonen, Reuter, Rinberg, Marks, Garriga-Alonso,
+  and Warr]{difr}
+Adam Karvonen, Daniel Reuter, Roy Rinberg, Luke Marks, Adri{\'a}
+  Garriga-Alonso, and Keri Warr.
+\newblock {DiFR}: Inference verification despite nondeterminism, 2025.
+\newblock URL \url{https://arxiv.org/abs/2511.20621}.
+
+\bibitem[{oMLX contributors}(2026)]{omlx}
+{oMLX contributors}.
+\newblock Return log probabilities on chat completions, pull request 4859,
+  2026.
+\newblock URL \url{https://github.com/jundot/omlx/pull/4859}.
+
+\bibitem[Wang et~al.(2024)Wang, Ma, Hu, Weber-Genzel, R{\"o}ttger, Kreuter,
+  Hovy, and Plank]{firsttoken}
+Xinpeng Wang, Bolei Ma, Chengzhi Hu, Leon Weber-Genzel, Paul R{\"o}ttger,
+  Frauke Kreuter, Dirk Hovy, and Barbara Plank.
+\newblock {``My Answer is C''}: First-token probabilities do not match text
+  answers in instruction-tuned language models.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  {ACL} 2024}, pages 7407--7416, 2024.
+\newblock \doi{10.18653/v1/2024.findings-acl.441}.
+
+\bibitem[Chauvin et~al.(2025)Chauvin, Le~Merrer, Ta{\"i}ani, and
+  Tredan]{monitor}
+Timoth{\'e}e Chauvin, Erwan Le~Merrer, Fran{\c c}ois Ta{\"i}ani, and Gilles
+  Tredan.
+\newblock Log probability tracking of {LLM APIs}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2512.03816}.
+
+\bibitem[Chen(2026)]{rewardfail}
+Yufeiyang Chen.
+\newblock When the verifier cannot decide: Tracing {Math-Verify} failures
+  through an {RLVR} reward pipeline.
+\newblock Public technical manuscript, 2026.
+\newblock URL
+  \url{https://github.com/feiiiiii5/rewardfail/blob/da00bd6/paper/rewardfail-preprint-2026-11-03.pdf}.
+
+\end{thebibliography}

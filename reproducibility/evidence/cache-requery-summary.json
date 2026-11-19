@@ -1,0 +1,60 @@
+{
+  "requests_with_cache_hits": {
+    "forward-default": 319,
+    "forward-zero": 0,
+    "reverse-default": 319,
+    "reverse-zero": 0
+  },
+  "contrasts": {
+    "forward-default/reverse-default": {
+      "requests": 320,
+      "ids_different": 10,
+      "scores_different": 14,
+      "display_different": 10,
+      "cached_count_different": 160,
+      "same_ids_different_scores": 4,
+      "groups": 80,
+      "winner_different": 2
+    },
+    "forward-zero/reverse-zero": {
+      "requests": 320,
+      "ids_different": 0,
+      "scores_different": 0,
+      "display_different": 0,
+      "cached_count_different": 0,
+      "same_ids_different_scores": 0,
+      "groups": 80,
+      "winner_different": 0
+    },
+    "original/forward-default": {
+      "requests": 320,
+      "ids_different": 0,
+      "scores_different": 0,
+      "display_different": 0,
+      "cached_count_different": 0,
+      "same_ids_different_scores": 0,
+      "groups": 80,
+      "winner_different": 0
+    },
+    "forward-default/forward-zero": {
+      "requests": 320,
+      "ids_different": 197,
+      "scores_different": 238,
+      "display_different": 197,
+      "cached_count_different": 319,
+      "same_ids_different_scores": 41,
+      "groups": 80,
+      "winner_different": 28
+    },
+    "reverse-default/reverse-zero": {
+      "requests": 320,
+      "ids_different": 199,
+      "scores_different": 242,
+      "display_different": 199,
+      "cached_count_different": 319,
+      "same_ids_different_scores": 43,
+      "groups": 80,
+      "winner_different": 29
+    }
+  }
+}

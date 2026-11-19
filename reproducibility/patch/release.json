@@ -1,0 +1,8 @@
+{
+  "version": "0.32.2",
+  "source": "https://pypi.org/project/mlx-lm/0.32.2/",
+  "wheel_sha256": "5c0991248cfff5872503d74f466d2532dd8cb7fb3670cb9be7a06d7305dadc04",
+  "server_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+  "patched_server_sha256": "27f5e0e2188584d42ace7f845ee6ed432ac7673fb11449cb436e22d45d018e1b",
+  "patch_sha256": "e4eef63c2840cd7132aa2e081ef648b95ceef56c7aa99637b4e0280a2fb35700"
+}

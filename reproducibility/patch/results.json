@@ -1,0 +1,106 @@
+{
+  "offline": {
+    "sample-in-list": "stock uses first alternative; patch uses sampled record",
+    "sample-outside-list": "stock uses first alternative; patch uses sampled record",
+    "same-score-different-id": "stock uses first alternative; patch uses sampled record",
+    "stop-only": "stock uses first alternative; patch uses sampled record",
+    "text-completion": "stock uses first alternative; patch uses sampled record",
+    "no-candidates": "identical entire response",
+    "no-metadata": "identical entire response",
+    "no-generated-positions": "identical entire response"
+  },
+  "http": {
+    "counts": {
+      "requests": 10,
+      "positions": 85,
+      "stock_wrong_ids": 23,
+      "patched_wrong_ids": 0,
+      "sampled_in_candidates": 74,
+      "sampled_outside_candidates": 11,
+      "first_score_tied_with_different_id": 0,
+      "empty_display": 1,
+      "stop": 1,
+      "length": 9,
+      "sequential": 8,
+      "batch": 2
+    },
+    "detail": [
+      {
+        "request": "p00-k5",
+        "route": "sequential",
+        "finish": "length",
+        "positions": 12,
+        "stock_wrong_ids": 3,
+        "patched_wrong_ids": 0
+      },
+      {
+        "request": "p01-k5",
+        "route": "sequential",
+        "finish": "length",
+        "positions": 12,
+        "stock_wrong_ids": 5,
+        "patched_wrong_ids": 0
+      },
+      {
+        "request": "p02-k5",
+        "route": "sequential",
+        "finish": "length",
+        "positions": 12,
+        "stock_wrong_ids": 3,
+        "patched_wrong_ids": 0
+      },
+      {
+        "request": "p03-k5",
+        "route": "sequential",
+        "finish": "length",
+        "positions": 12,
+        "stock_wrong_ids": 6,
+        "patched_wrong_ids": 0
+      },
+      {
+        "request": "stop-only",
+        "route": "sequential",
+        "finish": "stop",
+        "positions": 1,
+        "stock_wrong_ids": 1,
+        "patched_wrong_ids": 0
+      },
+      {
+        "request": "candidates-only",
+        "route": "sequential",
+        "finish": "length",
+        "positions": 12,
+        "stock_wrong_ids": 3,
+        "patched_wrong_ids": 0
+      },
+      {
+        "request": "no-candidates",
+        "route": "sequential",
+        "finish": "length",
+        "positions": 12
+      },
+      {
+        "request": "no-metadata",
+        "route": "sequential",
+        "finish": "length",
+        "positions": 12
+      },
+      {
+        "request": "unseeded-greedy",
+        "route": "batch",
+        "finish": "length",
+        "positions": 12,
+        "stock_wrong_ids": 0,
+        "patched_wrong_ids": 0
+      },
+      {
+        "request": "unseeded-sampling",
+        "route": "batch",
+        "finish": "length",
+        "positions": 12,
+        "stock_wrong_ids": 2,
+        "patched_wrong_ids": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "primary": {
+    "initial": 0.25076396801001094,
+    "selected": 0.2531628019686162,
+    "outer": 0.25514146909765406,
+    "outer_minus_selected": 0.0019786671290378498,
+    "interval_95_percent": [
+      0.0005925420808974916,
+      0.0034769326671319593
+    ],
+    "interval_half_width": 0.001442195293117234,
+    "reference_learning_active": false,
+    "decision": "inconclusive"
+  },
+  "secondary": {
+    "expected_per_review": {
+      "selected": 0.5050411318473136,
+      "outer": 0.5068285798195721,
+      "recomputed": 0.5050411318473136
+    },
+    "greedy_exact": {
+      "selected": 0.2513020833333333,
+      "outer": 0.2421875,
+      "recomputed": 0.2513020833333333
+    }
+  },
+  "teacher": {
+    "metrics": {
+      "expected_exact": [
+        0.25076396801001094,
+        0.25046653594699025,
+        0.2537154932008752,
+        0.2529941793841985,
+        0.25492773931058316
+      ],
+      "greedy_exact": [
+        0.23958333333333334,
+        0.23958333333333334,
+        0.25,
+        0.2604166666666667,
+        0.2604166666666667
+      ],
+      "expected_per_review": [
+        0.5030448923448807,
+        0.5025425664446596,
+        0.5053998686456675,
+        0.5049163787246821,
+        0.5063338934556941
+      ]
+    },
+    "capacity_control_pass": false
+  },
+  "wiring": {
+    "all_first_batch_and_later_collection_checks_pass": true,
+    "all_recomputed_identical": true,
+    "outer_counts": {
+      "sampled_tokens": 16384,
+      "outer_id_mismatches": 5786,
+      "old_score_overwrites": 5786,
+      "first_rollout_changed_nonzero_advantage": 129,
+      "low_clipped_negative_first_epoch": 2420,
+      "low_clipped_negative_first_epoch_round_zero": 66
+    },
+    "later_action_changes": 2756
+  }
+}
