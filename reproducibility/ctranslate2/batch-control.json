@@ -1,0 +1,359 @@
+[
+  {
+    "copies": 1,
+    "split": 0,
+    "seed": 1701,
+    "topk": 1,
+    "prompt": "The book on the table was",
+    "rows": [
+      {
+        "item": 0,
+        "step": 0,
+        "token_id": 253,
+        "piece": "\u0120a",
+        "log_prob": -1.7539081573486328,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 253,
+        "final_piece": "\u0120a",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.75394152697028,
+        "final_count": 2
+      },
+      {
+        "item": 0,
+        "step": 1,
+        "token_id": 1863,
+        "piece": "\u0120book",
+        "log_prob": -3.172534942626953,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 1863,
+        "final_piece": "\u0120book",
+        "final_vocab": 49152,
+        "final_chosen_logp": -3.172559269646552,
+        "final_count": 2
+      }
+    ]
+  },
+  {
+    "copies": 2,
+    "split": 0,
+    "seed": 1701,
+    "topk": 1,
+    "prompt": "The book on the table was",
+    "rows": [
+      {
+        "item": 0,
+        "step": 0,
+        "token_id": 253,
+        "piece": "\u0120a",
+        "log_prob": -1.7539176940917969,
+        "optional_present": true,
+        "shape": [
+          2,
+          49152
+        ],
+        "elements": 98304,
+        "final_id": 253,
+        "final_piece": "\u0120a",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.7539509259389554,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 0,
+        "token_id": 253,
+        "piece": "\u0120a",
+        "log_prob": -1.7539176940917969,
+        "optional_present": true,
+        "shape": [],
+        "elements": 0,
+        "final_id": 253,
+        "final_piece": "\u0120a",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.7539509259389554,
+        "final_count": 2
+      },
+      {
+        "item": 0,
+        "step": 1,
+        "token_id": 1863,
+        "piece": "\u0120book",
+        "log_prob": -3.1725234985351562,
+        "optional_present": true,
+        "shape": [
+          2,
+          49152
+        ],
+        "elements": 98304,
+        "final_id": 1863,
+        "final_piece": "\u0120book",
+        "final_vocab": 49152,
+        "final_chosen_logp": -3.172549421296484,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 1,
+        "token_id": 1863,
+        "piece": "\u0120book",
+        "log_prob": -3.1725234985351562,
+        "optional_present": true,
+        "shape": [],
+        "elements": 0,
+        "final_id": 1863,
+        "final_piece": "\u0120book",
+        "final_vocab": 49152,
+        "final_chosen_logp": -3.172549421296484,
+        "final_count": 2
+      }
+    ]
+  },
+  {
+    "copies": 2,
+    "split": 1,
+    "seed": 1701,
+    "topk": 1,
+    "prompt": "The book on the table was",
+    "rows": [
+      {
+        "item": 0,
+        "step": 0,
+        "token_id": 253,
+        "piece": "\u0120a",
+        "log_prob": -1.7539081573486328,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 253,
+        "final_piece": "\u0120a",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.75394152697028,
+        "final_count": 2
+      },
+      {
+        "item": 0,
+        "step": 1,
+        "token_id": 1863,
+        "piece": "\u0120book",
+        "log_prob": -3.172534942626953,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 1863,
+        "final_piece": "\u0120book",
+        "final_vocab": 49152,
+        "final_chosen_logp": -3.172559269646552,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 0,
+        "token_id": 253,
+        "piece": "\u0120a",
+        "log_prob": -1.7539081573486328,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 253,
+        "final_piece": "\u0120a",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.75394152697028,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 1,
+        "token_id": 1863,
+        "piece": "\u0120book",
+        "log_prob": -3.172534942626953,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 1863,
+        "final_piece": "\u0120book",
+        "final_vocab": 49152,
+        "final_chosen_logp": -3.172559269646552,
+        "final_count": 2
+      }
+    ]
+  },
+  {
+    "copies": 2,
+    "split": 0,
+    "seed": 2701,
+    "topk": 5,
+    "prompt": "In a quiet garden, the",
+    "rows": [
+      {
+        "item": 0,
+        "step": 0,
+        "token_id": 21630,
+        "piece": "\u0120scent",
+        "log_prob": -1.5690383911132812,
+        "optional_present": true,
+        "shape": [
+          2,
+          49152
+        ],
+        "elements": 98304,
+        "final_id": 21630,
+        "final_piece": "\u0120scent",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.569062185616744,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 0,
+        "token_id": 21630,
+        "piece": "\u0120scent",
+        "log_prob": -1.5690383911132812,
+        "optional_present": true,
+        "shape": [],
+        "elements": 0,
+        "final_id": 21630,
+        "final_piece": "\u0120scent",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.569062185616744,
+        "final_count": 2
+      },
+      {
+        "item": 0,
+        "step": 1,
+        "token_id": 282,
+        "piece": "\u0120of",
+        "log_prob": -0.013631820678710938,
+        "optional_present": true,
+        "shape": [
+          2,
+          49152
+        ],
+        "elements": 98304,
+        "final_id": 282,
+        "final_piece": "\u0120of",
+        "final_vocab": 49152,
+        "final_chosen_logp": -0.013638861565151927,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 1,
+        "token_id": 282,
+        "piece": "\u0120of",
+        "log_prob": -0.013631820678710938,
+        "optional_present": true,
+        "shape": [],
+        "elements": 0,
+        "final_id": 282,
+        "final_piece": "\u0120of",
+        "final_vocab": 49152,
+        "final_chosen_logp": -0.013638861565151927,
+        "final_count": 2
+      }
+    ]
+  },
+  {
+    "copies": 2,
+    "split": 1,
+    "seed": 2701,
+    "topk": 5,
+    "prompt": "In a quiet garden, the",
+    "rows": [
+      {
+        "item": 0,
+        "step": 0,
+        "token_id": 21630,
+        "piece": "\u0120scent",
+        "log_prob": -1.5690422058105469,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 21630,
+        "final_piece": "\u0120scent",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.5690665285344636,
+        "final_count": 2
+      },
+      {
+        "item": 0,
+        "step": 1,
+        "token_id": 282,
+        "piece": "\u0120of",
+        "log_prob": -0.013631820678710938,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 282,
+        "final_piece": "\u0120of",
+        "final_vocab": 49152,
+        "final_chosen_logp": -0.013638858232621232,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 0,
+        "token_id": 21630,
+        "piece": "\u0120scent",
+        "log_prob": -1.5690422058105469,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 21630,
+        "final_piece": "\u0120scent",
+        "final_vocab": 49152,
+        "final_chosen_logp": -1.5690665285344636,
+        "final_count": 2
+      },
+      {
+        "item": 1,
+        "step": 1,
+        "token_id": 282,
+        "piece": "\u0120of",
+        "log_prob": -0.013631820678710938,
+        "optional_present": true,
+        "shape": [
+          1,
+          49152
+        ],
+        "elements": 49152,
+        "final_id": 282,
+        "final_piece": "\u0120of",
+        "final_vocab": 49152,
+        "final_chosen_logp": -0.013638858232621232,
+        "final_count": 2
+      }
+    ]
+  }
+]

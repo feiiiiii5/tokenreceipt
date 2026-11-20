@@ -1,6 +1,6 @@
 # Reproducing the TokenReceipt results
 
-This public package contains runnable component tests, numerical projections of recorded experiments, and instructions for reconstructing selected upstream inputs. It corresponds to the manuscript *When a Language Model Server Reports a Different Token*.
+This public package accompanies *When a Language Model Server Reports a Different Token*. It includes runnable component tests, numerical projections of recorded experiments, and instructions for reconstructing selected upstream inputs. The November 19 revision adds offline evidence for the replay study, the prospective CTranslate2 test and the frozen comparisons in Tables 3–4.
 
 ## Offline replay
 
@@ -15,6 +15,7 @@ diff -u releases/results.json /tmp/tokenreceipt-release-audit.json
 python3 -B patch/verify.py releases/mlx-0322-server.py
 python3 -B regression/ambiguity.py
 python3 -B verify.py
+python3 -B verify_extended.py
 ```
 
 On Linux you can use `sha256sum -c SHA256SUMS`. The two `--mode demonstrate` commands print a failed invariant for the known substitution and pass the control. Demonstration mode exits successfully only when it reproduces both. Run the checker without `--mode demonstrate` to require the invariant on a trusted upstream checkout.
@@ -29,6 +30,18 @@ On Linux you can use `sha256sum -c SHA256SUMS`. The two `--mode demonstrate` com
 | Multilingual byte loss | The saved per-response counts reproduce 72 affected pairs out of 84 and 708 affected positions belonging to 359 completed Unicode characters. The seven language strata share twelve source indices. [Per-pair counts](evidence/multilingual-summary.json) |
 
 The IFEval and patch projections replace actual token IDs with equality classes reset at each position. This preserves within-position comparisons and exact scores without preserving decodable token sequences. The ARC projection stores four exact mean scores per source ID, within-question text equality classes, whether an answer parsed, and whether it was correct. These projections allow numerical recomputation. The regression, patch and ambiguity scripts separately execute the pinned serializer on controlled inputs.
+
+## Replay, CTranslate2, and Tables 3–4
+
+`python3 -B verify_extended.py` checks the new reports and controls from the included files. The entry points below also let you inspect the outputs separately.
+
+| Evidence | What the offline check recomputes |
+| --- | --- |
+| [Replay and cache checks](replay/README.md) | Four policies on 2,688 paired observations in nine settings, including three repeat settings on 64 new IFEval prompts. The score check rejects 32 wrong-score repeats accepted by display matching in the two prospective stress arms. The two-distribution counterexample changes the winning draw while all four repeats pass. |
+| [CTranslate2 4.9.0](ctranslate2/README.md) | The frozen CPU panel of 30 batch and 30 streaming calls, with 360 selected scores per path. Separate controls cover vocabulary-score normalization, the 4/8 nonempty versus 8/8 wrong-width callback alarms, eight matching final vectors, and 11 independent next-decoder input observations in a separate call. |
+| [Independent engine and MLX comparisons](comparison/README.md) | Table 3 grades llama.cpp row counts and score availability, mistral.rs byte baselines, and CTranslate2 shape and score controls. Table 4 separates MLX response alarms, wrong-ID and wrong-score localization, exact recovery, and abstention. With true IDs and the genuine top-five cutoff, all 521 wrong scores can be located and 204 of 1,488 selected scores remain unrecoverable by lookup. |
+
+The replay and comparison projections carry scores, equality classes and measured render or byte outcomes. The CTranslate2 projection carries scores, ranks, normalization terms and comparisons from six study-authored prompts. Its optional live recipe can regenerate full vectors and repeat the decoder-input observation. The offline checks regrade the supplied observations. Rerendering original benchmark responses or recalculating the original full-vocabulary arrays requires the corresponding retained records or a new capture.
 
 ## SST-2 learning endpoint
 
@@ -50,6 +63,6 @@ The IFEval and ARC-Easy commands recover their evaluation panels. The FLORES-200
 
 ## Materials and reproduction limits
 
-[Materials and licenses](MATERIALS.md) records what the public package carries and where the third-party material can be obtained. [Source receipt](evidence/source-receipt.json) records hashes of selected inputs to the public projections and of the 2,203-entry companion research manifest. If you hold a lawful local copy of that deposit, `python3 -B export_evidence.py /path/to/deposit /path/to/new-projections` regenerates the IFEval, patch, ARC and SST-2 projections using NumPy.
+[Inventory](INVENTORY.md) maps the distributed files to their verification commands. [Materials and licenses](MATERIALS.md) identifies the third-party sources. [Source receipt](evidence/source-receipt.json) records hashes of selected inputs to the public projections and of the 2,203-entry companion research manifest. If you hold a lawful local copy of that deposit, `python3 -B export_evidence.py /path/to/deposit /path/to/new-projections` regenerates the IFEval, patch, ARC and SST-2 projections using NumPy.
 
-The source receipt does not provide the original capture data. The examples above verify a subset of the manuscript’s results. Some archived comparisons, including Inspect AI, cache and seed replay, and the decoder-training experiment, are represented here by summaries. New hardware-dependent inference, training runs, and reconstruction of complete captured response bodies are outside the public commands.
+The source receipt contains hashes of the original capture data. Inspect AI and the decoder-training experiment are represented by summaries. The vLLM and SGLang component findings are reported in the manuscript. Live repetition instructions here cover the 64-prompt replay and CTranslate2. Training runs and the complete original benchmark captures remain in the research archive.

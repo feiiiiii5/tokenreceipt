@@ -1,0 +1,498 @@
+{
+  "callback_coverage": {
+    "groups": {
+      "joint": {
+        "items": {
+          "item_step_and_final_count": {
+            "pass": 4
+          }
+        },
+        "positions": {
+          "final_id_same_origin": {
+            "pass": 8
+          },
+          "final_piece_same_origin": {
+            "pass": 8
+          },
+          "final_vector_available": {
+            "pass": 8
+          },
+          "independent_next_decoder_id": {
+            "abstain": 8
+          },
+          "literal_bytes": {
+            "abstain": 8
+          },
+          "rendered_text_in_projection": {
+            "abstain": 8
+          },
+          "scalar_vs_callback_logsoftmax": {
+            "abstain": 8
+          },
+          "scalar_vs_final_logsoftmax": {
+            "pass": 8
+          },
+          "strict_single_callback_vector": {
+            "alarm": 8
+          },
+          "vector_nonempty": {
+            "alarm": 4,
+            "pass": 4
+          },
+          "vector_object_presence": {
+            "pass": 8
+          }
+        }
+      },
+      "singleton": {
+        "items": {
+          "item_step_and_final_count": {
+            "pass": 1
+          }
+        },
+        "positions": {
+          "final_id_same_origin": {
+            "pass": 2
+          },
+          "final_piece_same_origin": {
+            "pass": 2
+          },
+          "final_vector_available": {
+            "pass": 2
+          },
+          "independent_next_decoder_id": {
+            "abstain": 2
+          },
+          "literal_bytes": {
+            "abstain": 2
+          },
+          "rendered_text_in_projection": {
+            "abstain": 2
+          },
+          "scalar_vs_callback_logsoftmax": {
+            "abstain": 2
+          },
+          "scalar_vs_final_logsoftmax": {
+            "pass": 2
+          },
+          "strict_single_callback_vector": {
+            "pass": 2
+          },
+          "vector_nonempty": {
+            "pass": 2
+          },
+          "vector_object_presence": {
+            "pass": 2
+          }
+        }
+      },
+      "split": {
+        "items": {
+          "item_step_and_final_count": {
+            "pass": 4
+          }
+        },
+        "positions": {
+          "final_id_same_origin": {
+            "pass": 8
+          },
+          "final_piece_same_origin": {
+            "pass": 8
+          },
+          "final_vector_available": {
+            "pass": 8
+          },
+          "independent_next_decoder_id": {
+            "abstain": 8
+          },
+          "literal_bytes": {
+            "abstain": 8
+          },
+          "rendered_text_in_projection": {
+            "abstain": 8
+          },
+          "scalar_vs_callback_logsoftmax": {
+            "abstain": 8
+          },
+          "scalar_vs_final_logsoftmax": {
+            "pass": 8
+          },
+          "strict_single_callback_vector": {
+            "pass": 8
+          },
+          "vector_nonempty": {
+            "pass": 8
+          },
+          "vector_object_presence": {
+            "pass": 8
+          }
+        }
+      }
+    },
+    "localized_shape_alarms": [
+      {
+        "elements": 98304,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 0,
+        "nonempty_alarm": false,
+        "seed": 1701,
+        "shape": [
+          2,
+          49152
+        ],
+        "step": 0
+      },
+      {
+        "elements": 0,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 1,
+        "nonempty_alarm": true,
+        "seed": 1701,
+        "shape": [],
+        "step": 0
+      },
+      {
+        "elements": 98304,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 0,
+        "nonempty_alarm": false,
+        "seed": 1701,
+        "shape": [
+          2,
+          49152
+        ],
+        "step": 1
+      },
+      {
+        "elements": 0,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 1,
+        "nonempty_alarm": true,
+        "seed": 1701,
+        "shape": [],
+        "step": 1
+      },
+      {
+        "elements": 98304,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 0,
+        "nonempty_alarm": false,
+        "seed": 2701,
+        "shape": [
+          2,
+          49152
+        ],
+        "step": 0
+      },
+      {
+        "elements": 0,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 1,
+        "nonempty_alarm": true,
+        "seed": 2701,
+        "shape": [],
+        "step": 0
+      },
+      {
+        "elements": 98304,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 0,
+        "nonempty_alarm": false,
+        "seed": 2701,
+        "shape": [
+          2,
+          49152
+        ],
+        "step": 1
+      },
+      {
+        "elements": 0,
+        "field": "logits",
+        "final_vector_available": true,
+        "group": "joint",
+        "item": 1,
+        "nonempty_alarm": true,
+        "seed": 2701,
+        "shape": [],
+        "step": 1
+      }
+    ]
+  },
+  "existing_score_only_control": {
+    "call_id": "batch-1-neutral-1701",
+    "clean": {
+      "position_checks": {
+        "callback_vector_width": true,
+        "canonical_bytes_derived_from_piece": true,
+        "canonical_piece": true,
+        "final_id_same_origin": true,
+        "final_piece_same_origin": true,
+        "final_vector_available": true,
+        "final_vector_equals_callback": true,
+        "independent_next_decoder_id": null,
+        "iterator_vs_same_callback_object": null,
+        "literal_bytes": null,
+        "scalar_vs_callback_logsoftmax": true,
+        "scalar_vs_exact_prefix_forward_logsoftmax": true,
+        "scalar_vs_final_logsoftmax": true,
+        "scalar_vs_literal_callback_logit": false
+      },
+      "response_checks": {
+        "final_aggregate_vs_callback_scalars": true,
+        "final_sequence_count": true,
+        "final_vector_count": true,
+        "stream_callback_count_same_object": null,
+        "terminal_count_and_steps": true,
+        "visible_text": true
+      }
+    },
+    "field": "log_prob",
+    "injected": {
+      "all_position_alarms_by_check": {
+        "scalar_vs_callback_logsoftmax": [
+          0
+        ],
+        "scalar_vs_exact_prefix_forward_logsoftmax": [
+          0
+        ],
+        "scalar_vs_final_logsoftmax": [
+          0
+        ],
+        "scalar_vs_literal_callback_logit": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      "position_checks": {
+        "callback_vector_width": true,
+        "canonical_bytes_derived_from_piece": true,
+        "canonical_piece": true,
+        "final_id_same_origin": true,
+        "final_piece_same_origin": true,
+        "final_vector_available": true,
+        "final_vector_equals_callback": true,
+        "independent_next_decoder_id": null,
+        "iterator_vs_same_callback_object": null,
+        "literal_bytes": null,
+        "scalar_vs_callback_logsoftmax": false,
+        "scalar_vs_exact_prefix_forward_logsoftmax": false,
+        "scalar_vs_final_logsoftmax": false,
+        "scalar_vs_literal_callback_logit": false
+      },
+      "response_checks": {
+        "final_aggregate_vs_callback_scalars": false,
+        "final_sequence_count": true,
+        "final_vector_count": true,
+        "stream_callback_count_same_object": null,
+        "terminal_count_and_steps": true,
+        "visible_text": true
+      }
+    },
+    "original_score": -4.727039337158203,
+    "position": 0,
+    "replacement_score": -1.7539415269699852,
+    "replacement_source_id": 253,
+    "selected_scalar_recovery": {
+      "callback": {
+        "value": -1.7539415269699852,
+        "within_tolerance_of_original": false
+      },
+      "exact_prefix_forward": {
+        "value": -4.727066086644381,
+        "within_tolerance_of_original": true
+      },
+      "same_event_callback_or_final_vector": {
+        "value": -4.7270727067795555,
+        "within_tolerance_of_original": true
+      }
+    },
+    "token_id": 2268
+  },
+  "independent_decoder_witness_separate_call": {
+    "off_first_witnessed": 8,
+    "outside_top_five_witnessed": 6,
+    "positions": {
+      "callback_id_vs_next_decoder_id": {
+        "abstain": 1,
+        "pass": 11
+      },
+      "final_id_vs_next_decoder_id": {
+        "abstain": 1,
+        "pass": 11
+      }
+    }
+  },
+  "matrix_alignment_confirmation": {
+    "item_routing_identifiable_from_distinct_final_values": {
+      "abstain": 4
+    },
+    "matrix_row_equals_corresponding_final_vector": {
+      "pass": 8
+    },
+    "repeat_strict_single_callback_vector": {
+      "alarm": 8
+    },
+    "repeat_vector_nonempty": {
+      "alarm": 4,
+      "pass": 4
+    }
+  },
+  "singleton_panel": {
+    "batch": {
+      "draws": {
+        "final_aggregate_vs_callback_scalars": {
+          "pass": 30
+        },
+        "final_sequence_count": {
+          "pass": 30
+        },
+        "final_vector_count": {
+          "pass": 30
+        },
+        "stream_callback_count_same_object": {
+          "abstain": 30
+        },
+        "terminal_count_and_steps": {
+          "pass": 30
+        },
+        "visible_text": {
+          "pass": 30
+        }
+      },
+      "positions": {
+        "callback_vector_width": {
+          "pass": 360
+        },
+        "canonical_bytes_derived_from_piece": {
+          "pass": 360
+        },
+        "canonical_piece": {
+          "pass": 360
+        },
+        "final_id_same_origin": {
+          "pass": 360
+        },
+        "final_piece_same_origin": {
+          "pass": 360
+        },
+        "final_vector_available": {
+          "pass": 360
+        },
+        "final_vector_equals_callback": {
+          "pass": 360
+        },
+        "independent_next_decoder_id": {
+          "abstain": 360
+        },
+        "iterator_vs_same_callback_object": {
+          "abstain": 360
+        },
+        "literal_bytes": {
+          "abstain": 360
+        },
+        "scalar_vs_callback_logsoftmax": {
+          "pass": 360
+        },
+        "scalar_vs_exact_prefix_forward_logsoftmax": {
+          "pass": 360
+        },
+        "scalar_vs_final_logsoftmax": {
+          "pass": 360
+        },
+        "scalar_vs_literal_callback_logit": {
+          "alarm": 360
+        }
+      }
+    },
+    "stream": {
+      "draws": {
+        "final_aggregate_vs_callback_scalars": {
+          "abstain": 30
+        },
+        "final_sequence_count": {
+          "abstain": 30
+        },
+        "final_vector_count": {
+          "abstain": 30
+        },
+        "stream_callback_count_same_object": {
+          "pass": 30
+        },
+        "terminal_count_and_steps": {
+          "pass": 30
+        },
+        "visible_text": {
+          "pass": 30
+        }
+      },
+      "positions": {
+        "callback_vector_width": {
+          "abstain": 360
+        },
+        "canonical_bytes_derived_from_piece": {
+          "pass": 360
+        },
+        "canonical_piece": {
+          "pass": 360
+        },
+        "final_id_same_origin": {
+          "abstain": 360
+        },
+        "final_piece_same_origin": {
+          "abstain": 360
+        },
+        "final_vector_available": {
+          "abstain": 360
+        },
+        "final_vector_equals_callback": {
+          "abstain": 360
+        },
+        "independent_next_decoder_id": {
+          "abstain": 360
+        },
+        "iterator_vs_same_callback_object": {
+          "pass": 360
+        },
+        "literal_bytes": {
+          "abstain": 360
+        },
+        "scalar_vs_callback_logsoftmax": {
+          "abstain": 360
+        },
+        "scalar_vs_exact_prefix_forward_logsoftmax": {
+          "pass": 360
+        },
+        "scalar_vs_final_logsoftmax": {
+          "abstain": 360
+        },
+        "scalar_vs_literal_callback_logit": {
+          "abstain": 360
+        }
+      }
+    }
+  }
+}

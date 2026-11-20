@@ -1,0 +1,6 @@
+{
+  "frozen_utc": "2026-11-19T10:10:36.566442+00:00",
+  "protocol_sha256": "cb5140c92df6694b22067f6f3fe3cda54df788edca9748c9eeb1370d7a71db5a",
+  "model_manifest_sha256": "8bedb799d3905498bbcac70ee21ffe973e3cd60447f2b857bb15b2e83c8e24ee",
+  "design_predecessor": "2026-11-18-requery-audit; existing manuscript RQ1"
+}

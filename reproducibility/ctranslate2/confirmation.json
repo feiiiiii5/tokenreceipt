@@ -1,0 +1,18 @@
+{
+  "token_id": 253,
+  "piece": "\u0120a",
+  "selected_score": -1.7539081573486328,
+  "looked_up": 19.300025939941406,
+  "logsumexp": 21.053967466911686,
+  "positive_entries": 44393,
+  "vocabulary": 49152,
+  "max_raw_difference": 3.361701965332031e-05,
+  "max_normalized_difference": 21.053954124450684,
+  "max_difference_after_normalization": 5.911882819020775e-05,
+  "selected_difference_after_normalization": 3.3369621647239e-05,
+  "callback_vs_final_max_difference": 0.0,
+  "selected_id_matches_final": true,
+  "generator_help": "return_logits_vocab: Include log probs for each token in the output",
+  "step_help": "Log probability on the vocab of all tokens.",
+  "final_help": "Logits of each sequence (empty if :obj:`return_logits_vocab` was disabled)."
+}

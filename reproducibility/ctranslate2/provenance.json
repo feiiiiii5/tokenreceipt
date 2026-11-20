@@ -1,0 +1,50 @@
+{
+  "wheel": {
+    "name": "ctranslate2-4.9.0-cp311-cp311-macosx_11_0_arm64.whl",
+    "sha256": "78a0a59721031193e52732b1e565bfaee7c22ec0d1c48d40e9ed4bc7341a843e",
+    "source": "https://files.pythonhosted.org/packages/41/6b/ca9fe0dbc7c4f76d57c1d759a23cf059c3e323effc29b2c21208908b5bb7/ctranslate2-4.9.0-cp311-cp311-macosx_11_0_arm64.whl",
+    "published_sha256": "78a0a59721031193e52732b1e565bfaee7c22ec0d1c48d40e9ed4bc7341a843e"
+  },
+  "original_model": {
+    "repo": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "sha256": {
+      "config.json": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+      "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+      "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+      "model.safetensors": "5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c",
+      "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+      "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+      "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+    }
+  },
+  "model_manifest_sha256": "8bedb799d3905498bbcac70ee21ffe973e3cd60447f2b857bb15b2e83c8e24ee",
+  "converted_float32_model": {
+    "config.json": {
+      "sha256": "827bf1e4c25c7e4cf5f8f947a2badcd130d2e4cf87097844c706b2248be23511",
+      "bytes": 159
+    },
+    "model.bin": {
+      "sha256": "34a40aa83b3d431c0a95c80ab17139e75c66d187923a43124b8e6ba81d385aa7",
+      "bytes": 538079353
+    },
+    "vocabulary.json": {
+      "sha256": "f54b5abf63e190b647a563b88038ea47278da45b3e848bea6bf9cb3ea2f3bdbd",
+      "bytes": 811529
+    }
+  },
+  "packages": {
+    "ctranslate2": "4.9.0",
+    "numpy": "2.4.6",
+    "torch": "2.13.0",
+    "transformers": "5.14.1",
+    "tokenizers": "0.22.2",
+    "safetensors": "0.8.0",
+    "huggingface-hub": "1.33.0"
+  },
+  "architecture": "arm64",
+  "python": "3.11.15",
+  "macos": "27.3",
+  "conversion_seconds": 10.548987374990247
+}

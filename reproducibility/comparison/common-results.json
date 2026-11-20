@@ -1,0 +1,554 @@
+{
+  "mlx/original": {
+    "positions": {
+      "score_consistency_given_id": {
+        "agree": 967,
+        "differ": 521
+      },
+      "requested_extent": {
+        "agree": 1488
+      },
+      "selected_id": {
+        "agree": 960,
+        "differ": 528
+      },
+      "selected_score": {
+        "agree": 967,
+        "differ": 521
+      },
+      "selected_bytes": {
+        "abstain": 1488
+      },
+      "candidate_lookup_score_accuracy": {
+        "agree": 1284,
+        "abstain": 204
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "differ": 64
+      },
+      "requested_extent": {
+        "agree": 64
+      },
+      "selected_id": {
+        "differ": 64
+      },
+      "selected_score": {
+        "differ": 64
+      },
+      "selected_bytes": {
+        "abstain": 64
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 55,
+        "agree": 9
+      }
+    }
+  },
+  "mlx/original-canonical": {
+    "positions": {
+      "score_consistency_given_id": {
+        "agree": 952,
+        "differ": 512,
+        "abstain": 24
+      },
+      "requested_extent": {
+        "agree": 1488
+      },
+      "selected_id": {
+        "agree": 946,
+        "differ": 518,
+        "abstain": 24
+      },
+      "selected_score": {
+        "abstain": 1488
+      },
+      "selected_bytes": {
+        "abstain": 1488
+      },
+      "candidate_lookup_score_accuracy": {
+        "agree": 1261,
+        "abstain": 227
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "differ": 63,
+        "abstain": 1
+      },
+      "requested_extent": {
+        "agree": 64
+      },
+      "selected_id": {
+        "differ": 63,
+        "abstain": 1
+      },
+      "selected_score": {
+        "abstain": 64
+      },
+      "selected_bytes": {
+        "abstain": 64
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 55,
+        "agree": 9
+      }
+    }
+  },
+  "mlx/corrected": {
+    "positions": {
+      "score_consistency_given_id": {
+        "agree": 1284,
+        "abstain": 204
+      },
+      "requested_extent": {
+        "agree": 1488
+      },
+      "selected_id": {
+        "agree": 1488
+      },
+      "selected_score": {
+        "agree": 1488
+      },
+      "selected_bytes": {
+        "abstain": 1488
+      },
+      "candidate_lookup_score_accuracy": {
+        "agree": 1284,
+        "abstain": 204
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 55,
+        "agree": 9
+      },
+      "requested_extent": {
+        "agree": 64
+      },
+      "selected_id": {
+        "agree": 64
+      },
+      "selected_score": {
+        "agree": 64
+      },
+      "selected_bytes": {
+        "abstain": 64
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 55,
+        "agree": 9
+      }
+    }
+  },
+  "mlx/corrected-canonical": {
+    "positions": {
+      "score_consistency_given_id": {
+        "agree": 1261,
+        "abstain": 227
+      },
+      "requested_extent": {
+        "agree": 1488
+      },
+      "selected_id": {
+        "agree": 1464,
+        "abstain": 24
+      },
+      "selected_score": {
+        "abstain": 1488
+      },
+      "selected_bytes": {
+        "abstain": 1488
+      },
+      "candidate_lookup_score_accuracy": {
+        "agree": 1261,
+        "abstain": 227
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 55,
+        "agree": 9
+      },
+      "requested_extent": {
+        "agree": 64
+      },
+      "selected_id": {
+        "agree": 63,
+        "abstain": 1
+      },
+      "selected_score": {
+        "abstain": 64
+      },
+      "selected_bytes": {
+        "abstain": 64
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 55,
+        "agree": 9
+      }
+    }
+  },
+  "llama/width-1": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 280
+      },
+      "requested_extent": {
+        "agree": 277,
+        "differ": 3
+      },
+      "selected_id": {
+        "agree": 277,
+        "abstain": 3
+      },
+      "selected_score": {
+        "agree": 277,
+        "abstain": 3
+      },
+      "selected_bytes": {
+        "abstain": 280
+      },
+      "candidate_lookup_score_accuracy": {
+        "agree": 188,
+        "abstain": 92
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 12
+      },
+      "requested_extent": {
+        "agree": 11,
+        "differ": 1
+      },
+      "selected_id": {
+        "agree": 11,
+        "abstain": 1
+      },
+      "selected_score": {
+        "agree": 11,
+        "abstain": 1
+      },
+      "selected_bytes": {
+        "abstain": 12
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 12
+      }
+    }
+  },
+  "llama/width-5": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 280
+      },
+      "requested_extent": {
+        "agree": 277,
+        "differ": 3
+      },
+      "selected_id": {
+        "agree": 277,
+        "abstain": 3
+      },
+      "selected_score": {
+        "agree": 277,
+        "abstain": 3
+      },
+      "selected_bytes": {
+        "abstain": 280
+      },
+      "candidate_lookup_score_accuracy": {
+        "agree": 259,
+        "abstain": 21
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 12
+      },
+      "requested_extent": {
+        "agree": 11,
+        "differ": 1
+      },
+      "selected_id": {
+        "agree": 11,
+        "abstain": 1
+      },
+      "selected_score": {
+        "agree": 11,
+        "abstain": 1
+      },
+      "selected_bytes": {
+        "abstain": 12
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 10,
+        "agree": 2
+      }
+    }
+  },
+  "mistral/nonstream": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 224
+      },
+      "requested_extent": {
+        "agree": 224
+      },
+      "selected_id": {
+        "abstain": 224
+      },
+      "selected_score": {
+        "agree": 176,
+        "abstain": 48
+      },
+      "selected_bytes": {
+        "agree": 91,
+        "abstain": 48,
+        "differ": 85
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 224
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 14
+      },
+      "requested_extent": {
+        "agree": 14
+      },
+      "selected_id": {
+        "abstain": 14
+      },
+      "selected_score": {
+        "agree": 11,
+        "abstain": 3
+      },
+      "selected_bytes": {
+        "agree": 2,
+        "abstain": 3,
+        "differ": 9
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 14
+      }
+    }
+  },
+  "mistral/stream": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 224
+      },
+      "requested_extent": {
+        "agree": 224
+      },
+      "selected_id": {
+        "abstain": 224
+      },
+      "selected_score": {
+        "agree": 176,
+        "abstain": 48
+      },
+      "selected_bytes": {
+        "agree": 176,
+        "abstain": 48
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 224
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 14
+      },
+      "requested_extent": {
+        "agree": 14
+      },
+      "selected_id": {
+        "abstain": 14
+      },
+      "selected_score": {
+        "agree": 11,
+        "abstain": 3
+      },
+      "selected_bytes": {
+        "agree": 11,
+        "abstain": 3
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 14
+      }
+    }
+  },
+  "ct2/singleton-batch": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 360
+      },
+      "requested_extent": {
+        "agree": 360
+      },
+      "selected_id": {
+        "abstain": 360
+      },
+      "selected_score": {
+        "agree": 360
+      },
+      "selected_bytes": {
+        "abstain": 360
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 360
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 30
+      },
+      "requested_extent": {
+        "agree": 30
+      },
+      "selected_id": {
+        "abstain": 30
+      },
+      "selected_score": {
+        "agree": 30
+      },
+      "selected_bytes": {
+        "abstain": 30
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 30
+      }
+    }
+  },
+  "ct2/singleton-stream": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 360
+      },
+      "requested_extent": {
+        "agree": 360
+      },
+      "selected_id": {
+        "abstain": 360
+      },
+      "selected_score": {
+        "agree": 360
+      },
+      "selected_bytes": {
+        "abstain": 360
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 360
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 30
+      },
+      "requested_extent": {
+        "agree": 30
+      },
+      "selected_id": {
+        "abstain": 30
+      },
+      "selected_score": {
+        "agree": 30
+      },
+      "selected_bytes": {
+        "abstain": 30
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 30
+      }
+    }
+  },
+  "ct2/joint": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 8
+      },
+      "requested_extent": {
+        "differ": 8
+      },
+      "selected_id": {
+        "abstain": 8
+      },
+      "selected_score": {
+        "agree": 8
+      },
+      "selected_bytes": {
+        "abstain": 8
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 8
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 2
+      },
+      "requested_extent": {
+        "differ": 2
+      },
+      "selected_id": {
+        "abstain": 2
+      },
+      "selected_score": {
+        "agree": 2
+      },
+      "selected_bytes": {
+        "abstain": 2
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 2
+      }
+    }
+  },
+  "ct2/split": {
+    "positions": {
+      "score_consistency_given_id": {
+        "abstain": 8
+      },
+      "requested_extent": {
+        "agree": 8
+      },
+      "selected_id": {
+        "abstain": 8
+      },
+      "selected_score": {
+        "agree": 8
+      },
+      "selected_bytes": {
+        "abstain": 8
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 8
+      }
+    },
+    "groups": {
+      "score_consistency_given_id": {
+        "abstain": 2
+      },
+      "requested_extent": {
+        "agree": 2
+      },
+      "selected_id": {
+        "abstain": 2
+      },
+      "selected_score": {
+        "agree": 2
+      },
+      "selected_bytes": {
+        "abstain": 2
+      },
+      "candidate_lookup_score_accuracy": {
+        "abstain": 2
+      }
+    }
+  }
+}

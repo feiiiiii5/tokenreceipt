@@ -1,0 +1,153 @@
+{
+  "wheel_version": "4.9.0",
+  "native_dylib_sha256": "18d0cd66270146b7b07436e5f1eae10641d0dbe17ae4d3b5e43cd246fdd89e23",
+  "seed": 1701,
+  "prompt": "The book on the table was",
+  "prompt_ids": [
+    504,
+    1863,
+    335,
+    260,
+    3252,
+    436
+  ],
+  "callback_rows": [
+    {
+      "step": 0,
+      "token_id": 2268,
+      "token": "\u0120once",
+      "log_prob": -4.727039337158203,
+      "is_last": false,
+      "rank": 12,
+      "argmax_id": 253
+    },
+    {
+      "step": 1,
+      "token_id": 9394,
+      "token": "\u0120owned",
+      "log_prob": -2.2762622833251953,
+      "is_last": false,
+      "rank": 2,
+      "argmax_id": 253
+    },
+    {
+      "step": 2,
+      "token_id": 411,
+      "token": "\u0120by",
+      "log_prob": -0.009328842163085938,
+      "is_last": false,
+      "rank": 1,
+      "argmax_id": 411
+    },
+    {
+      "step": 3,
+      "token_id": 4967,
+      "token": "\u0120William",
+      "log_prob": -5.9455156326293945,
+      "is_last": false,
+      "rank": 28,
+      "argmax_id": 253
+    },
+    {
+      "step": 4,
+      "token_id": 12081,
+      "token": "\u0120Shakespeare",
+      "log_prob": -1.5277366638183594,
+      "is_last": false,
+      "rank": 1,
+      "argmax_id": 12081
+    },
+    {
+      "step": 5,
+      "token_id": 731,
+      "token": "\u0120-",
+      "log_prob": -5.558010101318359,
+      "is_last": false,
+      "rank": 12,
+      "argmax_id": 30
+    },
+    {
+      "step": 6,
+      "token_id": 284,
+      "token": "\u0120and",
+      "log_prob": -2.2788162231445312,
+      "is_last": false,
+      "rank": 1,
+      "argmax_id": 284
+    },
+    {
+      "step": 7,
+      "token_id": 588,
+      "token": "\u0120so",
+      "log_prob": -4.445042610168457,
+      "is_last": false,
+      "rank": 17,
+      "argmax_id": 384
+    },
+    {
+      "step": 8,
+      "token_id": 650,
+      "token": "\u0120his",
+      "log_prob": -4.472955703735352,
+      "is_last": false,
+      "rank": 19,
+      "argmax_id": 436
+    },
+    {
+      "step": 9,
+      "token_id": 2798,
+      "token": "\u0120original",
+      "log_prob": -5.132898330688477,
+      "is_last": false,
+      "rank": 27,
+      "argmax_id": 1238
+    },
+    {
+      "step": 10,
+      "token_id": 13003,
+      "token": "\u0120signature",
+      "log_prob": -3.2113218307495117,
+      "is_last": false,
+      "rank": 3,
+      "argmax_id": 1238
+    },
+    {
+      "step": 11,
+      "token_id": 314,
+      "token": "\u0120is",
+      "log_prob": -1.4665470123291016,
+      "is_last": true,
+      "rank": 1,
+      "argmax_id": 314
+    }
+  ],
+  "final_sequence_ids": [
+    2268,
+    9394,
+    411,
+    4967,
+    12081,
+    731,
+    284,
+    588,
+    650,
+    2798,
+    13003,
+    314
+  ],
+  "final_pieces": [
+    "\u0120once",
+    "\u0120owned",
+    "\u0120by",
+    "\u0120William",
+    "\u0120Shakespeare",
+    "\u0120-",
+    "\u0120and",
+    "\u0120so",
+    "\u0120his",
+    "\u0120original",
+    "\u0120signature",
+    "\u0120is"
+  ],
+  "final_score": -3.4209563732147217
+}

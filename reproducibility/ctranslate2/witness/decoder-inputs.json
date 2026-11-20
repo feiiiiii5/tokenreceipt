@@ -1,0 +1,74 @@
+[
+  {
+    "absolute_step": 5,
+    "token_id": 436,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 6,
+    "token_id": 2268,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 7,
+    "token_id": 9394,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 8,
+    "token_id": 411,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 9,
+    "token_id": 4967,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 10,
+    "token_id": 12081,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 11,
+    "token_id": 731,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 12,
+    "token_id": 284,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 13,
+    "token_id": 588,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 14,
+    "token_id": 650,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 15,
+    "token_id": 2798,
+    "input_size": 1,
+    "input_dtype": 3
+  },
+  {
+    "absolute_step": 16,
+    "token_id": 13003,
+    "input_size": 1,
+    "input_dtype": 3
+  }
+]

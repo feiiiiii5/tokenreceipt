@@ -1,4 +1,4 @@
-\begin{thebibliography}{35}
+\begin{thebibliography}{45}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,6 +12,12 @@
 \newblock URL
   \url{https://github.com/gyorilab/indra-belief-model/tree/74e0ffe9ea21f6f11e906cee89a2091f45be2f7d}.
 
+\bibitem[{snidera3}(2026)]{omlxuser}
+{snidera3}.
+\newblock Chat completions accepts logprobs but returns empty content, {oMLX}
+  issue 1549, 2026.
+\newblock URL \url{https://github.com/jundot/omlx/issues/1549}.
+
 \bibitem[{OpenAI}(2026{\natexlab{a}})]{openai}
 {OpenAI}.
 \newblock Advanced usage: token log probabilities, 2026{\natexlab{a}}.
@@ -21,7 +27,7 @@
 \bibitem[{vLLM contributors}(2026)]{vllm}
 {vLLM contributors}.
 \newblock Sampling parameters and generated-token log probabilities, 2026.
-\newblock URL \url{https://docs.vllm.ai/en/v0.34.0/api/vllm/sampling_params/}.
+\newblock URL \url{https://docs.vllm.ai/en/latest/api/vllm/sampling_params/}.
 
 \bibitem[{OpenAI}(2026{\natexlab{b}})]{chatschema}
 {OpenAI}.
@@ -93,6 +99,24 @@ Thomas Kim.
 {SGLang contributors}.
 \newblock {SGLang} v0.5.23, 2026.
 \newblock URL \url{https://github.com/sgl-project/sglang/releases/tag/v0.5.23}.
+
+\bibitem[{OpenNMT contributors}(2026)]{ct2heldout}
+{OpenNMT contributors}.
+\newblock {CTranslate2} v4.9.0: Generator and generation-result bindings, 2026.
+\newblock URL
+  \url{https://github.com/OpenNMT/CTranslate2/tree/a22ba1c63ee35d1a0d25db149aa2a66d36a6a732/python/cpp}.
+
+\bibitem[{CTranslate2 contributors}(2024)]{ct2origin}
+{CTranslate2 contributors}.
+\newblock Output tokens logits, {CTranslate2} issue 1616, 2024.
+\newblock URL
+  \url{https://github.com/OpenNMT/CTranslate2/issues/1616#issuecomment-2298863361}.
+
+\bibitem[{CTranslate2 contributors}(2026)]{ct2beam}
+{CTranslate2 contributors}.
+\newblock Fix issue with return\_logits\_vocab option, {CTranslate2} pull
+  request 2020, 2026.
+\newblock URL \url{https://github.com/OpenNMT/CTranslate2/pull/2020}.
 
 \bibitem[{SkyRL contributors}(2026)]{skyrl}
 {SkyRL contributors}.
@@ -170,6 +194,16 @@ Sergio Segura, Gordon Fraser, Ana~B. S{\'a}nchez, and Antonio Ruiz-Cort{\'e}s.
   (9):\penalty0 805--824, 2016.
 \newblock \doi{10.1109/TSE.2016.2532875}.
 
+\bibitem[Liu et~al.(2026)Liu, Zhong, Bi, Zhang, Chen, Chen, Liu, and
+  Ma]{liuinference}
+Mugeng Liu, Siqi Zhong, Weichen Bi, Yixuan Zhang, Zhiyang Chen, Zhenpeng Chen,
+  Xuanzhe Liu, and Yun Ma.
+\newblock A first look at bugs in {LLM} inference engines.
+\newblock \emph{ACM Transactions on Software Engineering and Methodology},
+  35\penalty0 (9), 2026.
+\newblock \doi{10.1145/3788873}.
+\newblock Article 284.
+
 \bibitem[{vLLM issue tracker}(2026)]{vllmreport}
 {vLLM issue tracker}.
 \newblock Issue 65726 on collisions in string-keyed completion probabilities,
@@ -180,6 +214,12 @@ Sergio Segura, Gordon Fraser, Ana~B. S{\'a}nchez, and Antonio Ruiz-Cort{\'e}s.
 {llama.cpp issue tracker}.
 \newblock Issue 27972 on token probabilities with speculative decoding, 2026.
 \newblock URL \url{https://github.com/ggml-org/llama.cpp/issues/27972}.
+
+\bibitem[{morluto}(2026)]{sgstream}
+{morluto}.
+\newblock {OpenAI} streaming logprobs and mixed-batch token-id logprobs can
+  return wrong results or crash, {SGLang} issue 30188, 2026.
+\newblock URL \url{https://github.com/sgl-project/sglang/issues/30188}.
 
 \bibitem[Firestone et~al.(2025)Firestone, Ugare, Singh, and
   Misailovic]{utf8plumbing}
@@ -203,11 +243,23 @@ Adam Karvonen, Daniel Reuter, Roy Rinberg, Luke Marks, Adri{\'a}
 \newblock {DiFR}: Inference verification despite nondeterminism, 2025.
 \newblock URL \url{https://arxiv.org/abs/2511.20621}.
 
-\bibitem[{oMLX contributors}(2026)]{omlx}
+\bibitem[{oMLX contributors}(2026{\natexlab{a}})]{omlx}
 {oMLX contributors}.
 \newblock Return log probabilities on chat completions, pull request 4859,
-  2026.
+  2026{\natexlab{a}}.
 \newblock URL \url{https://github.com/jundot/omlx/pull/4859}.
+
+\bibitem[{oMLX contributors}(2026{\natexlab{b}})]{omlxproposal}
+{oMLX contributors}.
+\newblock Return log probabilities on non-streaming chat completions, pull
+  request 4380, 2026{\natexlab{b}}.
+\newblock URL \url{https://github.com/jundot/omlx/pull/4380}.
+
+\bibitem[{slipstr34m}(2026)]{mlxstream}
+{slipstr34m}.
+\newblock Fix logprobs being silently dropped from streamed responses, {MLX-LM}
+  pull request 1630, 2026.
+\newblock URL \url{https://github.com/ml-explore/mlx-lm/pull/1630}.
 
 \bibitem[Wang et~al.(2024)Wang, Ma, Hu, Weber-Genzel, R{\"o}ttger, Kreuter,
   Hovy, and Plank]{firsttoken}
@@ -218,6 +270,17 @@ Xinpeng Wang, Bolei Ma, Chengzhi Hu, Leon Weber-Genzel, Paul R{\"o}ttger,
 \newblock In \emph{Findings of the Association for Computational Linguistics:
   {ACL} 2024}, pages 7407--7416, 2024.
 \newblock \doi{10.18653/v1/2024.findings-acl.441}.
+
+\bibitem[Wang and Sang(2026)]{censoring}
+Wenbo Wang and Di~Sang.
+\newblock Interface-induced trajectory censoring, 2026.
+\newblock URL \url{https://arxiv.org/abs/2609.03966v3}.
+
+\bibitem[Xin et~al.(2026)Xin, Feng, Guo, Wu, and Yin]{detent}
+Peixu Xin, Runchuan Feng, Jiazhen Guo, Kan Wu, and Ming Yin.
+\newblock Detent: Batch-invariant {LLM} serving and {RL} rollouts at near-stock
+  speed, 2026.
+\newblock URL \url{https://arxiv.org/abs/2611.10611}.
 
 \bibitem[Chauvin et~al.(2025)Chauvin, Le~Merrer, Ta{\"i}ani, and
   Tredan]{monitor}
