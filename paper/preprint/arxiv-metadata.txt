@@ -5,13 +5,13 @@ Authors
 Yufeiyang Chen
 
 Abstract
-Applications rank answers and update policies using the probability attached to each generated token. Does the reported probability belong to the token sampled? On two live MLX-LM releases we toggled the list of alternatives on the same sampling event. With alternatives present, the formatter substituted the first candidate for the sample. Eight consecutive releases exhibited the regression. On 64 public prompts, rendering the reported IDs flagged all 64 faulty responses and none of their corrected controls. Re-encoding the text and testing the top-five cutoff located 512 of 521 wrong scores. Even given the actual token IDs, the candidates left 204 scores unrecoverable. Same-event comparison located all 528 wrong IDs and recovered all 1,488 selected pairs. We supply a regression without model weights and a source patch. Even with true IDs, identical archives can admit different winning answers. On 2,108 held-out science questions the two score sources selected different texts on 846 questions. Correctness changed in both directions. A controlled sentiment learner lost 1.90 percentage points across 128 seeds. In a held-out CTranslate2 test the selected scores passed. A subsequent batch test found that each step delivered both vocabulary rows to the first item's callback. A per-item size check located every such error.
+Applications route queries, grade responses, and update policies using the probability attached to each generated token. Does the reported probability belong to the token actually sampled? Toggling candidate-list inclusion on the same sampling event exposes an attribution substitution in eight consecutive releases of MLX-LM (0.30.6-0.32.2): requesting alternatives overwrites the outer selected entry with the first candidate while emitting intact generated text. Formalizing five contract invariants (I1-I5) in an open audit suite separates substitution in MLX-LM (528/1,488 IFEval positions and Qwen2.5-3B) from row omission in llama.cpp (3/280), UTF-8 byte corruption in mistral.rs (708 FLORES-200 positions), and cross-row batch callback leakage in CTranslate2 4.9.0 (24/24 equal-length steps). A hardened patch restores all 11 checks and passes 128 live SmolLM2 and Qwen2.5-3B positions. Downstream on Qwen2.5-3B ARC-Challenge (N=250), wire inflation (+0.194 nats) lowers aggregate ECE (0.125 to 0.032) yet flips 117/250 routing decisions, raising wrong-answer false acceptance from 27.1% to 76.3% (p<1e-6), while breaking score-span matching in DeepEval G-Eval (6/94 pass flips) and cutting SST-2 learning accuracy by 1.90 percentage points across 128 seeds.
 
 Suggested primary category
 cs.SE
 
 Comments
-21 pages, 2 figures. Selected replication materials at https://github.com/feiiiiii5/tokenreceipt
+18 pages, 5 figures (4 vector plots/diagrams and 1 side-by-side code listing), 8 tables. Replication materials and auditing tools at https://github.com/feiiiiii5/tokenreceipt
 
 Journal reference and DOI
 Leave blank.

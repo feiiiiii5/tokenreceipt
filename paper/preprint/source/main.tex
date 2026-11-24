@@ -6,96 +6,189 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{listings}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   pdftitle={When a Language Model Server Reports a Different Token},
   pdfauthor={Yufeiyang Chen},
-  pdfkeywords={test oracles, language model serving, API testing, token log probabilities, reinforcement learning}
+  pdfkeywords={test oracles, language model serving, API testing, token log probabilities, metamorphic testing, reinforcement learning}
 }
 \urlstyle{same}
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  frame=none,
+  aboveskip=2pt,
+  belowskip=2pt,
+  showstringspaces=false
+}
 \setlength{\belowcaptionskip}{6pt}
 \setlength{\bibsep}{3pt plus 1pt minus 1pt}
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{doi:\,#1}}
+\newcommand{\Description}[1]{}
 \title{When a Language Model Server Reports a Different Token}
 \author{Yufeiyang Chen}
-\date{November 19, 2026}
+\date{November 23, 2026}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-Applications rank answers and update policies using the probability attached to each generated token. Does the reported probability belong to the token sampled? On two live MLX-LM releases we toggled the list of alternatives on the same sampling event. With alternatives present, the formatter substituted the first candidate for the sample. Eight consecutive releases exhibited the regression. On 64 public prompts, rendering the reported IDs flagged all 64 faulty responses and none of their corrected controls. Re-encoding the text and testing the top-five cutoff located 512 of 521 wrong scores. Even given the actual token IDs, the candidates left 204 scores unrecoverable. Same-event comparison located all 528 wrong IDs and recovered all 1,488 selected pairs. We supply a regression without model weights and a source patch. Even with true IDs, identical archives can admit different winning answers. On 2,108 held-out science questions the two score sources selected different texts on 846 questions. Correctness changed in both directions. A controlled sentiment learner lost 1.90 percentage points across 128 seeds. In a held-out CTranslate2 test the selected scores passed. A subsequent batch test found that each step delivered both vocabulary rows to the first item's callback. A per-item size check located every such error.
+Applications route queries, grade responses, and update policies using the probability attached to each generated token. Does the reported probability belong to the token actually sampled? Toggling candidate-list inclusion on the same sampling event exposes an attribution substitution in eight consecutive releases of MLX-LM (0.30.6--0.32.2): requesting alternatives overwrites the outer selected entry with the first candidate while emitting intact generated text. Formalizing five contract invariants (\textsc{I1}--\textsc{I5}) in an open audit suite separates substitution in MLX-LM (528/1,488 IFEval positions and Qwen2.5-3B) from row omission in llama.cpp (3/280), UTF-8 byte corruption in mistral.rs (708 FLORES-200 positions), and cross-row batch callback leakage in CTranslate2 4.9.0 (24/24 equal-length steps). A hardened patch restores all 11 checks and passes 128 live SmolLM2 and Qwen2.5-3B positions. Downstream on Qwen2.5-3B ARC-Challenge ($N=250$), wire inflation ($+0.194$~nats) lowers aggregate ECE ($0.125 \to 0.032$) yet flips 117/250 routing decisions, raising wrong-answer false acceptance from 27.1\% to 76.3\% ($p<10^{-6}$), while breaking score-span matching in DeepEval G-Eval (6/94 pass flips) and cutting SST-2 learning accuracy by 1.90 percentage points across 128 seeds.
 \end{abstract}
 
 \section{Introduction}
-A server generated the phrase \emph{In the realm of monumental grandeur}. At the fifth output position it sampled the vocabulary entry for a leading space followed by \emph{monumental}, ID 24313. The decoder assigned it a log probability of $-4.4375$. The response metadata for the same position named \emph{architecture}, ID 6277, with a log probability of $-2.25$. Both words fit the context. Both numbers are plausible. The generated text contains the right word. All five alternatives omit its score.
+A server generated the phrase \emph{In the realm of monumental grandeur}. At the fifth output position it sampled vocabulary entry ID 24313 (\emph{`` monumental''}) with raw log probability $-4.4375$. For that exact position, the returned log-probability metadata instead named \emph{`` architecture''} (ID 6277) with score $-2.25$. Both tokens are plausible continuations; the visible text contains the sampled word, and the top-five candidate list omits 24313 entirely. Requesting alternatives next to an ordinary chat completion silently swapped the identity and probability of the token that generated the text.
 
-This example comes from an ordinary chat request to a released language model server. The user requested the probabilities of five alternatives alongside the response. Adding that information should preserve the identity of the token that was generated. The distinction matters whenever an application reads the probability as evidence about the text. An evaluator that averages the reported scores can make an answer look more likely than it was. A policy optimizer that pairs an action with the wrong old probability can change its gradient even if a verifier correctly scored the answer.
+This attribution failure violates an implicit software contract at the language-model serving boundary. Confidence routers~\cite{omlxuser,mlxstream}, evaluation harnesses such as Inspect AI~\cite{inspect} and DeepEval G-Eval~\cite{liu2023geval,gevalpkg}, best-of-$n$ selectors~\cite{bestofapi}, and reinforcement-learning policy optimizers~\cite{ppo,grpo,skyrl} assume that per-position metadata describes the emitted token trajectory. An evaluator averaging inflated candidate scores makes an answer look more confident than its true draw~\cite{indra}; a clipped RL update pairing an action's reward with another token's behavior score distorts policy gradients even when external verifiers are exact.
 
-Testing the correspondence presents two difficulties. A second request can legitimately generate different tokens. Even when its final text agrees, the sampled IDs or their scores can differ. We record the native emission and give the released response formatter the same event twice, changing only the presence of the alternatives. This allows a test to reject a wrong attribution without predicting the next word. We then ask what remains recoverable once the original sampling event is gone.
+Testing this contract is subtle because naive differential or repeat requests break down: stochastic decoding legitimately samples different sequences on a second call, and even identical strings can stem from distinct trajectories or KV-cache states. Capturing the native decoder draw and exercising the serializer twice on that \emph{identical sampling event}---changing only candidate-list width---yields an exact metamorphic test oracle~\cite{barr,segura,chenmt} that rejects wrong attribution without predicting the next token. Unifying such checks further distinguishes ID/score substitution from omitted positions, corrupted UTF-8 bytes~\cite{utf8plumbing}, and batch callback ownership bugs across independent engines.
 
-The risk was visible in practice before this study. The public INDRA scoring pipeline enforces greedy decoding for in-call probabilities and warns that a reported token stream can diverge from sampled text at positive temperature~\cite{indra}. An oMLX user describes a summary pipeline that requests mean log probabilities for the tokens of individual JSON fields~\cite{omlxuser}. Both applications need to know which generated tokens the scores belong to. That observation poses an engineering question. Can one pinpoint when the record becomes wrong, detect the error without a sampler-side observation, and show which downstream decisions actually depend on it?
+We investigate three research questions and make four contributions:
+\begin{itemize}
+\item \textbf{Formal contract and open audit tooling (\S\ref{sec:contract}, \S\ref{sec:rq2}):} We specify five checkable invariants (\textsc{I1}--\textsc{I5}) separating identity, score validity/stage, row/batch ownership, canonical bytes, and transport parity, alongside a generalized tokenizer-aware wire recovery tool, a hardened 11-test MLX-LM patch, and standalone upstream minimal reproducers.
+\item \textbf{Cross-engine fault localization (\S\ref{sec:rq1}, \emph{RQ1}):} Using same-event toggling, we pinpoint an 8-release substitution regression in MLX-LM (up to $67.0\%$ error at $T=1.2$), validate our patch live across SmolLM2-135M and Qwen2.5-3B, and contrast omission in \texttt{llama.cpp}, byte corruption in \texttt{mistral.rs} (708 non-streaming positions), and equal/unequal-length cross-row batch callback leakage in CTranslate2 4.9.0 (24/24 equal-length steps).
+\item \textbf{Client recovery and impossibility bounds (\S\ref{sec:rq2}, \emph{RQ2}):} Across four archival/re-query access tiers, we show how candidate cutoffs bound 512/521 wrong scores while leaving 204 exact values unrecoverable, prove by construction that identical complete responses admit flipped winners, and measure prompt-cache interference in live re-queries.
+\item \textbf{Capable-model and downstream impact (\S\ref{sec:rq3}, \emph{RQ3}):} Beyond answer-selection flips on ARC-Easy (846/2,108) and a $-1.90$\,pp loss across 128 SST-2 learning seeds, we demonstrate on Qwen2.5-3B ARC-Challenge ($N=250$) a calibration paradox where wire inflation improves ECE ($0.125 \to 0.032$) yet flips 117/250 routing decisions and raises wrong-answer false-accepts by $+49.2$\,pp, plus 6/94 threshold flips in DeepEval 4.3.4.
+\end{itemize}
 
-We ask three questions. \emph{RQ1} localizes token substitution in a released server and distinguishes it from omitted positions and damaged token bytes in independent implementations. \emph{RQ2} compares client remedies under four information conditions: an archived response, supplied token IDs, a second seeded request, and access to the original generation. For a client repeating a request, the archived alternatives can expose score changes even when the text, lengths and finish reason agree. \emph{RQ3} follows the affected fields into a released evaluator, answer selection with external labels, and controlled online learning.
-
-\section{The contract at the serving boundary}
-Let $u_t$ denote the ID emitted at position $t$, $s_t$ the score the decoder passes to the serializer for $u_t$, and $A_{t,k}$ the supplied list of up to $k$ alternatives. An interface can expose the sampled ID directly, or identify the selected token by a vocabulary string or bytes. In the MLX interface under test, the candidate-enabled representation has an integer ID, a vocabulary string, and a log probability per position. The candidate-disabled representation exposes ID and score. The selected pair in both must refer to $(u_t,s_t)$. The API contract distinguishes output tokens from alternatives. For example, vLLM documents that its logprob mapping includes the chosen token even if it falls outside the requested top set~\cite{openai,vllm}. The Chat Completions schema allows unavailable bytes and a sentinel for a sufficiently low score~\cite{chatschema}. Checks on numeric or byte equality must respect those conventions. The names and encodings of fields can differ across APIs. The invariant concerns the identity each field represents.
-
-The score also has a stage. In the MLX chat experiments $s_t$ is the raw model log probability indexed by $u_t$, before temperature sampling. Temperature can change how often the engine selects a token. It does not change which entry in the raw score vector belongs to that token. In the two-action training experiment we instead need the old probability under the restricted behavior distribution. There we have both allowed actions' scores and normalize them on identical support in every arm.
-
-A simpler property is available when the native emission cannot be observed. Decode the sequence of reported IDs with the engine's tokenizer and compare it with the transcript under the same rendering rules. This gives a response-level alarm. It generally gives neither a unique inverse from text to IDs nor the missing scores. Suppose an emitted ID is absent from a top-five list. Even for normalized probabilities, the list constrains only the total remaining mass and the cutoff. Two unlisted tokens can exchange sufficiently small amounts of mass without changing the list. Knowing which one was sampled leaves its individual score undetermined by these fields. A consumer with the exact model state could recompute the distribution. Our candidate-only baseline has no such access.
-
-\section{Study design}
-\subsection{What the oracle observes}
-We record the selected ID and raw score first at the generator iterator and then at the serializer. We join both observations to the non-streaming HTTP response by request and position, check counts against usage and retain counted terminal positions.
-
-For each prompt and seed we request zero, one and five alternatives and check emitted sequences for agreement. We then invoke the original serializer twice on the same captured arguments, changing only the presence of alternatives. This fixes the draw even when seeded requests diverge. A separate repair changes only the selected fields. Comparing entire decoded response objects tests whether any other field changed.
-
-\subsection{Workloads and units}
-The initial clue arose during a restricted two-action learning experiment. We exclude those traces from the ordinary-chat workload. The localization suite fixes twelve fresh prompts before generation. They cover translation, short explanations, structured output, code completion, and open continuation. Each prompt receives a fixed seed shared across its three requests. We run released MLX-LM 0.31.3 with its stock sampler and, separately, an eager categorical sampler as a control for reported worker random-state behavior~\cite{mlxseed}. We repeat the stock experiment with matching 0.32.2 MLX-LM, MLX and Metal release wheels~\cite{mlx}. Each uses SmolLM2-135M-Instruct~\cite{smol}, unrestricted vocabulary, temperature 0.8, $p=1$, and a limit of 12 positions. The number of reported alternatives is distinct from a top-$k$ sampling filter.
-
-Before retrieving IFEval prompts~\cite{ifeval}, we ranked all 541 integer keys by the SHA-256 digest of a fixed prefix and the decimal key. We took the first 64 and archived the ranking and source revision. Each prompt ran once on 0.32.2 at temperature 0.8, with five alternatives and a 24-position cap. We captured the original object inside the server and the corrected HTTP response for the same call. The earlier twelve-prompt experiment also sent the original over HTTP. Sixty responses reached the cap, and four contributed 18, 18, 9 and 3 positions.
-
-Position counts measure metadata volume. Per-response distributions describe what clients encountered. Fixed-trace results use three distinct trajectories, and online comparisons pair training seeds. We retained setup failures separately. These involved a changed observer field, an incomplete wrapper signature and an initial launch before the pinned data arrived. The results use each completed condition once.
-
-\subsection{AI assistance and provenance}
-The author directed the research from investigating training consequences in a running inference service to studying token reports as a separate problem. The author required evidence beyond the original implementation, directed the held-out engine test and the comparison on frozen examples, and required the engine-test decision rule to be fixed before source inspection. OpenAI Codex agents specified the input selection and checks, instrumented the engines, ran the experiments, analyzed the results, produced the figures and drafted the text. GPT-6.2 Sol agents prepared the independent-engine studies, designed and ran the online learning intervention and tested the baselines. The coordinating agent designed the answer rankings, checked primary records and integrated the comparisons. Agents also implemented and tested the patch, recoveries, repeats, judge, decoder updates and calibration. Gemini in Antigravity assisted earlier reward-pipeline exploration excluded from these data. The evidence comes from executable outputs and recorded IDs.
-
-\section{RQ1. What changes when alternatives are requested?}
-\subsection{A substitution in two released serializers}
-Table~\ref{tab:release} shows the twelve-prompt localization results. Within each row, all twelve complete sampled sequences were identical across the three request settings. The serializer passed the sampled ID and raw score correctly when alternatives were absent in every condition. At widths one and five, the same output positions had wrong IDs within each condition. Replaying the identical serializer inputs with the list suppressed restored the pair. The eager sampler changed which tokens the model emitted, yet it left the field substitution intact. The newer release exhibited the same mechanism with its matching runtime.
-
-\begin{table}[htbp]
+\begin{figure}[t]
 \centering
-\caption{Same twelve prompts per condition, 144 generated positions per width. Each triple gives the number of wrong IDs with alternatives omitted, one requested, and five requested. The last three columns refer to width five.}
+\includegraphics[width=.98\linewidth]{figures/mechanism.pdf}
+\caption{Overview of serving-boundary attribution failure (Position 5 example), cross-engine contract invariants (\textsc{I1}--\textsc{I5}), and measured downstream consumer impacts.}
+\label{fig:mechanism}
+\end{figure}
+
+\section{The Serving-Boundary Contract and Invariants}
+\label{sec:contract}
+At output position $t$, an autoregressive decoder emits token ID $u_t$ and raw pre-temperature model log probability $s_t=\log p_\theta(u_t\mid x,u_{<t})$ alongside an optional list $A_{t,k}$ of up to $k$ alternatives~\cite{openai,chatschema}. Responses expose a rendered string, a selected token identifier/label $\hat{u}_t$, a selected score $\hat{s}_t$, optional raw bytes $\hat{b}_t$, and $A_{t,k}$. Checks on these fields must account for score stage (raw logits vs.\ normalized behavior log probabilities), tokenizer escapes, and streaming transport rules:
+\begin{description}
+\item[\textmd{\textsc{I1}} (Identity Attribution)] $\hat{u}_t = u_t$ when an oracle emission is available; otherwise the decoded ID stream renders coherently under the server's stop convention without unaccounted vocabulary mismatches.
+\item[\textmd{\textsc{I2}} (Score Attribution \& Stage Validity)] $\hat{s}_t$ lies within numeric tolerance of $s_t$, obeys $\hat{s}_t \le 0$ for normalized log probabilities (rejecting unnormalized logits), and matches any candidate-listed value for $u_t$ or satisfies the genuine top-$k$ cutoff $\hat{s}_t \le \min_{(id,g)\in A_{t,k}} g$ when $u_t \notin A_{t,k}$.
+\item[\textmd{\textsc{I3}} (Row Coverage \& Batch Ownership)] Emitted row counts agree with completion usage ($n_{\text{rows}} = n_{\text{emit}}$), and in native batch interfaces every per-item callback delivers strictly its own single row ($1\times|V|$ elements, neither $2|V|$ cross-row tensors nor empty NULL buffers).
+\item[\textmd{\textsc{I4}} (Canonical Byte Fidelity)] Returned byte arrays $\hat{b}_t$ match the tokenizer's canonical UTF-8 bytes for $\hat{u}_t$ unless that entry decodes to \texttt{U+FFFD}~\cite{utf8plumbing,ollamabytes}.
+\item[\textmd{\textsc{I5}} (Transport Parity)] Matched streaming and non-streaming requests under identical draw settings emit consistent rows, log probabilities, and token bytes (rejecting silent logprob drops~\cite{mlxstream} or \texttt{U+FFFD} masking).
+\end{description}
+Every check in our audit suite (\texttt{tools/tokenreceipt\_audit.py}) returns explicit three-valued verdicts (\texttt{pass}, \texttt{fail}, or \texttt{abstain} when required evidence---such as an oracle reference, native bytes, or a paired stream---is absent). Client-only checks face a structural information limit: when $u_t \notin A_{t,k}$, the alternatives bound only the tail mass and cutoff; text re-encoding cannot uniquely invert multi-token segmentations or recover unlisted exact scores without direct access to $(u_t, s_t)$ or the model state.
+
+\section{Study Design}
+\subsection{What the Oracle Observes}
+Inside MLX-LM, we instrument the generator iterator and serializer boundary, joining native selected pairs $(u_t, s_t)$ to HTTP responses by request and position while checking usage counts. To hold the stochastic trajectory invariant, we record native emission arguments and invoke the released serializer twice on that \emph{identical sampling event}, toggling candidate width ($k=0$ vs.\ $k>0$) and testing our source repair against whole decoded JSON objects to verify zero unintended side effects. For uninstrumented black-box or native engines, we cross-check emitted IDs via independent full-prefix forward passes (\texttt{libllama} for llama.cpp, PyTorch for mistral.rs, full-step logits/log-softmax for CTranslate2) or deterministic path enumeration within strict numeric tolerances.
+
+\subsection{Workloads, Units, and Hardware-Gated Protocol}
+Table~\ref{tab:workloads} summarizes every experimental cohort, engine, model, sample denominator, selection rule, and role. All prompt subsets use pre-registered SHA-256 digest rankings to eliminate cherry-picking, with disjoint held-out splits separating pilots from confirmation runs. Historical frozen datasets are preserved untouched alongside newly generated validation runs.
+
+\begin{table}[t]
+\centering
+\setlength{\tabcolsep}{3.5pt}
+\caption{Summary of experimental workloads, models, denominators, and roles. All dataset subsamples use pre-registered SHA-256 hash orderings and disjoint pilot/confirmation splits.}
+\label{tab:workloads}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.18\linewidth}>{\raggedright\arraybackslash}p{.15\linewidth}>{\raggedright\arraybackslash}p{.15\linewidth}>{\raggedright\arraybackslash}p{.23\linewidth}>{\raggedright\arraybackslash}p{.17\linewidth}@{}}\toprule
+Cohort & Model(s) & Engine & Size \& Denominator & Primary Role\\\midrule
+Localization suite & SmolLM2-135M & MLX-LM 0.31.3/0.32.2 & 12 prompts $\times$ 3 widths (144 pos/arm) & Fault localization\\
+Public chat \& holdout & SmolLM2, Qwen2.5-0.5B & MLX-LM 0.32.2 & 64 IFEval (1,488 pos); 12$\times$3 (262 pos) & Prevalence \& recovery\\
+Temp \& long answers & SmolLM2-135M & MLX-LM 0.32.2 & 40$\times$(1+4$\times$3) (12,039 pos); 36$\times$512 (8,351 pos) & Decode \& depth effect\\
+Release census \& patch & Fixtures + SmolLM2 & MLX-LM 0.30.0--0.32.2 & 12 PyPI wheels; 11 patch tests + 10 live reqs & Pinpoint PR \& repair\\
+Live cross-arch audit & SmolLM2, Qwen2.5-3B & MLX-LM 0.32.2 stock/patch & 4 prompts $\times$ 2 widths (64 pos/arm/model) & Live \textsc{I1}--\textsc{I5} audit\\
+Cross-engine HTTP & SmolLM2 + builders & llama.cpp, mistral.rs, vLLM, SGLang & 280 pos; 96 + 84$\times$2 FLORES; 48 builder resps & Separate fault classes\\
+CT2 native \& batch & SmolLM2-135M & CTranslate2 4.9.0 & 30/path (360 pos); 2 dup; 6 eq + 2 uneq pairs & Logit doc \& cross-row leak\\
+Selective routing \& Inspect & Qwen2.5-3B (7B gated) & MLX-LM + Inspect 0.3.277 & Pilot 100 (4,008 pos); Confirm 250 (10,270 pos) & Routing \& ECE paradox\\
+LLM-as-a-Judge & Qwen2.5-3B (+135M) & DeepEval 4.3.4 (\texttt{GEval}) & Panel A 36 (35 valid); Panel B 60 (59 valid) & Span-miss pass flips\\
+Selection \& Policy RL & SmolLM2, Qwen2.5-1.5B & MLX-LM 0.32.2 + SGD/Adam & 2,108+160 ARC-Easy; 128 online + trace/dec seeds & Answer swaps \& RL loss\\\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Hardware Memory-Pressure Gate.}
+For capable-model downstream experiments on a 16\,GiB Apple Silicon workstation, we pre-registered a kernel memory-pressure monitor checking the VM pressure level (GREEN=1, YELLOW=2) and process RSS before and after every prompt with KV prompt caching disabled. Probing Qwen2.5-7B-Instruct-4bit~\cite{qwen7b} reached 4,121.39\,MiB RSS and triggered pressure level 2 (YELLOW) on the second prompt, aborting cleanly by protocol (exit code 75). Switching per pre-registered fallback to Qwen2.5-3B-Instruct-4bit~\cite{qwen3b} kept all probe and confirmation workloads in GREEN pressure level 1 (1,648.88\,MiB peak probe RSS; 2,205.36\,MiB max patched audit RSS). All setup failures (changed observer field, incomplete wrapper signature, pre-pin launch, and the aborted 7B probe) are retained outside the completed denominators.
+
+\subsection{AI Assistance and Provenance}
+Yufeiyang Chen formulated the research questions, mandated cross-engine and capable-model empirical validation, established all pre-registered protocols and fallback rules prior to inspection, audited primary evidence and conclusions, and assumes full responsibility for all claims in the manuscript. AI coding and research assistants (Codex, GPT-family, and Antigravity agents) drafted instrumentation, test harnesses, figure scripts, and prose revisions under human supervision. Every quantitative claim in this paper traces directly to deterministic executable verification scripts, archived numerical projections, and SHA-256 manifests.
+
+\section{RQ1: Fault Localization Across Serving Engines}
+\label{sec:rq1}
+\subsection{Candidate Substitution in MLX-LM Releases}
+\label{sec:rq1-mlx}
+Table~\ref{tab:release} shows the twelve-prompt localization results. Within each row, all emitted token sequences matched identically across widths zero, one, and five. With candidates suppressed ($k=0$), every release reported exact sampled IDs and raw scores. With width 1 or 5 enabled, the outer selected field was corrupted identically in 44--45 of 144 positions on stock sampling (11--12 of 12 prompts); eager categorical sampling changed tokens but left the substitution intact.
+
+\begin{table}[t]
+\centering
+\caption{Localization on twelve prompts (144 generated positions per width). Wrong IDs list $k=0 / 1 / 5$; the last three columns report $k=5$.}
 \label{tab:release}
+\footnotesize
 \begin{tabular}{@{}lcrrr@{}}\toprule
-MLX-LM and sampler & Wrong IDs & Wrong scores & Sample outside five & Prompts affected\\\midrule
+MLX-LM and sampler & Wrong IDs ($k=0/1/5$) & Wrong scores & Sample outside five & Prompts affected\\\midrule
 0.31.3 stock & 0 / 44 / 44 & 44 & 17 & 12/12\\
 0.31.3 eager & 0 / 36 / 36 & 35 & 12 & 11/12\\
 0.32.2 stock & 0 / 45 / 45 & 42 & 17 & 11/12\\\bottomrule
 \end{tabular}
 \end{table}
 
-The cause is visible in \texttt{APIHandler.generate\_response}. With no candidates, the function takes the selected ID and probability from the two sequences passed by the caller. With candidates, it builds each outer entry by copying the first element of that position's candidate list and appending the full list. The list is produced by partitioning the probability vector. Its first element is an alternative and need not be the global maximum. Treating it as the sample happens to work whenever its ID equals the draw. A greedy-only test or a fixture with one overwhelmingly likely token can therefore miss the defect. A numeric-only comparison also misses wrong identities with tied scores.
+Figure~\ref{lst:bugs} displays the root cause verbatim alongside the CTranslate2 callback defect studied below. In \texttt{APIHandler.generate\_response}, the candidate-disabled \texttt{elif token\_logprobs:} branch zips \texttt{(tokens, token\_logprobs)}, whereas the candidate-enabled \texttt{if top\_logprobs:} branch builds each outer object via \texttt{dict(i[0], top\_logprobs=i)}---copying the first element of the partially partitioned alternative tuple (\texttt{mx.argpartition(-logprobs, kth=top\_n - 1)}), which is only an arbitrary alternative in the top-$k$ set rather than the sampled token $u_t$ or even the global mode. Thus greedy or sharp distributions can mask the fault by coincidence, while numeric-only comparisons miss equal-score identity swaps.
 
-On the 64 public prompts, every response had at least one substitution. Of 1,488 positions, 528 (35.5\%) named a different ID and 521 supplied a different raw score. Seven substitutions paired different IDs with equal scores. In 324 of the substitutions the sampled ID appeared elsewhere among the alternatives. In the remaining 204 it was absent. The median within-response error fraction was 37.5\%, ranging from 5.6\% to 70.8\% (Figure~\ref{fig:prompt}). These rates describe this checkpoint, API path, display width, temperature, and workload. The results establish one mechanism across two software releases.
-
-\paragraph{Holding out the model.}
-Would the same serializer fail with a different architecture and tokenizer? We fixed the first twelve prompts in the existing IFEval panel and used the released four-bit Qwen2.5-0.5B-Instruct checkpoint with its own tokenizer~\cite{qwen}. For each prompt we sent three HTTP requests to MLX-LM 0.32.2 with the same seed. We omitted alternatives in the first, requested five in the second, and requested five with the local repair in the third. Each used stock sampling, temperature 0.8, and a 24-position limit. We also retained the native, pre-serialization and no-list views of the same draw. This is an independent checkpoint on deliberately overlapping prompts.
-
-All twelve output ID sequences, raw scores and message contents matched across the three requests within each prompt. Each arm yielded 262 positions (ten answers of length 24, one of 14, and one of eight). The unmodified five-candidate response misidentified 117/262 tokens and their scores, affecting 11/12 answers. The first listed ID occupied every outer entry. The true ID was absent from 54/262 lists, so even ID-assisted lookup recovered only 208 scores. The omitted-list and repaired HTTP arms had zero ID or score errors. The repaired response preserved all fields outside the three selected-token values relative to its own original serialization. This model holdout tests a second architecture and tokenizer. It provides no population prevalence estimate across checkpoints.
-
-\subsection{How decoding exposes the fault}
-Greedy decoding can conceal a substitution that is deterministic inside the formatter. We excluded the original 64 IFEval prompts, ranked the remaining keys by a newly fixed hash and used the first 40. With the same SmolLM2 checkpoint, five returned alternatives and the 24-token cap, we generated once greedily and four times per prompt at each positive temperature. Each request preserved both the original HTTP object and a separate record of the sampled pairs. All 12,039 outer pairs matched the first returned candidate. The candidate-free projection of the same draw matched the sampled pair throughout. The formatter obtains its five candidates by partial selection, so its contract does not require ordering the five entries by score. The empirical agreement here is with the first entry as returned.
-
-\begin{table}[htbp]
+\begin{figure}[t]
 \centering
-\caption{Decoding on the same 40 new questions. Last column counts prompts where ranking four answers by the reported mean log probability selected different text than ranking them by the native mean.}
+\begin{minipage}[t]{0.47\linewidth}
+\hrule\vspace{2pt}
+\textbf{\footnotesize (a) MLX-LM 0.32.2 (\texttt{server.py:1467--1478})}
+\vspace{2pt}\hrule
+\begin{lstlisting}[language=Python]
+if top_logprobs:
+  response["choices"][0]["logprobs"] = {
+    "content": [
+      dict(i[0], top_logprobs=i) if i else {}
+      for i in top_logprobs
+    ]
+  }
+elif token_logprobs:
+  response["choices"][0]["logprobs"] = {
+    "content": [
+      dict(id=i, logprob=g)
+      for i, g in zip(tokens, token_logprobs)
+    ]
+  }
+\end{lstlisting}
+\hrule
+\end{minipage}\hfill
+\begin{minipage}[t]{0.50\linewidth}
+\hrule\vspace{2pt}
+\textbf{\footnotesize (b) CTranslate2 4.9.0 (\texttt{src/decoding.cc:918--950})}
+\vspace{2pt}\hrule
+\begin{lstlisting}[language=C++]
+if (return_logits_vocab) {
+  results[batch_id].logits_vocab.resize(1);
+  results[batch_id].logits_vocab[0]
+    .emplace_back(std::move(logits_vec[i]));
+}
+...
+if (_callback &&
+    (return_prefix || step >= prefix_length)) {
+  DecodingStepResult step_result; ...
+  if (return_logits_vocab)
+    step_result.logits = std::move(logits_orig);
+  if (_callback(std::move(step_result))) {
+\end{lstlisting}
+\hrule
+\end{minipage}
+\caption{Side-by-side serving-boundary fault sites. \textbf{(a)} MLX-LM overwrites the sampled outer token with \texttt{i[0]}, the first partially partitioned alternative, when \texttt{top\_logprobs} is requested. \textbf{(b)} CTranslate2 moves the shared $B\times|V|$ tensor (\texttt{logits\_orig}) into only the first active item's callback, leaving subsequent items in the batch with empty NULL storage.}
+\label{lst:bugs}
+\end{figure}
+
+Across 64 public IFEval prompts (1,488 positions, SmolLM2-135M, $T=0.8$, $k=5$), every response suffered substitutions: 528 positions (35.5\%) named a wrong ID, 521 gave a wrong raw score, 7 swapped IDs with equal scores, and 204 omitted $u_t$ from $A_{t,5}$ (median within-response error rate $37.5\%$, range $5.6\%$--$70.8\%$, Fig.~\ref{fig:prompt}). Repeating on the first 12 prompts with four-bit \texttt{Qwen2.5-0.5B-Instruct}~\cite{qwen} (262 positions) yielded 117/262 wrong IDs and scores across 11/12 responses, with 54/262 absent from $A_{t,5}$; our local repair eliminated every error while keeping non-logprob fields identical.
+
+\paragraph{Temperature Exposure, Long Continuations, and Release Census.}
+On 40 disjoint IFEval prompts (Table~\ref{tab:temperature}), greedy decoding ($T=0$) never surfaced the substitution across 928 positions, whereas positive temperatures exposed it at $15.4\%$ ($T=0.4$), $34.1\%$ ($T=0.8$), and $67.0\%$ ($T=1.2$). On 36 prompts capped at 512 tokens ($T=0.8$, 8,351 positions), errors persisted through every length band (318/847 at 1--24; 752/2,109 at 25--96; 1,051/3,225 at 97--256; 594/2,170 at 257--512; within-response 25--96 to 97--256 change $-4.69$\,pp, 95\% CI $[-13.04, 3.10]$). Auditing all 12 non-yanked PyPI wheels from 0.30.0 through 0.32.2 against our 1-position minimal regression showed 0.30.0--0.30.5 passed and all eight releases starting with 0.30.6 (immediately following PR~\#829 merged Feb.\ 3, 2026~\cite{change}) failed \texttt{sample-outside-candidates} while passing the candidate-free and first-candidate controls.
+
+\begin{table}[t]
+\centering
+\caption{Temperature sensitivity across 40 disjoint IFEval prompts (4 stochastic draws per prompt at $T>0$).}
 \label{tab:temperature}
+\footnotesize
 \begin{tabular}{@{}rrrrrr@{}}\toprule
-Temperature & Draws & Positions & Wrong ID & ID outside five & Changed text /40\\\midrule
+Temperature & Draws & Positions & Wrong ID & ID outside five & Changed best /40\\\midrule
 0 & 40 & 928 & 0 & 0 & ---\\
 0.4 & 160 & 3,720 & 573 & 49 & 6\\
 0.8 & 160 & 3,641 & 1,240 & 442 & 14\\
@@ -103,237 +196,190 @@ Temperature & Draws & Positions & Wrong ID & ID outside five & Changed text /40\
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:temperature} shows when the error becomes observable. Greedy generation always selected the first candidate on this panel. At temperature 0.8 the ID error frequency was 34.1\%, close to the original 35.5\% on disjoint prompts. At 1.2 it reached 67.0\%. The unit for comparing final choices is a question, with the same four draws supplied to both ranking rules. Thus a larger fraction of misreported positions need not cause more questions to change winners. The paired comparisons concern the entire output, which can change with temperature.
+\subsection{Live Cross-Architecture Hardened-Patch Audit}
+Using the open HTTP adapter (\texttt{tokenreceipt\_audit.py}) against live MLX-LM 0.32.2 HTTP processes under identical 4-prompt protocols (64 positions per width arm, $k=5$ and $k=1$ vs.\ $k=0$ oracle and streaming controls), both \texttt{SmolLM2-135M} and \texttt{Qwen2.5-3B-Instruct-4bit} (\texttt{GREEN} pressure level 1, KV caching disabled) reproduced stock failure and patched repair cleanly:
+\begin{itemize}
+\item \textbf{SmolLM2-135M:} Stock failed \textsc{I1} at 13/64 ($w=5$, 4/4 requests) and 20/64 ($w=1$, 4/4 requests), and \textsc{I2} at 12/64 ($w=5$) and 19/64 ($w=1$); the hardened patch passed 64/64 on \textsc{I1}, \textsc{I2}, and \textsc{I3} at both widths.
+\item \textbf{Qwen2.5-3B-Instruct-4bit:} Stock failed \textsc{I1} and \textsc{I2} at 4/64 ($w=5$, 3/4 requests) and 6/64 ($w=1$, 3/4 requests); the hardened patch passed \textbf{64/64 across \textmd{\textsc{I1}}, \textmd{\textsc{I2}}, and \textmd{\textsc{I3}}} at both widths, preserving identical generated text across $k=0$ and $k>0$ on all four prompts.
+\end{itemize}
+Across both models and server builds, \textsc{I5} flagged 64/64 width-5 positions because MLX-LM's streaming path omitted log-probability metadata (matching PR~\#1630~\cite{mlxstream}), demonstrating how \textsc{I1}--\textsc{I5} isolate streaming omission separately from serialization substitution.
 
-\paragraph{Later positions in naturally terminating answers.}
-We drew 36 unused IFEval prompts by a fixed hash. At temperature 0.8 we increased the cap to 512 tokens. Five responses reached the cap and 31 stopped naturally. At positions 1--24, 318 of 847 IDs differed. The counts were 752/2,109 at 25--96, 1,051/3,225 at 97--256 and 594/2,170 at 257--512. The same-event candidate-free records agreed at all 8,351 positions. Among the 26 responses reaching token 97, the prespecified within-response change from the first band to positions 97--256 was $-4.69$ percentage points (95\% prompt bootstrap $[-13.04,3.10]$). The defect persists into long answers. The paired interval leaves the depth trend unresolved.
+\subsection{Independent Engines and CTranslate2 Batch Leakage}
+Across four independent architectures, \textsc{I1}--\textsc{I5} separate distinct defect mechanisms (Table~\ref{tab:crosschecks}):
+\begin{enumerate}
+\item \textbf{\texttt{llama.cpp} b12359 (\texttt{b1b770d9})~\cite{llama}:} Across 12 IFEval prompts (280 emitted positions), $k=1,5$ emitted 277 probability rows; all 277 matched independent \texttt{libllama} forward scores ($<0.00027$~nats max error) with zero substitutions (\textsc{I1}--\textsc{I2} pass). Three positions in one response (key 1582) contained 2-byte UTF-8 prefixes that buffered until character completion, omitting 3 probability rows---reproducing MURPHY~\cite{murphy} and caught by \textsc{I3}.
+\item \textbf{\texttt{mistral.rs} v0.9.5~\cite{mistralrs}:} Across 12 prompts (96 positions, 88 uniquely witnessed), non-streaming retained accurate scores ($\le 0.00953$~nats) yet replaced multi-token Vietnamese UTF-8 byte fragments with \texttt{EF BF BD} (\texttt{U+FFFD}) on 4 positions, whereas streaming kept canonical bytes. On $12\times 7=84$ FLORES-200 translations~\cite{flores} (1,336 aligned positions), non-streaming corrupted 708 positions across 359 characters on all 72 non-English pairs and 0/12 English pairs; streaming preserved every byte (caught by \textsc{I4}, \textsc{I5}).
+\item \textbf{vLLM 0.34.0 \& SGLang 0.5.23 builders~\cite{vllm,sglangrel}:} Exercising released non-streaming formatters on 48 synthetic fixture calls (72 observations including outside-list samples and display collisions) preserved all outer pairs and row counts; SGLang legitimately omitted off-top sampled IDs from candidate lists (4/6 at $k=1$, 3/6 at $k=5$).
+\item \textbf{CTranslate2 4.9.0~\cite{ct2heldout}:} In our prospective CPU singleton study (6 prompts, 30 calls/path, 360 positions/path), all batch callbacks and streams matched full-prefix log-softmax within $7.27\times 10^{-5}$~nats, while confirming a documentation/interface mismatch: callbacks document ``log probabilities'' yet return unnormalized logits ($19.300$ vs.\ $-1.754$ for ID 253, reversing 5/12 pairwise answer rankings and flagged by \textsc{I2}). Inspecting \texttt{src/decoding.cc} (Fig.~\ref{lst:bugs}b) exposed a shared \texttt{std::move(logits\_orig)} across batch items: first verified on duplicated pairs (4/8 empty $0V$ callbacks, 4/8 $2V$ callbacks), we constructed two \textbf{distinct-prompt} batch sub-panels:
+  \begin{itemize}
+  \item \emph{Sub-panel A (equal-length pairs, 6 pairs $\times$ 8 steps = 48 item steps):} Across all 24/24 item-0 callbacks, item 0 received a $2\times 49{,}152$ tensor whose row 0 matched item 0's final vector (0.0 max diff) and \textbf{row 1 leaked item 1's distinct final logits} (0.0 max diff; $\ge 13.96$ min row0-vs-row1 divergence). Simultaneously, all 24/24 item-1 callbacks received NULL storage raising \texttt{np.asarray} errors (\textsc{I3} fail 48/48). Splitting the batch into singletons restored 48/48 valid single-row tensors (\textsc{I3} pass 48/48).
+  \item \emph{Sub-panel B (unequal-length pairs, 4 joint vs.\ split calls):} Joint batching shifted the longer item's step callback emission by $[1, 1, 2, 2]$ masked prefix-padding steps, whereas batch splitting yielded $[0, 0, 0, 0]$ offsets.
+  \end{itemize}
+\end{enumerate}
 
-\subsection{Tracing the change across published versions}
-We reduced the opening example to a single sampled position suitable for a CPU-only regression test. We pass its selected ID, score, and five original alternatives to the released serializer method with a minimal non-streaming handler state. A second position from the same response serves as a chance-agreement control: the sampler actually chose the first candidate there. The test executes the unmodified method body without model weights, Metal, or HTTP. It fails when the candidate-visible pair changes, even if the five alternatives themselves are intact. Wrapping either of the two live-tested methods with the repair makes both cases pass.
-
-We froze the inputs and release interval before testing additional versions. We included every non-yanked final PyPI release from 0.30.0 through 0.32.2, spanning the preceding minor line and both live-tested releases. We verified all twelve wheels against their published SHA-256 digests and extracted six distinct serializer bodies. Four releases, ending at 0.30.5, reported the sampled pair in parallel arrays and returned the correct values on both cases. The next eight releases, beginning with 0.30.6, produced per-position objects and all substituted the first candidate on the outside-list case. Every version preserved the selected pair when the candidates were suppressed and passed the first-candidate control. No release in the interval had an unresolved result.
-
-The corresponding upstream change, merged on February 3, 2026, replaced the parallel arrays with the new chat response format and introduced the copy of the first candidate~\cite{change}. The first affected wheel in the interval was published on February 4, and the eighth on October 16. This result dates one regression in public software. The number of releases provides neither a count of distinct defects nor a count of affected installations.
-
-\subsection{An independent engine separates substitution from omission}
-We repeated the test on the first twelve public prompts in their already frozen order with an independent implementation, llama.cpp~\cite{llama}. This holds out an engine, reusing prompts deliberately. We used the official macOS binary b12359, commit \texttt{b1b770d9}, and an F16 GGUF conversion of the same checkpoint. The native non-streaming completion API received the engine's templated prompt IDs, a fixed seed, temperature 0.8, and a 24-position limit. The native sampler settings and score-disabled response format differ from MLX. We made three calls per prompt, requesting zero, one, or five probabilities. A native array contains the selected IDs independently of probability-row construction. In a second process, we fed those IDs in order into libllama, took the full logits vector at each prefix, and computed the raw log-softmax at the selected ID. This shares the engine's model kernels but bypasses its sampling and probability formatting. We fixed a tolerance of 0.002 nats before running the test.
-
-All twelve native ID sequences agreed across widths, for 280 sampled positions per setting. The zero-width response correctly omitted probability metadata. Both positive widths emitted 277 probability rows. Their selected IDs matched the native array under a unique ordered alignment. We independently reconstructed buffer completion from the native token bytes on the unequal-length response, verifying that alignment without consulting the reported IDs. All 277 scores agreed with the independent forward computation at each width, with maximum absolute discrepancy below 0.00027 nats. On those very rows, substituting the first candidate would have assigned the wrong ID at 89 of 277 positions. Giving a client the actual selected ID still left it without a score at 89 of 277 lists at width one and 18 at width five.
-
-The three missing positions occurred in a single response (key 1582). Each contained the same two-byte prefix of a three-byte UTF-8 character. The engine saved the first sampled ID to its native array, buffered the incomplete bytes, then attached the complete character bytes to the probability row for the final byte. Three token IDs therefore had no corresponding row. Including those omissions, the five-candidate lookup abstained at 21/280 positions. A prior report by Kim describes this UTF-8 buffering mechanism in llama.cpp~\cite{murphy}. We independently reproduce that omission. The same engine preserves the selected ID on all aligned rows. A length check catches the incomplete response in llama.cpp and passes on all 64 affected MLX responses.
-
-\subsection{A correct score can accompany damaged token bytes}
-We tested the same 12 public prompts through a third inference engine, the published mistral.rs v0.9.5 server~\cite{mistralrs}. We observed its HTTP responses without instrumenting its Rust sampler. For stochastic generation we limited sampling to the four highest-scoring tokens, capped responses at eight positions, and reconstructed eligible token paths using an independent PyTorch forward pass and the visible response. We required a unique compatible path before judging identity or numeric error. In the width-five stochastic arm 11 of 12 responses admitted a unique witness (88 of 96 positions). The remaining response admitted multiple paths. We compared against the temperature-scaled full-vocabulary log-softmax before top-four truncation. All 88 reported scores agreed within the prespecified 0.02 nats (maximum error 0.00953). A first-candidate substitution would have misidentified 30 of those positions.
-
-One ordinary Vietnamese response split each of two characters into two tokens. The first pair carried bytes \texttt{E1 BB} and \texttt{87} and the second \texttt{E1 BB} and \texttt{A5}. At all four positions the non-streaming API instead attached \texttt{EF BF BD}, the UTF-8 encoding of the replacement character. Three forced partial-byte controls reproduced the problem; three valid controls, including a token genuinely encoding the replacement character, retained the correct bytes. We then repeated all 12 stochastic requests with the same settings using streamed output. All 96 displayed token labels and reported scores matched the corresponding non-streaming records. The four differing byte arrays now contained the witnessed bytes. The mismatch concerns the byte field accompanying a selected score. We observed no evidence of assigning another token's score on the witnessed mistral.rs positions.
-
-To test transfer beyond this one response, we fixed 12 hash-ranked parallel FLORES-200 devtest sentences and seven language strata before acquiring new outputs. For each prefix the server continued the text with ordinary top-four sampling, a fixed seed and a 16-token limit. Matching both transport modes yielded 84 paired responses and 1,336 aligned positions after excluding two streaming omissions of terminal EOS. All labels and scores agreed within the protocol tolerance. At 708 positions, non-streaming returned the replacement-character bytes for a piece of a completed character recoverable from the stream. These substitutions affected 359 completed characters across all 72 non-English responses (Vietnamese, Arabic, Hindi, Japanese, Chinese and Thai) and none of the 12 English responses. Script classification used the generated bytes, not just the language of the prompt. The strongest direct transport check reconstructs complete characters; 22 responses also had an incomplete trailing UTF-8 sequence at the generation limit, which we excluded from that count.
-
-For the first two sentences in each language, independent PyTorch replay yielded unique compatible paths in 11 of the 14 cases. Of 176 witnessed positions, 85 non-streaming byte arrays and zero streamed arrays disagreed with the canonical bytes. Both modes retained the correct display labels and numeric scores within tolerance on all 176. Three responses with incomplete trailing bytes admitted no witness. These aligned translations share 12 source meanings and the language strata were chosen to probe byte boundaries; 72/84 is a property of that panel and model, not a traffic-weighted incidence estimate~\cite{flores}.
-
-\subsection{Independent response builders}
-Released non-streaming builders for vLLM 0.34.0 and SGLang 0.5.23 formatted four synthetic sequences with known IDs, scores and ranks. The fixtures include a repeated ID, a sample outside the top five, and distinct IDs with the same display. Across 48 responses (72 position observations across settings), both preserved selected scores and row counts. Plain text left identity ambiguous in three of 18 positions per implementation; ID-bearing forms resolved them. Injected ID substitutions, omissions and score-only errors triggered the corresponding checks. At widths one and five, vLLM included the sampled ID in all six ID-mode positions. SGLang retained the correct outer pair while including it in only two and three lists, respectively~\cite{vllm,sglangrel}. Requiring every list to contain the sample would reject valid responses.
-
-\subsection{Prospective test at a native generation interface}
-We fixed the CTranslate2 4.9.0 protocol before reading its result assembly or running the engine~\cite{ct2heldout}. Six prompts used SmolLM2-135M-Instruct on CPU with a 12-token cap. Unrestricted sampling at temperature 1 and top-five sampling at 0.7 each used two seeds. A greedy control completed the 30 calls per path. All 360 selected scores per path matched a full-prefix log-softmax (maximum error $7.27\times10^{-5}$ nats), including 142 off-first draws among 288 stochastic positions. Batch callbacks also agreed with their same-step vocabulary vectors. The stream forwards its callback. A separate same-call decoder trace confirmed the next input for 11 of 12 emitted IDs, eight off-first. The capped final ID has no next-input witness.
-
-Batch-option and callback documentation describe vocabulary entries as log probabilities. The final result calls them logits, as the implementer had clarified~\cite{ct2origin}. For sampled ID 253 the selected log probability was $-1.754$ and its vector entry $19.300$. Log-softmax recovered the selected score within $0.00004$ nats. Ranking two fixed answers by mean unnormalized entries changed five of twelve winners, without ties.
-
-Table~\ref{tab:crosschecks} compares the access each check needed. We tested callback coverage after seeing that the decoder moves the joint tensor inside its per-item loop. Two identical prompts generated two greedy steps per item. We repeated the test with another duplicated prompt under top-five sampling. At every step the first callback received a $2\times49{,}152$ tensor and the second an empty field. All eight IDs, pieces and selected scores agreed with the final results. Each final item had a full vector, and splitting the batch restored one vector per callback. Earlier reports concern final hypothesis output under beam search~\cite{ct2beam}.
-
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
-\caption{Retrospective comparison on matched frozen records from independent engines. Each row has its own target and denominator. An exact-prefix forward checks the score conditional on an ID. A reconstructed path is used only when unique.}
+\setlength{\tabcolsep}{3.5pt}
+\caption{Unified cross-engine contract matrix under \textsc{I1}--\textsc{I5} (\texttt{tools/tokenreceipt\_audit.py} and \texttt{comparison/}). Simple structural checks miss value swaps; invariant checks localize exact fault mechanisms.}
 \label{tab:crosschecks}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.185\linewidth}>{\raggedright\arraybackslash}p{.302\linewidth}>{\raggedright\arraybackslash}p{.436\linewidth}@{}}\toprule
-Target & Simple check & Added evidence and remaining limits\\\midrule
-llama.cpp probability rows (width five) & Row count flags 1/12 responses. The other 11 pass. & Alignment locates all three omissions. Prefix replay verifies the 277 present scores. ID plus five candidates recovers 259/280 scores.\\\addlinespace[3pt]
-mistral.rs byte labels & A UTF-8 replacement sequence anywhere in the row flags 85/85 errors, with zero false alarms on the witnessed subset. Whole-row equality misses five. & Unique paths verify the 85 non-streamed byte errors, their correct streamed counterparts and all 176 scores per mode. Three of 14 response pairs (48 positions per mode) lack a witness.\\\addlinespace[3pt]
-CTranslate2 callback vectors & Nonempty storage flags 4/8 joint callbacks. Requiring one vocabulary row flags 8/8, with 0/8 alarms after splitting. & All eight final vectors are available after the call. Duplicate inputs yielded identical rows, so these values cannot establish row order.\\\addlinespace[3pt]
-CTranslate2 copied score control & Text, counts and vector size accept the single injected error. & The final aggregate flags the draw. Same-step log-softmax locates and recovers the scalar within tolerance. All 360 clean batch scores pass.\\\bottomrule
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.22\linewidth}>{\raggedright\arraybackslash}p{.13\linewidth}>{\raggedright\arraybackslash}p{.24\linewidth}>{\raggedright\arraybackslash}p{.33\linewidth}@{}}\toprule
+Engine \& Arm & Failing Inv. & Naive Check Outcome & Diagnostic Evidence \& Scope\\\midrule
+MLX-LM 0.32.2 ($k>0$) & \textsc{I1}, \textsc{I2} & Row counts 64/64 pass & Swaps outer pair (528/1,488 SmolLM2; 4/64 live Qwen3B); patch $\to$ 0/64\\
+llama.cpp b12359 ($k=5$) & \textsc{I3} & 277/277 scores pass $<0.0003$ & Flags 1/12 row shortage; alignment isolates 3 UTF-8 buffered omissions\\
+mistral.rs v0.9.5 & \textsc{I4}, \textsc{I5} & Displayed strings \& scores pass & 85/176 witnessed \& 708 FLORES non-stream \texttt{U+FFFD} bytes (0 in stream)\\
+CT2 4.9.0 (logits doc) & \textsc{I2} & Row count \& text pass & Flags positive unnormalized logits (19.300) mislabeled as logprobs\\
+CT2 4.9.0 (distinct batch) & \textsc{I3} & Final vectors \& scores pass & Equal-len 24/24 item-0 $2V$ cross-row leak / item-1 NULL; uneq $[1,1,2,2]$ shift\\\bottomrule
 \end{tabular}
 \end{table}
 
-\section{RQ2. What can a client recover?}
-On the frozen outputs we compared each check at the access level a client or producer actually has. A response alarm states that at least one field is inconsistent. Localization names the position and field. Recovery must supply the value, including its score stage. The comparison is retrospective. The same executable checks extent, identity, score and bytes where an adapter supplies the corresponding observations and reference. Missing evidence yields an abstention. Table~\ref{tab:recover} reports the original MLX responses paired with the corrected outputs from the same calls.
+\section{RQ2: Client Recovery, Patch, and Impossibility Bounds}
+\label{sec:rq2}
+\subsection{Archival Recovery Across Four Information Tiers}
+Table~\ref{tab:recover} evaluates retrospective detection, localization, and score recovery on the 64 SmolLM2 IFEval responses paired with their same-event controls. Counting rows or comparing visible text detected $0/64$. Decoding the reported IDs with the engine tokenizer flagged all $64/64$ faulty responses with zero false alarms on controls, yet could not pinpoint scores. Re-encoding with stop conventions plus the candidate cutoff bound located $512/521$ wrong scores, leaving $227/1,488$ pairs unresolved (203 unlisted plus 1 length-mismatch abstention). Even supplying true IDs left $204/1,488$ exact scores unrecoverable from top-five lists alone, whereas the same-event oracle restored all 1,488 pairs. Outside MLX, feeding true IDs and returned candidates into SkyRL's \texttt{build\_logprobs\_content}~\cite{skyrl} returned exact scores at $127/144$ positions ($k=5$) and triggered its floor fallback at $17/144$ ($44/144$ at $k=1$); adding the sampled pair restored all 144.
 
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
-\caption{MLX checks on 64 faulty responses and 64 corrected controls. Columns count original responses flagged, wrong fields located (528 IDs, 521 scores), and recovered/unresolved pairs among 1,488 positions. For scores the two columns use exact lookup and then also the top-five cutoff. A dash marks a comparison outside the method or omitted from the analysis. All listed checks had zero false alarms on corrected controls and zero erroneous reconstructions.}
+\caption{MLX-LM recovery across 64 faulty IFEval responses (1,488 positions; 528 wrong IDs, 521 wrong scores) and 64 controls. Zero false alarms or erroneous reconstructions occurred on controls.}
 \label{tab:recover}
+\footnotesize
 \begin{tabular}{@{}lrrrrr@{}}\toprule
-Information used & Flagged & IDs & Scores & With cutoff & Pairs / unresolved\\\midrule
-Paired displays or row count & 0 & --- & --- & --- & ---\\
+Information used & Flagged /64 & Wrong IDs & Scores (exact) & Scores (+cutoff) & Pairs rec. / unres.\\\midrule
+Paired text or row count & 0 & --- & --- & --- & ---\\
 Render reported IDs & 64 & --- & --- & --- & ---\\
-Literal re-encoding + five & 59 & 503 & 301 & --- & 1,220 / 268\\
-Stop-aware re-encoding + five & 63 & 518 & 309 & 512 & 1,261 / 227\\
-Emitted ID + five & 64 & 528 & 317 & 521 & 1,284 / 204\\
+Literal re-encoding + top-5 & 59 & 503 & 301 & --- & 1,220 / 268\\
+Stop-aware re-encoding + top-5 & 63 & 518 & 309 & 512 & 1,261 / 227\\
+Emitted ID + top-5 & 64 & 528 & 317 & 521 & 1,284 / 204\\
 Same-event selected pair & 64 & 528 & 521 & --- & 1,488 / 0\\\bottomrule
 \end{tabular}
 \end{table}
 
-The original and corrected displays were identical, and all row counts matched usage. Rendering the reported IDs distinguished all affected responses from their controls. Literal decoding with special tokens retained also flagged four correct responses whose end token was hidden. Re-encoding proposes an ID for each position and looks up that ID's score. With the stop convention, one 24-token response re-encoded into 23 tokens, so the method abstained on all 24 positions. Another 203 scores were absent from the five candidates. The heuristic recovered complete score sequences for nine of 64 responses. After inspecting exact lookup, we also tested the bound used for archived rankings. If the ID is absent and the reported score exceeds the smallest genuine top-five score, that score cannot belong to the absent ID. Adding this bound to stop-aware lookup locates 512 of the 521 wrong scores, leaving nine unresolved. With the emitted ID the bound locates all 521, although 204 exact scores remain unavailable. On corrected controls it abstains on those 204 positions and raises no alarm. Only nine of the 64 controls receive a complete numerical verdict. The same-event check restores every score and distinguishes seven wrong IDs with equal scores.
+Applying the stop-aware detector unchanged to 520 new IFEval draws and 8,432 ARC-Easy draws detected $465/465$ and $6,666/6,697$ affected responses (31 misses swapped trailing newline and EOS) while flagging 4 controls due to one stripped leading space. We also generalized client recovery in \texttt{tools/wire\_recovery.py} to support arbitrary HuggingFace ByteLevel (e.g., Qwen2.5) and Metaspace tokenizers, explicit/inferred EOS IDs, any uniform width $k\ge 1$, and reasoning/tool-call exclusion (9/9 unit checks pass with the Qwen2.5 tokenizer; 8/8 with 1 optional skip when offline).
 
-We also exercised SkyRL's published \texttt{build\_logprobs\_content} function~\cite{skyrl}. We supplied the true ID and constructed its input map from the actual returned candidates on the twelve-prompt 0.31.3 stock run. At width five the native function returned the reference score at 127/144 positions and used its documented floor at 17. At width one it fell back at 44/144. Adding the native pair to the map restored all 144 values at both widths. This is an actual component call with reconstructed arguments. The fallback implements that component's policy. No SkyRL deployment was joined to the MLX service.
+\subsection{Hardened Source Patch}
+Our revised MLX-LM 0.32.2 patch restores the selected \texttt{id}, \texttt{token} string, and \texttt{logprob} directly from the passed \texttt{tokens} and \texttt{token\_logprobs} while preserving \texttt{top\_logprobs}. Hardening against silent schema edge cases expanded the offline patch test suite (\texttt{reproducibility/patch/verify.py}) to \textbf{11 targeted checks}: alongside the 8 core inclusion, exclusion, tied-score, stop-only, text-completion, and control checks, three defensive tests verify explicit \texttt{ValueError} on missing \texttt{token\_strings} (instead of silently falling back to wrong fields), preservation of empty candidate tuples, and strict length-mismatch failure. Live HTTP verification on 10 sequential and batched requests reduced selected-ID errors from $23/85$ to $0/85$.
 
-\paragraph{Repair at the point of information loss.}
-The handler can restore the token ID, vocabulary piece and score from the passed pair and request tokenizer, retaining the alternative list. After changing only these fields in the original objects, all 1,488 entries and all remaining response fields matched the repaired HTTP objects. This local repair needs no further inference.
+\subsection{Interval Bounds, bfloat16 Anomaly, Counterexample, and Re-Query Limits}
+To rank four answers cleanly from archives without raw model access, clients assign $[-\infty, \min A_{t,k}]$ to unlisted IDs and check interval separation. Note two pitfalls: (1) summing $\exp(g)$ over bfloat16-rounded top-5 entries exceeded $1.0$ on $34,674/69,997$ ARC rows (max 1.130; reproduced via FP32-to-bfloat16 rounding on 46/108 forward checks), making probability-mass remainder bounds unsound; (2) conservatively allowing compatible alternative token segmentations via dynamic programming certified $0/2,108$ ARC winners and $1/80$ new IFEval winners (Table~\ref{tab:recovery}). Worse, archival indistinguishability is a structural limit: constructing two normalized distributions sharing top-5 masses $(64,52,43,35,28)/256$ while swapping unlisted masses $(13,9,7,4)/256$ vs.\ $(9,13,7,4)/256$ yields \textbf{four bitwise-identical complete MLX responses} whose winner flips from A to B even with true IDs supplied.
 
-
-Both live releases return correct scores to a raw HTTP client that enables log probabilities and omits the alternatives option. Some clients require the missing token-string field. Our 0.32.2 source patch preserves both the selected fields and alternatives. On ten live requests (eight sequential, two batched), the original substituted 23 of 85 candidate-bearing IDs. The patch restored all 85 IDs, pieces and scores, including 11 outside the list, preserving all other fields in the same invocation. One request generated only a stop token. Fixtures also cover tied scores and an empty sequence.
-
-\subsection{Does a transcript check transfer, and can partial scores settle a ranking?}
-We applied the stop-aware detector, unchanged from the original 64 responses, to the new IFEval and ARC cohorts. On 520 new IFEval draws, it classified the original responses correctly (465 affected, 55 unaffected) but flagged three same-draw controls supplied with their correct IDs. Among 8,432 ARC draws, it detected 6,666 of 6,697 affected responses and correctly cleared all 1,735 unaffected originals. All 31 misses exchanged a final newline with the hidden end-of-turn ID. Dropping the special token during decoding gives identical visible text for both orders. Across the two cohorts, one more correct-ID control triggered an alarm on ARC. Each of the four control discrepancies was one leading space present in the decoded IDs and absent from the displayed text.
-
-\paragraph{Ranking without every score.}
-Give a client the true emitted ID at each position and a genuine top-five list. A listed score is exact at the reported precision. For an absent ID the lower bound is $-\infty$ and the upper bound is the smallest listed score. Average the bounds across positions. A lower bound that beats every competing upper bound, using the original tie rule, certifies a winner. This relies on the list containing the five largest values from the same vector. In 34,674/69,997 ARC rows, exponentiating and summing the five reported scores gave a value above one (maximum 1.130). Using leftover probability mass as a bound would be unsound. In a separate 108-position forward replay, the same logits gave excess mass in 46 positions with the native bfloat16 normalizer and zero in FP32. Rounding the FP32 normalizer back to bfloat16 reproduced the count. The replay matched 58/108 complete historical candidate maps, so this numerical comparison concerns the newly computed vectors.
-
-A constructive counterexample establishes that the ranking itself can be lost. Consider four one-token replies A through D to the same prompt. Two normalized distributions share the same top five, with masses $(64,52,43,35,28)/256$. The four sampled letters have masses $(13,9,7,4)/256$ in one distribution and $(9,13,7,4)/256$ in the other. Both spread the last $1/256$ across the remaining vocabulary. Four common uniform draws emit the same letters in each world. With the same request metadata, the released formatter returns four identical response objects across worlds, although A wins in one and B in the other. Even supplying the true IDs leaves these two answers indistinguishable from the archived fields. This is an existence result, separate from the number of actual questions on which a particular procedure abstains.
-
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
-\caption{Four-answer rankings resolved by the information available to a client. Cells show \emph{issued / previously wrong winners corrected}. Issued rankings had zero observed errors in every cell. IFEval development uses three temperatures on the same 40 prompts. New IFEval uses 80 disjoint prompts at temperature 0.8.}
+\caption{Four-answer rankings certified across client information tiers (\emph{issued / previously wrong winners corrected}).}
 \label{tab:recovery}
+\footnotesize
 \begin{tabular}{@{}lrrr@{}}\toprule
-Client input and method & ARC (2,108) & IFEval (120) & New IFEval (80)\\\midrule
-Renderer-compatible bounds & 0 / 0 & 2 / 0 & 1 / 1\\
-Canonical re-encoding & 1,954 / 771 & 45 / 8 & 24 / 6\\
-True sampled IDs supplied & 2,061 / 818 & 48 / 8 & 24 / 6\\
+Client input & ARC-Easy (2,108) & IFEval dev (120) & New IFEval (80)\\\midrule
+Renderer-compatible DP bounds & 0 / 0 & 2 / 0 & 1 / 1\\
+Canonical re-encoding + top-5 & 1,954 / 771 & 45 / 8 & 24 / 6\\
+True sampled IDs + top-5 & 2,061 / 818 & 48 / 8 & 24 / 6\\
 Original reported winner differs & 846 & 32 & 26\\\bottomrule
 \end{tabular}
 \end{table}
 
-An ordinary archival client lacks the true IDs. Our heuristic re-encodes the transcript, restores a terminal ID on stop, and applies the score bounds if the counts match. A conservative client instead uses dynamic programming over an overapproximation of token sequences compatible with the displayed bytes and row count. The stock renderer may drop one initial space. On an EOS stop, the last token contributes a score but its text and any pending suffix are hidden. On a length finish, the renderer flushes the last row. A visible replacement character gives an unrestricted interval. The original request and configuration must establish the pinned SmolLM2 tokenizer, stock plain-text rendering with EOS ID 2 as the only stop, complete aligned rows and five genuine top scores. Custom stops, hidden reasoning and tools fall outside this contract. The response alone cannot establish those settings. The evaluator gives neither client the sampled trace. In an independent path audit 9,220 witnessed sequences were represented explicitly and 12 received unrestricted bounds. Every native mean lay in its interval. Under this approximation an abstention can also reflect a loose bound. Table~\ref{tab:recovery} shows why empirical agreement and a guaranteed choice need separate reporting. The canonical heuristic was effective on short ARC answers. Accounting for alternative segmentations there certified no winner. On the new prompts, only one winner was established this way.
+Re-querying an unpatched stock server with $k=0$ and identical seeds (156\,ms median latency) resolved 76/80 rankings, yet execution history broke determinism: across 1,280 controlled repeats, reversing request order changed 14/320 score sequences under default prompt caching (0/320 when disabled in both passes), and disabling cache mid-run changed 238/320. On 256 new seeded stress repeats (64 disjoint prompts, Table~\ref{tab:repeat}), adding a per-position consistency check against archived top-5 cutoffs rejected all 32 score-drifted repeats that passed naive text/row-count equality---though the two-distribution counterexample proves even re-query checks cannot detect unlisted score swaps when emitted text repeats identically.
 
-\paragraph{Re-querying a live service.}
-A fresh stock process repeated all 320 requests from the 80 new IFEval groups in reverse order with their original seeds, omitting alternatives. We ranked by mean selected-token score, including emitted stop rows, with ties resolved by draw index. The client required matching text, finish reason and counts of probability rows and completion tokens. No interleaved shifted-seed control passed (0/320). With the original seeds, 306/320 passed. All 306 had the original IDs and 302 had the exact score sequence. The client issued a ranking only if all four responses passed. It issued 76/80 rankings, all correct, including 24 that corrected the original reported winner. A repeat cost a median 156\,ms per call on this machine.
-
-To test the role of execution history, four further fresh processes crossed forward/reverse order with default/disabled prompt-cache reuse. All 1,280 requests retained their seeds and omitted alternatives, with no interleaved shifted seeds. At the default setting, reversing order changed ten ID sequences and fourteen score sequences out of 320. With reuse disabled in both runs, all 320 sequences and scores agreed across orders. With default reuse and the original order, the stock server reproduced all 320 original ID and score sequences. Disabling reuse only in the later forward pass changed 197/320 ID sequences and 238/320 score sequences. The archived alternatives provide another check. For each position take the ID and score from the candidate-free repeat. If the ID appears in the archived top five, require its listed score exactly at wire precision. Otherwise require the repeat score to be at most the smallest archived candidate score. Reject the entire repeat at the first contradiction. This uses the tested MLX contract that the alternatives contain the genuine top five at the same score stage. Applied retrospectively, the rule caught all four mismatched scores among the 306 matching interleaved repeats, issuing 75 rankings instead of 76.
-
-We fixed this rule before collecting four draws on each of 64 further IFEval prompts disjoint from the four earlier IFEval panels. We repeated the 256 original requests from separate stock processes with fixed seeds (Table~\ref{tab:repeat}). Only the original sampler observation grades a repeat. All 32 additional rejections across the two stress conditions contradicted a listed score. Requiring equal cached-prompt token counts instead of checking scores still admitted four wrong score sequences in reverse order and issued no rankings there. All rankings issued by either tabled rule agreed with the original. The observed gain is the detection of incorrect scores. The two-distribution construction above also gives a limit: repeating the same four IDs with the second distribution passes all four candidate checks and changes the winner from A to B.
-
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
-\caption{Repeating 256 requests on 64 disjoint prompts. ``Visible'' requires equal text, finish reason, row counts and completion-token counts. ``+ top five'' also checks the original candidates. Wrong counts accepted requests with any score different from its same-event witness. Each ranking requires four accepted requests.}
+\caption{Live seeded $k=0$ re-queries across 256 requests (64 disjoint prompts). ``+ top five'' checks archived candidate bounds.}
 \label{tab:repeat}
+\footnotesize
 \begin{tabular}{@{}lrrrrrr@{}}\toprule
-& \multicolumn{3}{c}{Visible} & \multicolumn{3}{c}{+ top five}\\
-Order and cache & Accepted & Wrong & Rankings & Accepted & Wrong & Rankings\\\midrule
+& \multicolumn{3}{c}{Visible match} & \multicolumn{3}{c}{Visible + top five}\\
+Order and KV cache & Accepted & Wrong score & Rankings & Accepted & Wrong score & Rankings\\\midrule
 Forward, default & 256 & 0 & 64 & 256 & 0 & 64\\
 Reverse, default & 238 & 6 & 58 & 232 & 0 & 58\\
 Forward, disabled & 90 & 26 & 17 & 64 & 0 & 16\\\bottomrule
 \end{tabular}
 \end{table}
 
-\section{RQ3. What reaches consumers?}
-\subsection{An evaluation framework retains the substituted scores}
-We replayed each original and repaired object through OpenAI's Python SDK 2.50.0 using a local HTTP transport. We then ran Inspect AI's unmodified OpenAI choice parser and Gemini-format output bridge from commit \texttt{8379140f}~\cite{inspect}. The second conversion emits chosen-token strings and scores as well as an average log probability. We compare those strings to the checkpoint's vocabulary strings for the sampled IDs and each mean to the mean of the sampled raw scores. This uses real consumer code with saved server outputs. No request goes to a Gemini model, and no generation is repeated.
+\section{RQ3: Downstream Impact on Consumers}
+\label{sec:rq3}
+\subsection{Confidence-Based Routing, Calibration Paradox, and Inspect AI (Qwen2.5-3B)}
+Confidence routers accept local answers whose mean token probability clears a threshold $\tau$ and escalate uncertain items~\cite{geifman2017selective,omlxuser}. On ARC-Challenge test items with four-bit \texttt{Qwen2.5-3B-Instruct} (\texttt{GREEN} pressure level 1), we fixed a pilot ($N=100$, 4,008 positions, 634 wrong IDs, $75.0\%$ accuracy) to freeze Youden ($\tau_J=0.6249$) and precision-targeted ($\tau_{85}=0.6657$; note pilot $\tau_{90}$ collapsed to $\tau_{85}$ since empirical pilot precision capped at $82.5\%$) thresholds before running a disjoint confirmation cohort ($N=250$, 10,270 positions).
 
-All 128 inputs parsed. Every returned transcript matched its paired input. The original inputs produced 528 wrong selected strings and 521 wrong scores downstream. For response $j$ with $n_j$ positions we measure
-\[
- D_j = \mathrm{avgLogprobs}_j - \frac{1}{n_j}\sum_{t=1}^{n_j}s_{jt}.
-\]
-All 64 values were positive, ranging from 0.016 to 1.792 nats. The median was 0.654 and the mean, weighting each response once, was 0.725. On the repaired inputs every string, score, and mean matched the reference exactly. The signed effect is measured on this corpus. Membership among the top alternatives alone does not prove that every substitution must increase the score.
+In confirmation (250 items, 10,270 positions), stock $k=5$ substituted 1,607 IDs ($15.65\%$), 1,600 scores ($15.58\%$; 163 out-of-top-5, 7 equal-score swaps), inflating response mean log probabilities on $247/250$ items ($98.8\%$, mean $+0.1943$~nats). Model accuracy was $76.4\%$ (191/250, 59 wrong).
 
-\begin{figure}[htbp]
-\centering\includegraphics[width=.96\linewidth]{figures/prompt-results.pdf}
-\caption{Empirical cumulative counts across the same 64 public prompts. The left panel counts responses by their fraction of misidentified positions. The right panel counts responses by the increase in the mean log score read from the original Inspect conversion. The repaired arm has zero error in both panels.}
-\label{fig:prompt}
-\end{figure}
-
-
-DeepEval 4.3.4's released \texttt{GEval.measure}~\cite{gevalpkg} uses score-span search, candidate weighting and a default 0.5 threshold. We held 36 generated judge responses fixed (12 questions, three answers each) and corrected only their metadata. The 135M judge produced 222/1,205 misidentified positions. Eighteen paired evaluations returned identical zero grades and 18 failed in both arms before a decision. This consumer showed no observed decision change, with little discrimination between answers.
-
-\subsection{Choosing one answer from four}
-One practical use of the mean selected-token log probability is to rank multiple answers~\cite{bestofapi}. To measure whether a change in ranking affects correctness, we selected all ARC-Easy test questions with four options labeled A through D in that order and an answer key among them~\cite{arc}. Of 2,376 test items, 2,268 qualified. Before generating, we selected the first 160 hash-ranked IDs for a pilot. Each received four unrestricted SmolLM2 chat responses at temperature 0.8, with a 12-token cap and fixed distinct seeds. Both ranking rules scored the same responses over identical positions, including an emitted stop token. The rule chose the highest mean, breaking exact ties by draw index. A leading stand-alone answer letter was compared to the external key; other responses were scored incorrect. In the pilot 65/160 winners changed text. Native ranking answered 53 questions correctly versus 48 with the reported scores (15 versus 10 correct in only one arm).
-
-After observing the pilot we froze a confirmation on all 2,108 remaining eligible questions. On these disjoint inputs, \textbf{846 of 2,108} selected texts (40.1\%) changed; 673 parsed outcomes (A through D or invalid) differed. The first draw answered 435 questions correctly, reported-score ranking answered 446, and native-score ranking answered 470. Of the discordant questions, 163 favored native scores and 139 favored the reported scores. The paired difference of $+1.14$ percentage points has a question-bootstrap interval of $[-0.47,2.80]$ and a two-sided exact paired $p=0.186$. The observed choices changed frequently, yet their changes in correctness ran in both directions. These counts cover the eligible census under the prescribed seeds; resampling describes sensitivity to question composition.
-
-The result extends beyond equal-score ties or invalid answers. Among 1,306 questions with a unique best score in both arms, 511 selected different draws. Among 1,939 questions where both selected texts parsed, 146 were correct only under native ranking and 133 only under wire ranking. Overall, 1,095/8,432 draws failed the answer parser, including two empty replies generated by an immediate stop token. Both remained in the analysis. The parser scores the leading letter. In one photosynthesis item, two draws began with the correct letter B but described mechanical energy. Two other draws paired a letter with its listed option, A with electrical and B with light. The reported scores chose A and the native scores chose the latter B. In a post-hoc check we counted a letter as wrong if the rest of the answer uniquely reproduced a different complete option. This caught 601 explicit contradictions in 8,432 draws and left 447 versus 417 correct selections (157 versus 127 discordances, $p=0.085$). Partial or paraphrased explanations remain outside this check.
-
-A second analysis recomputed the means as exact fractions of the published score values. Across all 24 shared priorities for breaking ties, the number of changed texts ranged from 834 to 866 and the two-sided accuracy test had $p\geq0.169$. On 784 questions the sets of best texts were disjoint across arms, irrespective of tie resolution. On 627, even the sets of parsed outcomes were disjoint. Post-hoc text-only controls selected the first parseable answer or the most frequent parsed letter; they answered 501 and 495 questions correctly, respectively. Reliable probability reporting matters to consumers that rely on it. These counts provide no basis for choosing mean generation probability as the best question-answering rule.
-
-\paragraph{Checkpoint transfer on the identical questions.}
-Before any inference with the larger checkpoint, we fixed the same 160 pilot questions, prompts, four seeds and analysis for four-bit Qwen2.5-1.5B-Instruct on MLX-LM 0.32.2~\cite{qwenarc}. Of 1,927 sampled positions, 268 reported the wrong ID and 266 the wrong score. Changing which scores ranked the four answers changed 49/160 selected texts but only five parsed outcomes. Just three questions changed correctness: native ranking answered 136/160 correctly, wire ranking 137/160 (one native-only and two wire-only successes). The first draw also answered 136 correctly. Exact ties for best score occurred on 132 questions for native scores and 108 for wire scores. On these same questions, the smaller checkpoint changed 65 selected texts and 51 parsed answers. The two models therefore share the serialization fault, while the extent to which different texts also express different answers varies substantially.
-
-\subsection{Fixed-trace intervention on a real optimizer}
-The preceding experiments measure how completed responses are scored and selected. To isolate what would happen if a learner trusted that output, we use separate archived trajectories with an active learning signal. This experiment deliberately constrains the action space to the single-token answers A and B. Three seed-specific traces each contain 32 groups of four sampled answers to fixed labeled prompts. A keyed MLX service generated the answers. For every row the original HTTP body, native sampled token and model scores, and the learner record were linked. We preserve generation, row order, version checks, and the original group admission mask. Each arm starts from the same checkpoint. No arm resamples after parameters diverge.
-
-For a group of four, let $A_i$ be its centered correctness reward divided by its population standard deviation plus $10^{-8}$. Let $m_i$ be the original admission indicator and $r_i$ the ratio of the current selected action probability to its recorded old probability. The loss is the negative of
-\[
- \tfrac14\sum_i m_i\min\!\left(r_i A_i,\ \operatorname{clip}(r_i,0.8,1.2) A_i\right).
-\]
-We recompute the current two-action distribution at each optimizer step. Both candidate scores were recorded at generation time, so each old log probability uses the same two-action log normalizer. We run SGD with step size 0.05 on the 576 parameters of the final normalization layer, keeping the rest of the 135M checkpoint fixed. This group-relative, clipped objective follows established constructions~\cite{ppo,grpo}. An effective step is an observed change to the trainable parameters; nonzero derivatives on individual rows can cancel.
-
-We use the original sampled action, its own probability, and the text-derived reward as the reference. The second arm changes only the old score to the outer value. The third changes both the action used in the loss and its old score, retaining the original text reward. The fourth also recomputes correctness and group advantages from the reported action. The last three arms represent specific consumer choices. The 64-item held-out task is shared across seeds and arms.
-
-\begin{table}[htbp]
+\begin{table}[t]
 \centering
-\caption{Fixed-trace intervention. Each triple lists seeds 17, 41, 73 in that order. There are 32 candidate group steps per seed and 64 held-out prompts. Parameter distances are measured from the corresponding reference endpoint.}
-\label{tab:train}
-\begin{tabular}{@{}lrrr@{}}\toprule
-Fields trusted & Effective steps & Parameter distance ($L_2$) & Correct /64\\\midrule
-Emitted action and score, text reward & 16 / 16 / 16 & 0 / 0 / 0 & 31 / 31 / 31\\
-Outer old score only & 16 / 16 / 16 & .008 / .026 / .021 & 31 / 32 / 31\\
-Outer action and score, text reward & 3 / 2 / 0 & .193 / .157 / .173 & 36 / 36 / 36\\
-Outer action, score, and reward basis & 0 / 0 / 0 & .234 / .175 / .173 & 36 / 36 / 36\\\bottomrule
+\setlength{\tabcolsep}{2.8pt}
+\caption{Selective confidence routing on Qwen2.5-3B ARC-Challenge confirmation ($N=250$, 59 wrong answers) under Native vs.\ Buggy wire confidence. Flips are strictly one-directional (Escalate $\to$ Accept).}
+\label{tab:routing}
+\scriptsize
+\begin{tabular}{@{}lrrrrrrr@{}}\toprule
+Policy threshold $\tau$ & Nat.\ acc.\,(\%) & Bug.\ acc.\,(\%) & Flips (E$\to$A) & Routing $p$ & Nat.\ FA & Bug.\ FA & FA $\Delta$ / $p$\\\midrule
+$\tau_J = 0.625$ (Youden) & 57.6\% & 97.6\% & 100 / 0 & $<10^{-6}$ & 24/59 (40.7\%) & 56/59 (94.9\%) & $+54.2$\,pp / $<10^{-6}$\\
+$\tau_{85} = 0.666$ (Pilot) & 43.2\% & 90.0\% & 117 / 0 & $<10^{-6}$ & 16/59 (27.1\%) & 45/59 (76.3\%) & $+49.2$\,pp / $<10^{-6}$\\
+Fixed 0.70 & 33.2\% & 81.6\% & 121 / 0 & $<10^{-6}$ & 12/59 (20.3\%) & 40/59 (67.8\%) & $+47.5$\,pp / $<10^{-6}$\\
+Fixed 0.80 & 9.2\% & 34.8\% & 64 / 0 & $<10^{-6}$ & 4/59 (6.8\%) & 13/59 (22.0\%) & $+15.3$\,pp / $0.0039$\\
+Fixed 0.90 & 0.4\% & 4.0\% & 9 / 0 & $0.0039$ & 0/59 (0.0\%) & 2/59 (3.4\%) & $+3.4$\,pp / $0.500$\\\bottomrule
 \end{tabular}
 \end{table}
 
-The outer action disagreed with the sampled action on 53, 53, and 51 of the 128 rows in the three traces. The reference reproduced the original per-group update records and exact final parameter hash for each seed. Substituting the old score alone left the number of effective steps unchanged, yet all three endpoint hashes changed (Table~\ref{tab:train}). Assigning the text reward to the reported action reduced effective steps to three, two and zero. For seed 73, this arm had 64 nonzero row-level log-probability derivatives and zero effective group steps. Opposing credit on the same reported action can cancel in parameter space. Scoring and training the reported action yielded zero effective steps in every trace.
+Table~\ref{tab:routing} and Figure~\ref{fig:routing-geval} (left) show a severe operating-point breakdown. At $\tau_{85}=0.666$, wire inflation raised total acceptance from $43.2\%$ (108/250) to $90.0\%$ (225/250, 117 unilateral escalate-to-accept flips, McNemar $p<10^{-6}$) and nearly tripled wrong-answer false acceptances from \textbf{27.1\% (16/59) to 76.3\% (45/59, $+49.2$\,pp, $p<10^{-6}$)}. Similar unilateral surges held at $\tau_J$ ($+54.2$\,pp, $94.9\%$ false-accept), 0.70 ($+47.5$\,pp), and 0.80 ($6.8\% \to 22.0\%$, $p=0.0039$).
 
-One group illustrates what a test at the reward interface would see. In the first consumed group for seed 17 the emitted answers were A, B, A, A. The gold answer was B. The reference, score-only, and outer-action/text-reward arms received the same vector $(0,1,0,0)$, and all four answers passed the gate in all three arms. Only the second position was misidentified. Starting from identical weights, substituting its old score changed its log-probability derivative from $-0.43045$ to $-0.34917$ and the norm of the parameter step from 0.03891 to 0.03485. Training the reported action while retaining the text reward produced a parameter step of zero. No inspection confined to the reward vector or the admission mask could distinguish these three outcomes. The per-row derivative and parameter step supply different evidence even within one group.
+\paragraph{Calibration Paradox and Inspect AI Replay.}
+Paradoxically, global calibration scores \emph{appeared to improve}: because native Qwen2.5-3B predictions are under-confident relative to their $76.4\%$ accuracy, the positive wire bias reduced 10-bin ECE from 0.1250 to 0.0318 (diff $-0.0932$, 95\% bootstrap CI $[-0.1299,-0.0116]$) and Brier score from 0.1900 to 0.1731 (CI $[-0.0324,-0.0014]$), while ranking discrimination remained unchanged (AUROC $0.6344 \to 0.6374$, CI $[-0.0398,+0.0429]$; AURC $0.1847 \to 0.1796$). Engineers auditing only aggregate ECE~\cite{guo2017calibration} can misread systematic attribution inflation as better calibration while silently defeating safety escalation gates. Replaying both SmolLM2 IFEval and Qwen2.5-3B ARC-Challenge outputs through OpenAI SDK 2.50.0 and unmodified Inspect AI 0.3.277 (\texttt{8379140f}) propagated every substitution downstream: $+0.725$~nats mean bias on IFEval (Fig.~\ref{fig:prompt}) and all 1,607 tokens / 1,600 scores ($+0.1943$~nats) with 250/250 routing agreement across all six policies on ARC-Challenge, dropping to $0/0/0.0$ upon repair.
 
-The initial model already answered 36/64 held-out prompts correctly, compared with 31/64 after reference training. These data establish that incorrect metadata can alter the numerical update with the examples and admission decisions held fixed. They do not establish that correction increases task accuracy or that an existing production learner consumes these fields this way. The evaluation result above does establish propagation in a named, unmodified software path.
+\begin{figure}[t]
+\centering
+\includegraphics[width=.96\linewidth]{figures/prompt-results.pdf}
+\caption{Empirical cumulative counts on 64 IFEval responses (Inspect AI 0.3.277 consumer path). Repaired responses yield zero error in both panels.}
+\label{fig:prompt}
+\end{figure}
 
-\subsection{When the learner collects fresh actions after each update}
-The fixed trajectories isolate the first affected update but cannot measure how changed policies collect future examples. We therefore ran a synchronous online intervention. A frozen SmolLM2 backbone fed a trainable linear residual head over two legal next-token actions. Each arm sampled its own actions from its current head. Within a seed, arms shared training prompts and random uniforms. Each of 128 rounds sampled four actions per prompt for 16 prompts; binary correctness determined group-relative advantages. The reference used the actual action's old score. Each arm used its own sampled action and the reward for that draw, so subsequent actions could diverge after the first update. The fault arm took only the old score from the candidate-enabled MLX-LM 0.32.2 serializer at width one. A third arm recomputed the selected score from the collection-time snapshot. The study calls the released serializer on locally constructed policy outputs and uses a local clipped optimizer. It does not couple an external training library to the HTTP server.
+\begin{figure}[t]
+\centering
+\includegraphics[width=.98\linewidth]{figures/routing-geval.pdf}
+\caption{\textbf{Left:} Wrong-answer false-accept rates on Qwen2.5-3B ARC-Challenge ($N=250$, 59 wrong; McNemar ${}^{***}p<0.001$, ${}^{**}p=0.0039$). \textbf{Right:} DeepEval 4.3.4 \texttt{GEval.measure} ($N=94$ valid across Panels A/B); missing digit tokens bypass candidate probability weighting (yielding unweighted 0.5 or 1.0), flipping 6/94 cases across the 0.50 pass threshold ($\text{True} \to \text{False}$).}
+\label{fig:routing-geval}
+\end{figure}
 
-We first ran 12 paired seeds in each combination of two tasks and two temperatures. Each task had 384 held-out examples. SST-2~\cite{sst} used separate train and validation splits with exact duplicates removed; number comparison used disjoint training and evaluation ranges. We use the probability allocated to the correct action as expected accuracy for one sampled answer; greedy accuracy counts the argmax. At temperatures one and two, respectively, the fault changed mean held-out probability of a correct action by $-2.84$ and $+0.08$ percentage points on SST-2 and $-2.81$ and $-1.74$ on number comparison. All four seed-bootstrap intervals included zero. In every one of the 48 comparisons, some held-out greedy decisions changed. This establishes sensitivity of individual predictions across the four conditions. It leaves their average effects uncertain.
+\subsection{LLM-as-a-Judge Decision Flips (DeepEval 4.3.4 \texttt{GEval.measure})}
+DeepEval's \texttt{GEval.measure}~\cite{liu2023geval,gevalpkg} locates the score digit token in \texttt{logprobs.content}, computes a probability-weighted average over candidate scores, and falls back to the unweighted discrete integer score divided by 10 when span lookup fails; by default $\text{score} \ge 0.5$ passes. While an exploratory 135M judge returned degenerate zero/failed scores (36/36), evaluating \texttt{Qwen2.5-3B} across two held-fixed judge panels established concrete pass/fail reversals:
+\begin{itemize}
+\item \textbf{Panel A (36 cases, 35 valid, 2,286 positions):} 311 wrong IDs caused span-match lookup to fail under stock metadata (30/35 matched vs.\ 35/35 after repair), shifting 5/35 weighted scores (max $|\Delta|=0.2707$) and flipping \textbf{4/35 (11.4\%) pass decisions ($\text{True} \to \text{False}$)} where unweighted 0.5 fell to 0.229--0.409 once true digit weighting took effect.
+\item \textbf{Panel B (60 cases, 59 valid, 3,688 positions):} 486 wrong IDs broke span matching in 6/59 cases (53/59 $\to$ 59/59 repaired), shifting 6/59 weighted scores (max $|\Delta|=0.5032$) and flipping \textbf{2/59 (3.4\%) pass decisions ($\text{True} \to \text{False}$}: $1.0 \to 0.4968$ and $0.5 \to 0.2748$).
+\end{itemize}
+Pooled across all 94 valid parsed Qwen2.5-3B evaluations (Fig.~\ref{fig:routing-geval}, right), 11/94 ($11.7\%$) changed continuous grades and \textbf{6/94 (6.4\%) inverted binary pass/fail verdicts} without changing a single generated judge character.
 
-\begin{figure}[htbp]
-\centering\includegraphics[width=.95\linewidth]{figures/learning.pdf}
-\caption{Mean paired change in held-out probability of a correct action when training with the reported old score. Bars show 95\% bootstrap intervals across training seeds with the held-out items fixed. The bottom row uses 128 new seeds on the same split, analyzed independently of the first four rows.}
+\subsection{Best-of-Four Answer Selection (ARC-Easy)}
+On 2,108 confirmation ARC-Easy test items~\cite{arc} (disjoint from a 160-item pilot; 4 unrestricted SmolLM2 answers per prompt at $T=0.8$), ranking by reported vs.\ native mean log probability changed the winning response text on \textbf{846/2,108 questions (40.1\%)} and left best-score text sets disjoint across all 24 tie-breakers on 784 items. Accuracy changed slightly in both directions (470 native vs.\ 446 reported, 163 vs.\ 139 single-arm wins, $+1.14$\,pp, $p=0.186$), trailing simple text-only baselines (first parseable answer: 501), while a 160-question Qwen2.5-1.5B~\cite{qwenarc} transfer changed 49/160 texts (268/1,927 wrong IDs), 5 parsed letters, and 3 correctness outcomes (136 vs.\ 137). Score attribution reliably changes selection even when downstream accuracy sensitivity varies with model competence.
+
+\subsection{Causal Effects in Policy Optimization (SST-2)}
+To isolate consumer updates when a learner uses reported old log probabilities in clipped group-relative objectives~\cite{ppo,grpo}, we evaluated SmolLM2 with a trainable two-action (\texttt{A}/\texttt{B}) linear residual head over 128 confirmation training seeds ($T=1$, 384 deduplicated SST-2 held-out items~\cite{sst}, independent of a 48-seed exploratory scan; Fig.~\ref{fig:online}). Pairing prompts and sampling uniforms per seed while reading old scores from $k=1$ MLX-LM 0.32.2 (128 rounds $\times$ 16 prompts $\times$ 4 draws) reduced final expected held-out correctness from 72.15\% to 70.25\% (\textbf{$-1.90$\,pp}, 95\% seed CI $[-2.66, -1.16]$, crossed seed/item CI $[-2.81, -1.02]$). Greedy accuracy similarly fell by 2.19\,pp (from 73.22\% to 71.03\%, crossed CI $[-3.28, -1.12]$), while snapshot recomputation matched the reference bitwise across all 128 seeds. Auxiliary mechanistic probes confirmed causal parameter divergence: they shifted per-step parameter norms on fixed 576-parameter layer-norm traces (16/16/16 effective steps dropping to 3/2/0 and 0/0/0 under trusted outer actions; seed-17 row derivative $-0.43045$ to $-0.34917$) and altered 129 token denominators plus 2,756 of 15,872 sampled tokens in 2.43M-parameter two-block decoder updates (8 seeds; $+0.24$ vs.\ $+0.42$\,pp below the 3-point learning criterion).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.94\linewidth]{figures/learning.pdf}
+\caption{Mean paired change in held-out correctness probability when training with the reported old score ($k=1$). Bars show 95\% seed-bootstrap CIs; bottom row shows the 128-seed SST-2 confirmation.}
 \label{fig:online}
 \end{figure}
 
-We then froze a separate confirmation restricted to the original primary condition, SST-2 at temperature one. We used the same training and validation items with 128 new training seeds and analyzed this batch separately. The reference and fault arms increased mean held-out probability of a correct response from 49.91\% at initialization to 72.15\% and 70.25\%. The paired fault effect (Fig.~\ref{fig:online}) was $-1.90$ percentage points (95\% seed-bootstrap interval $[-2.66,-1.16]$). Independently resampling paired seeds and paired held-out items within each true class gave $[-2.81,-1.02]$. Greedy accuracy was 73.22\% versus 71.03\%, a $-2.19$ point effect (crossed interval $[-3.28,-1.12]$). Across all 128 confirmation seeds, recomputing the old score from the pinned collection snapshot reproduced the reference bitwise. These intervals condition on the chosen training data, model and optimizer. The result identifies a learning consequence for one restricted policy and task.
+\section{Related Work}
+\paragraph{Oracles, Differential/Metamorphic Testing, and ML Systems.}
+The oracle problem~\cite{barr} in stochastic and numerical software motivates differential~\cite{mckeeman} and metamorphic testing~\cite{segura,chenmt}. Prior software engineering research applied cross-backend differential and metamorphic fuzzing to deep-learning libraries and compilers---from DeepXplore~\cite{pei}, CRADLE~\cite{pham}, LEMON~\cite{wang2020lemon}, Audee~\cite{guo2020audee}, FreeFuzz~\cite{wei2022freefuzz}, and DeepRel~\cite{deng2022deeprel} to compiler generators NNSmith~\cite{liu2023nnsmith}, TitanFuzz~\cite{deng2023titanfuzz}, and WhiteFox~\cite{yang2024whitefox}---alongside empirical taxonomies of TensorFlow, DL framework, and compiler bugs~\cite{zhangtf,islam,humbatova,shen2021,zhangml}. Our contribution brings same-event metamorphic oracles to modern LLM serving APIs, testing semantic attribution between text, IDs, scores, and bytes rather than tensor crash or numerical layer parity.
 
-\subsection{Does the mechanism reach the decoder itself?}
-We used a new task in which two tokens classify two SST-2 reviews in order. Each token conditions on the previous one and chooses A or B. The optimizer now updates 2,433,024 original query and feed-forward down-projection weights in SmolLM2's final two decoder blocks. The frozen prefix is cached. At initialization and after a first update we checked both continuations against direct full-model forwards, with a maximum discrepancy of $1.31\times10^{-5}$ nats in the tested cells. The experiment runs the released formatter in process on the two allowed scores. The consumer retains the actual sampled actions and their reward while changing the source of the old score. A third arm recomputes the score from the original collection policy. Eight seeds each train for 32 rounds with common prompts and random draws, then evaluate on 96 held-out review pairs.
+\paragraph{Inference-Engine Correctness, Logprob Mismatches, and RL-TIM.}
+Liu et al.~\cite{liuinference} cataloged 929 inference-engine bugs and advocated cross-engine metamorphic checks; our work instantiates that vision at the token-receipt contract. UTF-8 Plumbing~\cite{utf8plumbing} and Ollama issue~\#13497~\cite{ollamabytes} traced ill-formed UTF-8 bytes in streaming decoders; public trackers documented string-key collisions~\cite{vllmreport}, speculative-decoding defaults~\cite{llamareport}, streaming first-position leakage~\cite{sgstream}, and streaming logprob drops~\cite{mlxstream}, while MURPHY~\cite{murphy} checked byte alignment and missing rows in \texttt{llama.cpp}. Meanwhile, training-inference mismatch (TIM) work---DiFR~\cite{difr}, Detent~\cite{detent}, Yao et al.~\cite{yao2025offpolicy}, VeXact~\cite{zhong2026vexact}, and ROCm \texttt{logprob-debug}~\cite{kang2026rocm}---focuses on \emph{kernel, precision, or batch-invariance numerical drift} between training and inference forward kernels, whereas Wang and Sang~\cite{censoring} isolate tool-parser trajectory censoring. Our work sits orthogonally along the \emph{interface-attribution vs.\ kernel-drift} axis: even with bitwise-identical forward kernels on the same sampling event, serving serializers, byte renderers, and batch callbacks corrupt token identity, score stage, or row ownership.
 
-All eight pairs started with the same actions and rewards. At the first update the substitution changed 129 token denominators attached to nonzero advantages and the trained weights diverged in all eight seed pairs. Subsequent sampling differed at 2,756/15,872 paired token positions. Recomputed and reference agreed in every saved trajectory array and every recorded hash of the trainable parameters. Held-out expected exact reward rose from 25.08\% to 25.32\% under reference and 25.51\% under substitution. Neither the reference gain (+0.24 points) nor the teacher-forced control (+0.42) reached the prespecified three-point learning criterion.
+\paragraph{Probabilities in Calibration, Selective Prediction, and Evaluation.}
+Expected calibration error~\cite{guo2017calibration}, selective abstention/routing~\cite{geifman2017selective}, LLM API drift monitoring~\cite{monitor}, first-token answer mismatches~\cite{firsttoken}, G-Eval scoring~\cite{liu2023geval,gevalpkg}, and real pipelines (INDRA~\cite{indra}, oMLX~\cite{omlx,omlxuser}, Inspect AI~\cite{inspect}) treat returned log probabilities as authentic measurements of the sampled tokens. Our Qwen2.5-3B routing paradox and DeepEval span-miss reversals show that serving-layer substitution breaks those assumptions silently and can even mask itself behind improved aggregate ECE.
 
-We then screened two longer schedules. Both trained on the original 256 pairs and were evaluated on 128 disjoint calibration pairs drawn from the official training split. Configuration A increased the number of rounds from 32 to 128, the batch from four to six prompts and the Adam learning rate from $10^{-4}$ to $3\times10^{-4}$. Configuration B also trained untied copies of the two action readout rows while keeping the input embeddings frozen. The teacher gained 2.88 and 3.20 points on 128 calibration pairs, respectively. The correctly scored online policies changed by $-0.16$ and $-0.07$ points (two seeds per setting). Each ended with the same greedy answer pair for all 128 prompts within a run. Neither configuration qualified for the prespecified independent fault comparison. We stopped with its 160 confirmation pairs unused. The decoder experiments establish a causal change to the updates and later actions. The performance loss in Figure~\ref{fig:online} applies to the separate learning-active, single-action sentiment policy.
+\section{Implications and Threats to Validity}
+\paragraph{Practical Guidance for Serving Engineers and Consumers.}
+Test API response formatters on a single off-candidate emitted draw (plus an equal-score different-ID draw) under toggled \texttt{top\_logprobs} on the identical captured draw. Check native batch callbacks explicitly for single-row element width ($\text{elements} = |V|$) and step alignment under unequal prompt lengths, normalize unnormalized engine logits explicitly, and run \texttt{tokenreceipt\_audit} before deploying confidence routers or LLM-as-a-Judge graders. When re-querying unpatched servers with $k=0$, verify against archived candidate cutoffs rather than text/length equality alone.
 
-\section{Related work}
-\paragraph{Testing stochastic systems.}
-A test oracle determines whether an observed execution satisfies a specified property~\cite{barr}. Metamorphic testing derives a relation between executions whose complete expected outputs are difficult to specify~\cite{segura}. Our width comparison is an instance of that method. Its application here requires specifying which consequence of a random draw must remain invariant, which score stage is being compared, and whether one is comparing the same draw. The second invocation of the native serializer supplies a local counterfactual even when two requests would sample different text. The separate forward pass in the llama.cpp test can additionally check the value of a score without reusing a previously formatted probability.
-
-\paragraph{Token and probability failures in serving.}
-Liu et al. classified 929 bugs in five inference engines. They proposed output checks such as length and Unicode validity, and reusing metamorphic relations across engines~\cite{liuinference}. Our comparison instantiates that proposal for the record of a sampled event and measures what each observation can establish. Kim's MURPHY checks counts, compares native streamed IDs to a non-streaming run, checks token bytes against the GGUF vocabulary and compares aligned scores across builds~\cite{murphy}. Table~\ref{tab:crosschecks} measures individual checks on our own records. The llama.cpp count result reproduces its buffering symptom. A comparison to a recorded emission additionally tests the association of a score with its selected ID, even when row counts and cross-build values agree. Public reports also document decoded-string key collisions and default-valued scores in speculative decoding~\cite{vllmreport,llamareport}. An SGLang report describes candidates from the first position copied to later positions in a streaming chunk~\cite{sgstream}. Our SGLang fixtures exercise the non-streaming formatter.
-
-Firestone et al.~\cite{utf8plumbing} characterized failures from decoding byte fragments separately and traced related buffering logic across serving engines. An earlier Ollama issue reported the specific symptom of replacement-character bytes in token-probability metadata~\cite{ollamabytes}. We credit this prior observation. Our cross-engine experiments distinguish a missing probability row from a present row with damaged bytes, and from an aligned row assigned to a different sampled token. Only the last mechanism explains the MLX probability shifts measured here.
-
-Karvonen et al.\ synchronize seeds with a trusted inference implementation to verify a stochastic model under numerical nondeterminism~\cite{difr}. Their method compares the inference itself to a reference. Our same-event test accepts the actual draw and checks how it is reported. The merged oMLX implementation checks chat results against a direct forward pass on fixed IDs~\cite{omlx}. An earlier proposal described confidence-based routing as a use for the fields~\cite{omlxproposal}. An MLX-LM streaming report describes a confidence-based routing application that reads these fields~\cite{mlxstream}. INDRA's shipped greedy restriction and its archived probe are evidence of real use~\cite{indra}. We recomputed the published label-margin analysis on 5,371 records covering 1,689 statement identifiers. The archive retains the two label scores and the verdict, without a native sampled-pair trace. It therefore supplies no estimate of historical decisions changed by this defect. Wang et al.\ showed that first-token probability rankings can disagree with a model's textual answer even under a correct reporting interface~\cite{firsttoken}. Our answer comparisons hold the four generated responses fixed. Wang and Sang isolate a different interface error: a tool parser loses calls present in the model output and alters training trajectories~\cite{censoring}. Detent reproduces seeded generations across batch and cache splits by fixing kernel choices~\cite{detent}. Our client checks what an archived response can establish when the repeat runs on an unchanged stock server.
-
-\paragraph{Using probabilities as measurements.}
-Chauvin et al.\ use the variability of log probabilities to track API behavior over time~\cite{monitor}. Their target is temporal model consistency. Our intervention holds the sampling event fixed and changes its representation. It therefore tests a premise of measurements that use token probabilities as observations of generated text. In reinforcement learning, clipped policy ratios and group-relative credit provide established reasons why an action's identity and old probability matter~\cite{ppo,grpo}. Chen studied how ambiguous verifier outcomes traverse an RLVR reward pipeline~\cite{rewardfail}. Here a verifier can return the intended reward while the learner computes the policy ratio with another action's old probability. The two studies address distinct failure sites and use distinct experimental units. None of the verifier cases is counted as evidence for the serving fault.
-
-\section{Implications and limits}
-Capture a draw outside the candidate list and serialize it with alternatives present and absent. An equal-score pair with different IDs additionally catches a swap that a numeric comparison misses. Check row coverage separately for buffering renderers and for optional fields delivered per item in a batch. Each assertion requires the local score stage and candidate-list contract.
-
-For new MLX requests, the candidate-free branch supplies selected scores and the tested patch also preserves alternatives. For archived packets, Table~\ref{tab:recovery} gives recovery and abstention rates. Repeats can contradict listed scores even when the text agrees; an unlisted score has only an upper bound.
-
-The engines share some prompts or model lineage. The Qwen holdouts change architecture and tokenizer. The vLLM and SGLang tests exercise published builders on controlled inputs. Only mistral.rs directly compares transport modes. The MLX observer cannot detect an error shared with the generator; independent prefix forwards on llama.cpp and CTranslate2 reuse their respective model kernels. The 36 long responses establish occurrence beyond early decoding on one checkpoint and temperature. The seven FLORES strata deliberately exercise byte handling. None estimates production frequency.
-
-ARC covers eligible test questions under specified prompts, seeds and ranking rules. The reward and training interventions use restricted action spaces and one data split per task. Measuring how often a deployed consumer takes a wrong decision requires sampled deployment requests linked to original scores, reported fields and decisions.
+\paragraph{Threats to Validity.}
+\textbf{Construct validity:} In confidence routing and best-of-four ranking, mean log probability captures token-average sequence likelihood rather than calibrated semantic confidence; our DeepEval span-miss metric reflects \texttt{deepeval==4.3.4}'s exact regex/token-alignment implementation, and \textsc{I1}--\textsc{I5} intentionally abstain when black-box transports withhold IDs or bytes.
+\textbf{Internal validity:} Hardware constraints on 16\,GiB unified memory gated Qwen2.5-7B-Instruct-4bit (YELLOW pressure) in favor of Qwen2.5-3B-Instruct-4bit under disabled KV caching, isolating same-draw attribution at the cost of testing a 3B rather than 7B checkpoint; fixed-seed re-query checks also isolate KV-cache sensitivity cleanly.
+\textbf{External validity:} Live HTTP testing covers MLX-LM, llama.cpp, mistral.rs, and native CTranslate2 on Apple Silicon CPU/Metal, while vLLM and SGLang reflect non-streaming builder tests and live Ollama/GPU CUDA servers remain outside this hardware run. SST-2 RL causality uses a constrained two-action linear head rather than full-model GRPO training; upstream reproducers are prepared in standalone kits pending external disclosure.
+\textbf{Conclusion validity:} Prompt sets rely on frozen hash rankings and disjoint pilot/confirmation splits with paired exact McNemar tests and crossed bootstraps; abstentions, setup failures, and null/weak controls (135M G-Eval, ARC-Easy accuracy parity, 2.43M decoder pilot) are reported in full.
 
 \section{Conclusion}
-Holding the sampled event fixed exposed a substitution that preserved text and row count. A source patch restored the selected fields and retained the alternatives. Once an event is lost, the same archived response can admit two different best answers. Incorrect scores changed hundreds of answer selections and altered optimizer updates, with task-dependent effects on correctness. Across implementations the relevant checks concern the selected identity, the score stage and whether each consumer receives the records for its own positions.
+Holding the sampling event fixed revealed deterministic token substitution in eight MLX-LM releases (528/1,488 IFEval; confirmed on SmolLM2 and Qwen2.5-0.5B/1.5B/3B) and separated it under unified invariants \textsc{I1}--\textsc{I5} from llama.cpp row omissions (3/280), mistral.rs non-streaming \texttt{U+FFFD} byte damage (708 FLORES positions), and CTranslate2 4.9.0 cross-row batch callback leakage (24/24 equal-length steps). Our hardened patch eliminates substitution across 128/128 live audit positions, while theoretical counterexamples bound archival recovery. Downstream, wire bias drives $+49.2$\,pp higher wrong-answer false acceptance in Qwen2.5-3B routing despite an ECE paradox, flips 6/94 DeepEval 4.3.4 pass decisions, and reduces 128-seed SST-2 learning accuracy by $-1.90$\,pp. Serving APIs must test selected-token attribution alongside text generation.
 
 \section*{Data Availability}
-The TokenReceipt repository provides the MLX-LM patch, regression tests that run without model weights, and selected replication materials. The \href{https://github.com/feiiiiii5/tokenreceipt/blob/main/reproducibility/README.md}{replication guide} identifies the executable checks, numerical projections, and summaries provided for each study. It documents the pinned sources, frozen input selections, and how to reconstruct selected upstream inputs. The 541 IFEval keys were ranked by SHA-256 over \texttt{rewardfail-raw-chat-v1/} followed by the decimal key. Live MLX inference requires a compatible Apple runtime and the pinned public checkpoint.
+The public repository (\url{https://github.com/feiiiiii5/tokenreceipt}) provides the hardened 11-test MLX-LM 0.32.2 patch and regression checks, standalone generalized \texttt{tools/wire\_recovery.py} and \texttt{tools/tokenreceipt\_audit.py} utilities with unit tests, offline numerical projections (IFEval, ARC-Easy, multilingual, SST-2, and \texttt{downstream\_3b/} projections for Qwen2.5-3B ARC-Challenge routing, Inspect AI 0.3.277 replay, DeepEval 4.3.4 G-Eval panels, CTranslate2 distinct-batch records, and live audits), upstream input reconstruction recipes, and SHA-256 verification manifests. Non-redistributable benchmark texts and raw local HTTP captures are omitted or retained locally; 541 IFEval selection keys were ordered by SHA-256 over the local prefix \path{rewardfail-raw-chat-v1/}. Live inference requires the cited public checkpoints and compatible runtime hardware.
 \bibliographystyle{unsrtnat}
 \bibliography{references}
 \end{document}

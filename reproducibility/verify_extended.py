@@ -28,6 +28,8 @@ def main():
     run("replay/capture/test_wire_recovery.py")
     run("ctranslate2/check_controls.py")
     run("comparison/verify.py")
+    run("verify_2026_11_23.py")
+    run("verify_2026_11_24.py")
 
 
 if __name__ == "__main__":

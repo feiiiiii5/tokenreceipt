@@ -1,0 +1,338 @@
+{
+  "smollm2_135m": {
+    "stock_live_audit": {
+      "patch_applied": false,
+      "server_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+      "width5": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 51,
+            "fail": 13
+          },
+          "I2": {
+            "pass": 52,
+            "fail": 12
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "fail": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "fail": 4
+          },
+          "I2": {
+            "fail": 4
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "fail": 4
+          }
+        }
+      },
+      "width1": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 44,
+            "fail": 20
+          },
+          "I2": {
+            "pass": 45,
+            "fail": 19
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "abstain": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "fail": 4
+          },
+          "I2": {
+            "fail": 4
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "abstain": 4
+          }
+        }
+      }
+    },
+    "patched_live_audit": {
+      "patch_applied": true,
+      "server_sha256": "b6770cd13dc4791a7fa0002325e64481fde80627a1679501d6b740111003bd24",
+      "width5": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 64
+          },
+          "I2": {
+            "pass": 64
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "fail": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "pass": 4
+          },
+          "I2": {
+            "pass": 4
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "fail": 4
+          }
+        }
+      },
+      "width1": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 64
+          },
+          "I2": {
+            "pass": 64
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "abstain": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "pass": 4
+          },
+          "I2": {
+            "pass": 4
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "abstain": 4
+          }
+        }
+      }
+    }
+  },
+  "qwen25_3b": {
+    "stock_live_audit": {
+      "patch_applied": false,
+      "server_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+      "width5": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 60,
+            "fail": 4
+          },
+          "I2": {
+            "pass": 60,
+            "fail": 4
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "fail": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "fail": 3,
+            "pass": 1
+          },
+          "I2": {
+            "fail": 3,
+            "pass": 1
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "fail": 4
+          }
+        }
+      },
+      "width1": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 58,
+            "fail": 6
+          },
+          "I2": {
+            "pass": 58,
+            "fail": 6
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "abstain": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "fail": 3,
+            "pass": 1
+          },
+          "I2": {
+            "fail": 3,
+            "pass": 1
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "abstain": 4
+          }
+        }
+      }
+    },
+    "patched_live_audit": {
+      "patch_applied": true,
+      "server_sha256": "b6770cd13dc4791a7fa0002325e64481fde80627a1679501d6b740111003bd24",
+      "width5": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 64
+          },
+          "I2": {
+            "pass": 64
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "fail": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "pass": 4
+          },
+          "I2": {
+            "pass": 4
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "fail": 4
+          }
+        }
+      },
+      "width1": {
+        "requests": 4,
+        "positions": 64,
+        "per_position": {
+          "I1": {
+            "pass": 64
+          },
+          "I2": {
+            "pass": 64
+          },
+          "I3": {
+            "pass": 64
+          },
+          "I4": {
+            "abstain": 64
+          },
+          "I5": {
+            "abstain": 64
+          }
+        },
+        "per_request": {
+          "I1": {
+            "pass": 4
+          },
+          "I2": {
+            "pass": 4
+          },
+          "I3": {
+            "pass": 4
+          },
+          "I4": {
+            "abstain": 4
+          },
+          "I5": {
+            "abstain": 4
+          }
+        }
+      }
+    }
+  }
+}

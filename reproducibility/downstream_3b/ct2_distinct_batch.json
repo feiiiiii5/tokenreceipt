@@ -1,0 +1,2529 @@
+{
+  "engine": "ctranslate2==4.9.0",
+  "wheel_sha256": "78a0a59721031193e52732b1e565bfaee7c22ec0d1c48d40e9ed4bc7341a843e",
+  "aggregate": {
+    "subpanel_a_equal_length": {
+      "calls_per_arm": 6,
+      "total_joint_callbacks": 48,
+      "joint_item0_callbacks": 24,
+      "joint_item0_received_2x_vocab": 24,
+      "joint_item0_row0_matches_item0_final_exact": 24,
+      "joint_item0_row1_leaked_item1_final_exact": 24,
+      "joint_item0_distinct_rows_confirmed": 24,
+      "max_row0_vs_item0_diff": 0.0,
+      "max_row1_vs_item1_diff": 0.0,
+      "min_row0_vs_row1_diff": 13.958641529083252,
+      "joint_item1_callbacks": 24,
+      "joint_item1_empty_storage": 24,
+      "joint_item1_np_asarray_null_errors": 24,
+      "total_split_callbacks": 48,
+      "split_exact_single_row": 48,
+      "split_empty_callbacks": 0,
+      "audit_joint": {
+        "requests": 6,
+        "positions": 48,
+        "per_position": {
+          "I1": {
+            "pass": 48
+          },
+          "I2": {
+            "pass": 48
+          },
+          "I3": {
+            "fail": 48
+          },
+          "I4": {
+            "abstain": 48
+          },
+          "I5": {
+            "abstain": 48
+          }
+        },
+        "per_request": {
+          "I1": {
+            "pass": 6
+          },
+          "I2": {
+            "pass": 6
+          },
+          "I3": {
+            "fail": 6
+          },
+          "I4": {
+            "abstain": 6
+          },
+          "I5": {
+            "abstain": 6
+          }
+        },
+        "sample_failures": [
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 0,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 1,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 2,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 3,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 4,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 5,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 6,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-greedy-joint",
+            "position": 7,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 0,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 1,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 2,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 3,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 4,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 5,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 6,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-0-stochastic-joint",
+            "position": 7,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 0,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 1,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 2,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 3,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 4,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 5,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 6,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-greedy-joint",
+            "position": 7,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 0,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 1,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 2,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 3,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 4,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 5,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 6,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-1-stochastic-joint",
+            "position": 7,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 0,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 1,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 2,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 3,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 4,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 5,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 6,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-greedy-joint",
+            "position": 7,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 0,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 1,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 2,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 3,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 4,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 5,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 6,
+            "invariant": "I3",
+            "detail": "callback_elements=98304, expected=49152"
+          },
+          {
+            "request_id": "eq-pair-2-stochastic-joint",
+            "position": 7,
+            "invariant": "I3",
+            "detail": "callback_elements=0, expected=49152"
+          }
+        ]
+      },
+      "audit_split": {
+        "requests": 6,
+        "positions": 48,
+        "per_position": {
+          "I1": {
+            "pass": 48
+          },
+          "I2": {
+            "pass": 48
+          },
+          "I3": {
+            "pass": 48
+          },
+          "I4": {
+            "abstain": 48
+          },
+          "I5": {
+            "abstain": 48
+          }
+        },
+        "per_request": {
+          "I1": {
+            "pass": 6
+          },
+          "I2": {
+            "pass": 6
+          },
+          "I3": {
+            "pass": 6
+          },
+          "I4": {
+            "abstain": 6
+          },
+          "I5": {
+            "abstain": 6
+          }
+        },
+        "sample_failures": []
+      },
+      "audit_singletons": {
+        "requests": 12,
+        "positions": 48,
+        "per_position": {
+          "I1": {
+            "pass": 48
+          },
+          "I2": {
+            "pass": 48
+          },
+          "I3": {
+            "pass": 48
+          },
+          "I4": {
+            "abstain": 48
+          },
+          "I5": {
+            "abstain": 48
+          }
+        },
+        "per_request": {
+          "I1": {
+            "pass": 12
+          },
+          "I2": {
+            "pass": 12
+          },
+          "I3": {
+            "pass": 12
+          },
+          "I4": {
+            "abstain": 12
+          },
+          "I5": {
+            "abstain": 12
+          }
+        },
+        "sample_failures": []
+      }
+    },
+    "subpanel_b_unequal_length": {
+      "calls_per_arm": 4,
+      "joint_longer_item_step_offsets": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "joint_longer_item_masked_prefix_steps": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "split_longer_item_step_offsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "split_longer_item_masked_prefix_steps": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "subpanel_a_audit_calls": {
+    "joint": [
+      {
+        "call_id": "eq-pair-0-greedy-joint",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 7042,
+            "log_prob": -0.756439208984375,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 7042,
+            "final_chosen_logp": -0.7564800698274325,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 314,
+            "log_prob": -0.7186546325683594,
+            "shape": [],
+            "elements": 0,
+            "final_id": 314,
+            "final_chosen_logp": -0.7187056011363033,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -0.6182975769042969,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 30,
+            "final_chosen_logp": -0.61832006641826,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 260,
+            "log_prob": -0.1784381866455078,
+            "shape": [],
+            "elements": 0,
+            "final_id": 260,
+            "final_chosen_logp": -0.1784822925404086,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 7042,
+            "log_prob": -0.9393444061279297,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 7042,
+            "final_chosen_logp": -0.9393765482789469,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 6125,
+            "log_prob": -0.6717081069946289,
+            "shape": [],
+            "elements": 0,
+            "final_id": 6125,
+            "final_chosen_logp": -0.6717344764762387,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.11571121215820312,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 314,
+            "final_chosen_logp": -0.11573973481767652,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 7357,
+            "log_prob": -0.0822296142578125,
+            "shape": [],
+            "elements": 0,
+            "final_id": 7357,
+            "final_chosen_logp": -0.08224530256519458,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-0-stochastic-joint",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 7042,
+            "log_prob": -0.756439208984375,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 7042,
+            "final_chosen_logp": -0.7564800698274325,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 314,
+            "log_prob": -0.7186546325683594,
+            "shape": [],
+            "elements": 0,
+            "final_id": 314,
+            "final_chosen_logp": -0.7187056011363033,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -0.6182975769042969,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 30,
+            "final_chosen_logp": -0.61832006641826,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 260,
+            "log_prob": -0.1784381866455078,
+            "shape": [],
+            "elements": 0,
+            "final_id": 260,
+            "final_chosen_logp": -0.1784822925404086,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 378,
+            "log_prob": -2.696451187133789,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 378,
+            "final_chosen_logp": -2.6964833292848063,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 6125,
+            "log_prob": -0.6717081069946289,
+            "shape": [],
+            "elements": 0,
+            "final_id": 6125,
+            "final_chosen_logp": -0.6717344764762387,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 3575,
+            "log_prob": -1.199686050415039,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 3575,
+            "final_chosen_logp": -1.1997221976369765,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 7357,
+            "log_prob": -0.0822296142578125,
+            "shape": [],
+            "elements": 0,
+            "final_id": 7357,
+            "final_chosen_logp": -0.08224530256519458,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-greedy-joint",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 284,
+            "log_prob": -0.7724208831787109,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 284,
+            "final_chosen_logp": -0.77246180424115,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 20590,
+            "log_prob": -0.41832733154296875,
+            "shape": [],
+            "elements": 0,
+            "final_id": 20590,
+            "final_chosen_logp": -0.41835382067912263,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 13869,
+            "log_prob": -1.7049293518066406,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 13869,
+            "final_chosen_logp": -1.7049615285138344,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.1412296295166016,
+            "shape": [],
+            "elements": 0,
+            "final_id": 30,
+            "final_chosen_logp": -1.1412838876958773,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 5027,
+            "log_prob": -0.7105922698974609,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 5027,
+            "final_chosen_logp": -0.7106296974043751,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 198,
+            "log_prob": -1.0135726928710938,
+            "shape": [],
+            "elements": 0,
+            "final_id": 198,
+            "final_chosen_logp": -1.013612793258737,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 21391,
+            "log_prob": -1.3403587341308594,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 21391,
+            "final_chosen_logp": -1.3403953236326487,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 198,
+            "log_prob": -0.27046966552734375,
+            "shape": [],
+            "elements": 0,
+            "final_id": 198,
+            "final_chosen_logp": -0.27052619637824904,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-stochastic-joint",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 284,
+            "log_prob": -0.7724208831787109,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 284,
+            "final_chosen_logp": -0.77246180424115,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 21391,
+            "log_prob": -1.6899528503417969,
+            "shape": [],
+            "elements": 0,
+            "final_id": 21391,
+            "final_chosen_logp": -1.6899793394779508,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 13869,
+            "log_prob": -1.7049293518066406,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 13869,
+            "final_chosen_logp": -1.7049615285138344,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.1956539154052734,
+            "shape": [],
+            "elements": 0,
+            "final_id": 30,
+            "final_chosen_logp": -1.1957032691308527,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 5027,
+            "log_prob": -0.7105922698974609,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 5027,
+            "final_chosen_logp": -0.7106296974043751,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 198,
+            "log_prob": -1.104837417602539,
+            "shape": [],
+            "elements": 0,
+            "final_id": 198,
+            "final_chosen_logp": -1.1048762022912513,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 21391,
+            "log_prob": -1.3403587341308594,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 21391,
+            "final_chosen_logp": -1.3403953236326487,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 198,
+            "log_prob": -0.2573890686035156,
+            "shape": [],
+            "elements": 0,
+            "final_id": 198,
+            "final_chosen_logp": -0.2574481775437718,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-greedy-joint",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 260,
+            "log_prob": -1.2851333618164062,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 260,
+            "final_chosen_logp": -1.285169834172386,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 1439,
+            "log_prob": -1.0428619384765625,
+            "shape": [],
+            "elements": 0,
+            "final_id": 1439,
+            "final_chosen_logp": -1.0428883529540194,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 2396,
+            "log_prob": -1.680002212524414,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 2396,
+            "final_chosen_logp": -1.680042238497311,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 28,
+            "log_prob": -1.210103988647461,
+            "shape": [],
+            "elements": 0,
+            "final_id": 28,
+            "final_chosen_logp": -1.2101465576271302,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 282,
+            "log_prob": -0.9770336151123047,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 282,
+            "final_chosen_logp": -0.9770614309929471,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 527,
+            "log_prob": -1.6259746551513672,
+            "shape": [],
+            "elements": 0,
+            "final_id": 527,
+            "final_chosen_logp": -1.6260176872631504,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 260,
+            "log_prob": -1.5552005767822266,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 260,
+            "final_chosen_logp": -1.5552406577559026,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.7257766723632812,
+            "shape": [],
+            "elements": 0,
+            "final_id": 314,
+            "final_chosen_logp": -0.7258152589111795,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-stochastic-joint",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 511,
+            "log_prob": -1.9144153594970703,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 511,
+            "final_chosen_logp": -1.9144518318530501,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 1439,
+            "log_prob": -1.0428619384765625,
+            "shape": [],
+            "elements": 0,
+            "final_id": 1439,
+            "final_chosen_logp": -1.0428883529540194,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 260,
+            "log_prob": -0.7796630859375,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 260,
+            "final_chosen_logp": -0.7796998539635034,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.4384441375732422,
+            "shape": [],
+            "elements": 0,
+            "final_id": 30,
+            "final_chosen_logp": -1.4384867065529114,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 8661,
+            "log_prob": -2.3135242462158203,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 8661,
+            "final_chosen_logp": -2.3135662279401252,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 669,
+            "log_prob": -2.2958784103393555,
+            "shape": [],
+            "elements": 0,
+            "final_id": 669,
+            "final_chosen_logp": -2.295917027205949,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 281,
+            "log_prob": -1.355142593383789,
+            "shape": [
+              2,
+              49152
+            ],
+            "elements": 98304,
+            "final_id": 281,
+            "final_chosen_logp": -1.3551845674345522,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 980,
+            "log_prob": -0.5599479675292969,
+            "shape": [],
+            "elements": 0,
+            "final_id": 980,
+            "final_chosen_logp": -0.5599913384724857,
+            "final_vocab": 49152
+          }
+        ]
+      }
+    ],
+    "split": [
+      {
+        "call_id": "eq-pair-0-greedy-split",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 7042,
+            "log_prob": -0.7564353942871094,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.7564756887799966,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -0.6182956695556641,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -0.6183176578636242,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 7042,
+            "log_prob": -0.9393482208251953,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.9393797569546756,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.11571121215820312,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.11574121511506519,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 314,
+            "log_prob": -0.7186546325683594,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.7187066117300915,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 260,
+            "log_prob": -0.178436279296875,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -0.17847997162025564,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 6125,
+            "log_prob": -0.6717071533203125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 6125,
+            "final_chosen_logp": -0.671734024698388,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 7357,
+            "log_prob": -0.0822296142578125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7357,
+            "final_chosen_logp": -0.08224518404793102,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-0-stochastic-split",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 7042,
+            "log_prob": -0.7564353942871094,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.7564756887799966,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -0.6182956695556641,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -0.6183176578636242,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 7042,
+            "log_prob": -0.9393482208251953,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.9393797569546756,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.11571121215820312,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.11574121511506519,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 30,
+            "log_prob": -2.905902862548828,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -2.9059548417105603,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 198,
+            "log_prob": -1.2452526092529297,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -1.2452814146076712,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 198,
+            "log_prob": -0.6242256164550781,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -0.6242725404461709,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 504,
+            "log_prob": -1.3872299194335938,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 504,
+            "final_chosen_logp": -1.3872695298139064,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-greedy-split",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 284,
+            "log_prob": -0.7724056243896484,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 284,
+            "final_chosen_logp": -0.7724472314147981,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 13869,
+            "log_prob": -1.7049274444580078,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 13869,
+            "final_chosen_logp": -1.7049604388195334,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 5027,
+            "log_prob": -0.7105979919433594,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 5027,
+            "final_chosen_logp": -0.7106343527575127,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 21391,
+            "log_prob": -1.340362548828125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 21391,
+            "final_chosen_logp": -1.3403988445471988,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 20590,
+            "log_prob": -0.4183311462402344,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 20590,
+            "final_chosen_logp": -0.4183570328727839,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.1412220001220703,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -1.141277307031082,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 198,
+            "log_prob": -1.0135612487792969,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -1.0136005111704876,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 198,
+            "log_prob": -0.2704658508300781,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -0.27052463200923427,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-stochastic-split",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 284,
+            "log_prob": -0.7724056243896484,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 284,
+            "final_chosen_logp": -0.7724472314147981,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 11591,
+            "log_prob": -2.253610610961914,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 11591,
+            "final_chosen_logp": -2.2536436053234397,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 5027,
+            "log_prob": -0.6662693023681641,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 5027,
+            "final_chosen_logp": -0.666316640994566,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 20590,
+            "log_prob": -1.1914730072021484,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 20590,
+            "final_chosen_logp": -1.1915113787336118,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 20590,
+            "log_prob": -0.4183311462402344,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 20590,
+            "final_chosen_logp": -0.4183570328727839,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.1412220001220703,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -1.141277307031082,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 198,
+            "log_prob": -1.0135612487792969,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -1.0136005111704876,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 198,
+            "log_prob": -0.2704658508300781,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -0.27052463200923427,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-greedy-split",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 260,
+            "log_prob": -1.2851371765136719,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -1.285173631694068,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 2396,
+            "log_prob": -1.6800041198730469,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 2396,
+            "final_chosen_logp": -1.6800436450291443,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 282,
+            "log_prob": -0.9770355224609375,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 282,
+            "final_chosen_logp": -0.9770630587133908,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 260,
+            "log_prob": -1.5552024841308594,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -1.55524216839952,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 1439,
+            "log_prob": -1.0428543090820312,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 1439,
+            "final_chosen_logp": -1.0428807912452527,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 28,
+            "log_prob": -1.2101058959960938,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 28,
+            "final_chosen_logp": -1.2101488947949015,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 527,
+            "log_prob": -1.6259880065917969,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 527,
+            "final_chosen_logp": -1.6260307107869636,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.7257766723632812,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.7258161444007314,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-stochastic-split",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 511,
+            "log_prob": -1.914419174194336,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 511,
+            "final_chosen_logp": -1.9144556293747321,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 260,
+            "log_prob": -0.7796649932861328,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -0.7797015491476422,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 8889,
+            "log_prob": -2.0665454864501953,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 8889,
+            "final_chosen_logp": -2.0665880649215502,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 284,
+            "log_prob": -1.9347686767578125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 284,
+            "final_chosen_logp": -1.9347995290332847,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 0,
+            "token_id": 2819,
+            "log_prob": -1.9520454406738281,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 2819,
+            "final_chosen_logp": -1.9520719228370496,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 1,
+            "token_id": 1439,
+            "log_prob": -0.0529327392578125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 1439,
+            "final_chosen_logp": -0.052946299079255965,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 2,
+            "token_id": 28,
+            "log_prob": -1.0077323913574219,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 28,
+            "final_chosen_logp": -1.007767992659609,
+            "final_vocab": 49152
+          },
+          {
+            "item": 1,
+            "step": 3,
+            "token_id": 527,
+            "log_prob": -0.7819805145263672,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 527,
+            "final_chosen_logp": -0.7820190017373108,
+            "final_vocab": 49152
+          }
+        ]
+      }
+    ],
+    "singletons": [
+      {
+        "call_id": "eq-pair-0-greedy-single_a",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 7042,
+            "log_prob": -0.7564353942871094,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.7564756887799966,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -0.6182956695556641,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -0.6183176578636242,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 7042,
+            "log_prob": -0.9393482208251953,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.9393797569546756,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.11571121215820312,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.11574121511506519,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-0-greedy-single_b",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 314,
+            "log_prob": -0.7186546325683594,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.7187066117300915,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 260,
+            "log_prob": -0.178436279296875,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -0.17847997162025564,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 6125,
+            "log_prob": -0.6717071533203125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 6125,
+            "final_chosen_logp": -0.671734024698388,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 7357,
+            "log_prob": -0.0822296142578125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7357,
+            "final_chosen_logp": -0.08224518404793102,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-0-stochastic-single_a",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 7042,
+            "log_prob": -0.7564353942871094,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.7564756887799966,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -0.6182956695556641,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -0.6183176578636242,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 7042,
+            "log_prob": -0.9393482208251953,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 7042,
+            "final_chosen_logp": -0.9393797569546756,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.11571121215820312,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.11574121511506519,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-0-stochastic-single_b",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 28,
+            "log_prob": -1.5187969207763672,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 28,
+            "final_chosen_logp": -1.5188488999380994,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 357,
+            "log_prob": -2.385986328125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 357,
+            "final_chosen_logp": -2.3860150545370082,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 553,
+            "log_prob": -2.8776721954345703,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 553,
+            "final_chosen_logp": -2.87771471606451,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 253,
+            "log_prob": -1.4668617248535156,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 253,
+            "final_chosen_logp": -1.4668977054224008,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-greedy-single_a",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 284,
+            "log_prob": -0.7724056243896484,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 284,
+            "final_chosen_logp": -0.7724472314147981,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 13869,
+            "log_prob": -1.7049274444580078,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 13869,
+            "final_chosen_logp": -1.7049604388195334,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 5027,
+            "log_prob": -0.7105979919433594,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 5027,
+            "final_chosen_logp": -0.7106343527575127,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 21391,
+            "log_prob": -1.340362548828125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 21391,
+            "final_chosen_logp": -1.3403988445471988,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-greedy-single_b",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 20590,
+            "log_prob": -0.4183311462402344,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 20590,
+            "final_chosen_logp": -0.4183570328727839,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.1412220001220703,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -1.141277307031082,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 198,
+            "log_prob": -1.0135612487792969,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -1.0136005111704876,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 198,
+            "log_prob": -0.2704658508300781,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -0.27052463200923427,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-stochastic-single_a",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 284,
+            "log_prob": -0.7724056243896484,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 284,
+            "final_chosen_logp": -0.7724472314147981,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 11591,
+            "log_prob": -2.253610610961914,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 11591,
+            "final_chosen_logp": -2.2536436053234397,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 5027,
+            "log_prob": -0.6662693023681641,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 5027,
+            "final_chosen_logp": -0.666316640994566,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 20590,
+            "log_prob": -1.1914730072021484,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 20590,
+            "final_chosen_logp": -1.1915113787336118,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-1-stochastic-single_b",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 20590,
+            "log_prob": -0.4183311462402344,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 20590,
+            "final_chosen_logp": -0.4183570328727839,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.1412220001220703,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -1.141277307031082,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 198,
+            "log_prob": -1.0135612487792969,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -1.0136005111704876,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 198,
+            "log_prob": -0.2704658508300781,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 198,
+            "final_chosen_logp": -0.27052463200923427,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-greedy-single_a",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 260,
+            "log_prob": -1.2851371765136719,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -1.285173631694068,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 2396,
+            "log_prob": -1.6800041198730469,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 2396,
+            "final_chosen_logp": -1.6800436450291443,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 282,
+            "log_prob": -0.9770355224609375,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 282,
+            "final_chosen_logp": -0.9770630587133908,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 260,
+            "log_prob": -1.5552024841308594,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -1.55524216839952,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-greedy-single_b",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 1439,
+            "log_prob": -1.0428543090820312,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 1439,
+            "final_chosen_logp": -1.0428807912452527,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 28,
+            "log_prob": -1.2101058959960938,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 28,
+            "final_chosen_logp": -1.2101488947949015,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 527,
+            "log_prob": -1.6259880065917969,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 527,
+            "final_chosen_logp": -1.6260307107869636,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 314,
+            "log_prob": -0.7257766723632812,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 314,
+            "final_chosen_logp": -0.7258161444007314,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-stochastic-single_a",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 511,
+            "log_prob": -1.914419174194336,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 511,
+            "final_chosen_logp": -1.9144556293747321,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 260,
+            "log_prob": -0.7796649932861328,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 260,
+            "final_chosen_logp": -0.7797015491476422,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 8889,
+            "log_prob": -2.0665454864501953,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 8889,
+            "final_chosen_logp": -2.0665880649215502,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 284,
+            "log_prob": -1.9347686767578125,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 284,
+            "final_chosen_logp": -1.9347995290332847,
+            "final_vocab": 49152
+          }
+        ]
+      },
+      {
+        "call_id": "eq-pair-2-stochastic-single_b",
+        "rows": [
+          {
+            "item": 0,
+            "step": 0,
+            "token_id": 1439,
+            "log_prob": -1.0428543090820312,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 1439,
+            "final_chosen_logp": -1.0428807912452527,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 1,
+            "token_id": 30,
+            "log_prob": -1.4384479522705078,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 30,
+            "final_chosen_logp": -1.4384909510693156,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 2,
+            "token_id": 1116,
+            "log_prob": -2.605335235595703,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 1116,
+            "final_chosen_logp": -2.605373958636328,
+            "final_vocab": 49152
+          },
+          {
+            "item": 0,
+            "step": 3,
+            "token_id": 36,
+            "log_prob": -1.863840103149414,
+            "shape": [
+              1,
+              49152
+            ],
+            "elements": 49152,
+            "final_id": 36,
+            "final_chosen_logp": -1.8638838427440554,
+            "final_vocab": 49152
+          }
+        ]
+      }
+    ]
+  }
+}

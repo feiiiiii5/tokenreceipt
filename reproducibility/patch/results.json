@@ -7,7 +7,14 @@
     "text-completion": "stock uses first alternative; patch uses sampled record",
     "no-candidates": "identical entire response",
     "no-metadata": "identical entire response",
-    "no-generated-positions": "identical entire response"
+    "no-generated-positions": "identical entire response",
+    "missing-token-strings-explicit-error": "explicit ValueError raised",
+    "empty-candidate-tuple-preserved": "sampled pair retained on empty candidate row",
+    "length-mismatch-strict": "strict ValueError raised",
+    "stream-single-token-candidates": "streaming emits exact sampled rows even with logprobs=False",
+    "stream-multibyte-coalesced-chunk": "empty-delta prefix token buffered and flushed in order",
+    "stream-stop-eos-flush": "stop EOS token logprob flushed on finish chunk",
+    "stream-length-no-duplicate-finish": "length finish chunk omits duplicate logprobs"
   },
   "http": {
     "counts": {

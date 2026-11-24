@@ -1,9 +1,64 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{61}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{snidera3}(2026)]{omlxuser}
+{snidera3}.
+\newblock Chat completions accepts logprobs but returns empty content, {oMLX}
+  issue 1549, 2026.
+\newblock URL \url{https://github.com/jundot/omlx/issues/1549}.
+
+\bibitem[{slipstr34m}(2026)]{mlxstream}
+{slipstr34m}.
+\newblock Fix logprobs being silently dropped from streamed responses, {MLX-LM}
+  pull request 1630, 2026.
+\newblock URL \url{https://github.com/ml-explore/mlx-lm/pull/1630}.
+
+\bibitem[{Inspect AI contributors}(2026)]{inspect}
+{Inspect AI contributors}.
+\newblock {Inspect AI}: model choice conversion and agent bridges, 2026.
+\newblock URL
+  \url{https://github.com/UKGovernmentBEIS/inspect_ai/tree/8379140fd6d2184b669b6f3cea58e18009bde507}.
+
+\bibitem[Liu et~al.(2023{\natexlab{a}})Liu, Iter, Xu, Wang, Xu, and
+  Zhu]{liu2023geval}
+Yang Liu, Dan Iter, Yichong Xu, Shuohang Wang, Ruochen Xu, and Chenguang Zhu.
+\newblock {G-Eval}: {NLG} evaluation using {GPT-4} with better human alignment.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP '23)}, pages 2511--2522, Singapore,
+  2023{\natexlab{a}}. Association for Computational Linguistics.
+\newblock \doi{10.18653/v1/2023.emnlp-main.153}.
+
+\bibitem[{DeepEval contributors}(2026)]{gevalpkg}
+{DeepEval contributors}.
+\newblock {DeepEval} 4.3.4, {G-Eval} metric and score weighting, 2026.
+\newblock URL \url{https://pypi.org/project/deepeval/4.3.4/}.
+
+\bibitem[{OpenAI}(2026{\natexlab{a}})]{bestofapi}
+{OpenAI}.
+\newblock Completions api: best of several generations, 2026{\natexlab{a}}.
+\newblock URL
+  \url{https://developers.openai.com/api/reference/resources/completions/methods/create}.
+
+\bibitem[Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
+  Klimov]{ppo}
+John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
+\newblock Proximal policy optimization algorithms, 2017.
+
+\bibitem[Shao et~al.(2024)Shao, Wang, Zhu, Xu, Song, Bi, Zhang, et~al.]{grpo}
+Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei
+  Zhang, et~al.
+\newblock {DeepSeekMath}: Pushing the limits of mathematical reasoning in open
+  language models, 2024.
+
+\bibitem[{SkyRL contributors}(2026)]{skyrl}
+{SkyRL contributors}.
+\newblock Generation wire format and sampled-token probability lookup, 2026.
+\newblock URL
+  \url{https://github.com/NovaSky-AI/SkyRL/tree/5fabb23982789adc04c56e9d45bbea117447d170}.
 
 \bibitem[{INDRA Belief Model contributors}(2026)]{indra}
 {INDRA Belief Model contributors}.
@@ -12,52 +67,68 @@
 \newblock URL
   \url{https://github.com/gyorilab/indra-belief-model/tree/74e0ffe9ea21f6f11e906cee89a2091f45be2f7d}.
 
-\bibitem[{snidera3}(2026)]{omlxuser}
-{snidera3}.
-\newblock Chat completions accepts logprobs but returns empty content, {oMLX}
-  issue 1549, 2026.
-\newblock URL \url{https://github.com/jundot/omlx/issues/1549}.
+\bibitem[Barr et~al.(2015)Barr, Harman, McMinn, Shahbaz, and Yoo]{barr}
+Earl~T. Barr, Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
+\newblock The oracle problem in software testing: A survey.
+\newblock \emph{IEEE Transactions on Software Engineering}, 41\penalty0
+  (5):\penalty0 507--525, 2015.
+\newblock \doi{10.1109/TSE.2014.2372785}.
 
-\bibitem[{OpenAI}(2026{\natexlab{a}})]{openai}
+\bibitem[Segura et~al.(2016)Segura, Fraser, S{\'a}nchez, and
+  Ruiz-Cort{\'e}s]{segura}
+Sergio Segura, Gordon Fraser, Ana~B. S{\'a}nchez, and Antonio Ruiz-Cort{\'e}s.
+\newblock A survey on metamorphic testing.
+\newblock \emph{IEEE Transactions on Software Engineering}, 42\penalty0
+  (9):\penalty0 805--824, 2016.
+\newblock \doi{10.1109/TSE.2016.2532875}.
+
+\bibitem[Chen et~al.(2018)Chen, Kuo, Liu, Poon, Towey, Tse, and Zhou]{chenmt}
+Tsong~Yueh Chen, Fei-Ching Kuo, Huai Liu, Pak-Lok Poon, Dave Towey, T.~H. Tse,
+  and Zhi~Quan Zhou.
+\newblock Metamorphic testing: A review of challenges and opportunities.
+\newblock \emph{ACM Computing Surveys}, 51\penalty0 (1):\penalty0 4:1--4:27,
+  2018.
+\newblock \doi{10.1145/3143561}.
+
+\bibitem[Firestone et~al.(2025)Firestone, Ugare, Singh, and
+  Misailovic]{utf8plumbing}
+Preston Firestone, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic.
+\newblock {UTF-8} plumbing: Byte-level tokenizers unavoidably enable {LLMs} to
+  generate ill-formed {UTF-8}.
+\newblock Conference on Language Modeling (COLM 2025), 2025.
+\newblock URL
+  \url{https://misailo.cs.illinois.edu/papers/utf8plumbing-colm25.pdf}.
+
+\bibitem[{OpenAI}(2026{\natexlab{b}})]{openai}
 {OpenAI}.
-\newblock Advanced usage: token log probabilities, 2026{\natexlab{a}}.
+\newblock Advanced usage: token log probabilities, 2026{\natexlab{b}}.
 \newblock URL
   \url{https://developers.openai.com/api/docs/guides/advanced-usage}.
 
-\bibitem[{vLLM contributors}(2026)]{vllm}
-{vLLM contributors}.
-\newblock Sampling parameters and generated-token log probabilities, 2026.
-\newblock URL \url{https://docs.vllm.ai/en/latest/api/vllm/sampling_params/}.
-
-\bibitem[{OpenAI}(2026{\natexlab{b}})]{chatschema}
+\bibitem[{OpenAI}(2026{\natexlab{c}})]{chatschema}
 {OpenAI}.
-\newblock {Chat Completions API} reference, output token log probabilities and
-  bytes, 2026{\natexlab{b}}.
+\newblock Chat completions api reference, output token log probabilities and
+  bytes, 2026{\natexlab{c}}.
 \newblock URL
   \url{https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create}.
 
-\bibitem[{MLX-LM contributors}(2026{\natexlab{a}})]{mlxseed}
-{MLX-LM contributors}.
-\newblock Issue 1675 on random state in server sampling, 2026{\natexlab{a}}.
-\newblock URL \url{https://github.com/ml-explore/mlx-lm/issues/1675}.
+\bibitem[{Ollama issue contributors}(2025)]{ollamabytes}
+{Ollama issue contributors}.
+\newblock Logprobs use the replacement character for partial utf-8 tokens,
+  issue 13497, 2025.
+\newblock URL \url{https://github.com/ollama/ollama/issues/13497}.
 
-\bibitem[{MLX-LM contributors}(2026{\natexlab{b}})]{mlx}
-{MLX-LM contributors}.
-\newblock {MLX-LM} server, release 0.32.2, 2026{\natexlab{b}}.
-\newblock URL \url{https://pypi.org/project/mlx-lm/0.32.2/}.
+\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{a}})]{qwen7b}
+{Qwen Team and MLX Community}.
+\newblock {Qwen2.5-7B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{a}}.
+\newblock URL
+  \url{https://huggingface.co/mlx-community/Qwen2.5-7B-Instruct-4bit}.
 
-\bibitem[Ben~Allal et~al.(2025)Ben~Allal, Lozhkov, Bakouch, et~al.]{smol}
-Loubna Ben~Allal, Anton Lozhkov, Elie Bakouch, et~al.
-\newblock {SmolLM2}: When smol goes big --- data-centric training of a small
-  language model, 2025.
-\newblock URL \url{https://arxiv.org/abs/2502.02737}.
-
-\bibitem[Zhou et~al.(2023)Zhou, Lu, Mishra, Brahma, Basu, Luan, Zhou, and
-  Hou]{ifeval}
-Jeffrey Zhou, Tianjian Lu, Swaroop Mishra, Siddhartha Brahma, Sujoy Basu,
-  Yi~Luan, Denny Zhou, and Le~Hou.
-\newblock {Instruction-Following Evaluation for Large Language Models}, 2023.
-\newblock URL \url{https://arxiv.org/abs/2311.07911}.
+\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{b}})]{qwen3b}
+{Qwen Team and MLX Community}.
+\newblock {Qwen2.5-3B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{b}}.
+\newblock URL
+  \url{https://huggingface.co/mlx-community/Qwen2.5-3B-Instruct-4bit/tree/4f83f8f146fdf28b512a06562b671d7af4fab457}.
 
 \bibitem[{MLX Community}(2024)]{qwen}
 {MLX Community}.
@@ -65,10 +136,10 @@ Jeffrey Zhou, Tianjian Lu, Swaroop Mishra, Siddhartha Brahma, Sujoy Basu,
 \newblock URL
   \url{https://huggingface.co/mlx-community/Qwen2.5-0.5B-Instruct-4bit/tree/a5339a4131f135d0fdc6a5c8b5bbed2753bbe0f3}.
 
-\bibitem[{MLX-LM contributors}(2026{\natexlab{c}})]{change}
+\bibitem[{MLX-LM contributors}(2026)]{change}
 {MLX-LM contributors}.
 \newblock Change 829: support for chat parameters and a revised probability
-  response format, 2026{\natexlab{c}}.
+  response format, 2026.
 \newblock URL \url{https://github.com/ml-explore/mlx-lm/pull/829}.
 
 \bibitem[{llama.cpp contributors}(2026)]{llama}
@@ -93,7 +164,11 @@ Thomas Kim.
 {NLLB Team}.
 \newblock No language left behind: Scaling human-centered machine translation,
   2022.
-\newblock URL \url{https://arxiv.org/abs/2207.04672}.
+
+\bibitem[{vLLM contributors}(2026)]{vllm}
+{vLLM contributors}.
+\newblock Sampling parameters and generated-token log probabilities, 2026.
+\newblock URL \url{https://docs.vllm.ai/en/latest/api/vllm/sampling_params/}.
 
 \bibitem[{SGLang contributors}(2026)]{sglangrel}
 {SGLang contributors}.
@@ -106,68 +181,32 @@ Thomas Kim.
 \newblock URL
   \url{https://github.com/OpenNMT/CTranslate2/tree/a22ba1c63ee35d1a0d25db149aa2a66d36a6a732/python/cpp}.
 
-\bibitem[{CTranslate2 contributors}(2024)]{ct2origin}
-{CTranslate2 contributors}.
-\newblock Output tokens logits, {CTranslate2} issue 1616, 2024.
-\newblock URL
-  \url{https://github.com/OpenNMT/CTranslate2/issues/1616#issuecomment-2298863361}.
+\bibitem[Geifman and El-Yaniv(2017)]{geifman2017selective}
+Yonatan Geifman and Ran El-Yaniv.
+\newblock Selective classification for deep neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems 30 (NIPS
+  '17)}, pages 5140--5150, Red Hook, NY, USA, 2017. Curran Associates, Inc.
+\newblock \doi{10.48550/arXiv.1705.08500}.
 
-\bibitem[{CTranslate2 contributors}(2026)]{ct2beam}
-{CTranslate2 contributors}.
-\newblock Fix issue with return\_logits\_vocab option, {CTranslate2} pull
-  request 2020, 2026.
-\newblock URL \url{https://github.com/OpenNMT/CTranslate2/pull/2020}.
-
-\bibitem[{SkyRL contributors}(2026)]{skyrl}
-{SkyRL contributors}.
-\newblock Generation wire format and sampled-token probability lookup, 2026.
-\newblock URL
-  \url{https://github.com/NovaSky-AI/SkyRL/tree/5fabb23982789adc04c56e9d45bbea117447d170}.
-
-\bibitem[{Inspect AI contributors}(2026)]{inspect}
-{Inspect AI contributors}.
-\newblock {Inspect AI}: model choice conversion and agent bridges, 2026.
-\newblock URL
-  \url{https://github.com/UKGovernmentBEIS/inspect_ai/tree/8379140fd6d2184b669b6f3cea58e18009bde507}.
-
-\bibitem[{DeepEval contributors}(2026)]{gevalpkg}
-{DeepEval contributors}.
-\newblock {DeepEval} 4.3.4, {G-Eval} metric and score weighting, 2026.
-\newblock URL \url{https://pypi.org/project/deepeval/4.3.4/}.
-
-\bibitem[{OpenAI}(2026{\natexlab{c}})]{bestofapi}
-{OpenAI}.
-\newblock {Completions API}: best of several generations, 2026{\natexlab{c}}.
-\newblock URL
-  \url{https://developers.openai.com/api/reference/resources/completions/methods/create}.
+\bibitem[Guo et~al.(2017)Guo, Pleiss, Sun, and Weinberger]{guo2017calibration}
+Chuan Guo, Geoff Pleiss, Yu~Sun, and Kilian~Q. Weinberger.
+\newblock On calibration of modern neural networks.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning (ICML '17)}, volume~70 of \emph{Proceedings of Machine Learning
+  Research}, pages 1321--1330, Sydney, Australia, 2017. PMLR.
 
 \bibitem[Clark et~al.(2018)Clark, Cowhey, Etzioni, Khot, Sabharwal, Schoenick,
   and Tafjord]{arc}
 Peter Clark, Isaac Cowhey, Oren Etzioni, Tushar Khot, Ashish Sabharwal, Carissa
   Schoenick, and Oyvind Tafjord.
-\newblock {Think you have Solved Question Answering? Try ARC, the AI2 Reasoning
-  Challenge}.
-\newblock \emph{arXiv:1803.05457}, 2018.
-\newblock \doi{10.48550/arXiv.1803.05457}.
+\newblock Think you have solved question answering? try {ARC}, the {AI2}
+  reasoning challenge, 2018.
 
-\bibitem[{Qwen Team and MLX Community}(2024)]{qwenarc}
+\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{c}})]{qwenarc}
 {Qwen Team and MLX Community}.
-\newblock {Qwen2.5-1.5B-Instruct}, 4-bit {MLX} checkpoint, 2024.
+\newblock {Qwen2.5-1.5B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{c}}.
 \newblock URL
   \url{https://huggingface.co/mlx-community/Qwen2.5-1.5B-Instruct-4bit/tree/8b403126fc14f14cfc99bb4cfa72ecbc129ea677}.
-
-\bibitem[Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
-  Klimov]{ppo}
-John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov.
-\newblock Proximal policy optimization algorithms, 2017.
-\newblock URL \url{https://arxiv.org/abs/1707.06347}.
-
-\bibitem[Shao et~al.(2024)Shao, Wang, Zhu, Xu, Song, Bi, Zhang, et~al.]{grpo}
-Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei
-  Zhang, et~al.
-\newblock {DeepSeekMath}: Pushing the limits of mathematical reasoning in open
-  language models, 2024.
-\newblock URL \url{https://arxiv.org/abs/2402.03300}.
 
 \bibitem[Socher et~al.(2013)Socher, Perelygin, Wu, Chuang, Manning, Ng, and
   Potts]{sst}
@@ -176,23 +215,136 @@ Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher~D. Manning,
 \newblock Recursive deep models for semantic compositionality over a sentiment
   treebank.
 \newblock In \emph{Proceedings of the 2013 Conference on Empirical Methods in
-  Natural Language Processing}, pages 1631--1642, 2013.
-\newblock URL \url{https://aclanthology.org/D13-1170/}.
+  Natural Language Processing (EMNLP '13)}, pages 1631--1642, Seattle,
+  Washington, USA, 2013. Association for Computational Linguistics.
 
-\bibitem[Barr et~al.(2015)Barr, Harman, McMinn, Shahbaz, and Yoo]{barr}
-Earl~T. Barr, Mark Harman, Phil McMinn, Muzammil Shahbaz, and Shin Yoo.
-\newblock The oracle problem in software testing: A survey.
-\newblock \emph{IEEE Transactions on Software Engineering}, 41\penalty0
-  (5):\penalty0 507--525, 2015.
-\newblock \doi{10.1109/TSE.2014.2372785}.
+\bibitem[McKeeman(1998)]{mckeeman}
+William~M. McKeeman.
+\newblock Differential testing for software.
+\newblock \emph{Digital Technical Journal}, 10\penalty0 (1):\penalty0 100--107,
+  1998.
 
-\bibitem[Segura et~al.(2016)Segura, Fraser, S{\'a}nchez, and
-  Ruiz-Cort{\'e}s]{segura}
-Sergio Segura, Gordon Fraser, Ana~B. S{\'a}nchez, and Antonio Ruiz-Cort{\'e}s.
-\newblock A survey on metamorphic testing.
-\newblock \emph{IEEE Transactions on Software Engineering}, 42\penalty0
-  (9):\penalty0 805--824, 2016.
-\newblock \doi{10.1109/TSE.2016.2532875}.
+\bibitem[Pei et~al.(2017)Pei, Cao, Yang, and Jana]{pei}
+Kexin Pei, Yinzhi Cao, Junfeng Yang, and Suman Jana.
+\newblock {DeepXplore}: Automated whitebox testing of deep learning systems.
+\newblock In \emph{Proceedings of the 26th Symposium on Operating Systems
+  Principles (SOSP '17)}, pages 1--18, New York, NY, USA, 2017. ACM.
+\newblock \doi{10.1145/3132747.3132785}.
+
+\bibitem[Pham et~al.(2019)Pham, Lutellier, Qi, and Tan]{pham}
+Hung~Viet Pham, Thibaud Lutellier, Weizhen Qi, and Lin Tan.
+\newblock {CRADLE}: Cross-backend validation to detect and localize bugs in
+  deep learning libraries.
+\newblock In \emph{Proceedings of the 41st International Conference on Software
+  Engineering (ICSE '19)}, pages 1027--1038, Los Alamitos, CA, USA, 2019. IEEE.
+\newblock \doi{10.1109/ICSE.2019.00107}.
+
+\bibitem[Wang et~al.(2020)Wang, Yan, Chen, Liu, and Zhang]{wang2020lemon}
+Zan Wang, Ming Yan, Junjie Chen, Shuang Liu, and Dongdi Zhang.
+\newblock Deep learning library testing via effective model generation.
+\newblock In \emph{Proceedings of the 28th ACM Joint Meeting on European
+  Software Engineering Conference and Symposium on the Foundations of Software
+  Engineering (ESEC/FSE '20)}, pages 788--799, New York, NY, USA, 2020. ACM.
+\newblock \doi{10.1145/3368089.3409761}.
+
+\bibitem[Guo et~al.(2020)Guo, Xie, Li, Zhang, Liu, Li, and Shen]{guo2020audee}
+Qianyu Guo, Xiaofei Xie, Yi~Li, Xiaoyu Zhang, Yang Liu, Xiaohong Li, and Chao
+  Shen.
+\newblock Audee: Automated testing for deep learning frameworks.
+\newblock In \emph{Proceedings of the 35th IEEE/ACM International Conference on
+  Automated Software Engineering (ASE '20)}, pages 486--498, New York, NY, USA,
+  2020. ACM.
+\newblock \doi{10.1145/3324884.3416571}.
+
+\bibitem[Wei et~al.(2022)Wei, Deng, Yang, and Zhang]{wei2022freefuzz}
+Anjiang Wei, Yin-Lin Deng, Chenyuan Yang, and Ling-Ming Zhang.
+\newblock Free lunch for testing: Fuzzing deep-learning libraries from open
+  source.
+\newblock In \emph{Proceedings of the 44th International Conference on Software
+  Engineering (ICSE '22)}, pages 995--1007, New York, NY, USA, 2022. ACM.
+\newblock \doi{10.1145/3510003.3510041}.
+
+\bibitem[Deng et~al.(2022)Deng, Yang, Wei, and Zhang]{deng2022deeprel}
+Yinlin Deng, Chenyuan Yang, Anjiang Wei, and Lingming Zhang.
+\newblock Fuzzing deep learning libraries via automated relational {API}
+  inference.
+\newblock In \emph{Proceedings of the 30th ACM Joint European Software
+  Engineering Conference and Symposium on the Foundations of Software
+  Engineering (ESEC/FSE '22)}, pages 44--56, New York, NY, USA, 2022. ACM.
+\newblock \doi{10.1145/3540250.3549085}.
+
+\bibitem[Liu et~al.(2023{\natexlab{b}})Liu, Lin, Ruffy, Tan, Li, Panda, and
+  Zhang]{liu2023nnsmith}
+Jiawei Liu, Jinkun Lin, Fabian Ruffy, Cheng Tan, Jinyang Li, Aurojit Panda, and
+  Lingming Zhang.
+\newblock {NNSmith}: Generating diverse and valid test cases for deep learning
+  compilers.
+\newblock In \emph{Proceedings of the 28th ACM International Conference on
+  Architectural Support for Programming Languages and Operating Systems (ASPLOS
+  '23)}, volume~2, pages 98--111, New York, NY, USA, 2023{\natexlab{b}}. ACM.
+\newblock \doi{10.1145/3575693.3575707}.
+
+\bibitem[Deng et~al.(2023)Deng, Xia, Peng, Yang, and Zhang]{deng2023titanfuzz}
+Yinlin Deng, Chunqiu~Steven Xia, Haoran Peng, Chenyuan Yang, and Lingming
+  Zhang.
+\newblock Large language models are zero-shot fuzzers: Fuzzing deep-learning
+  libraries via large language models.
+\newblock In \emph{Proceedings of the 32nd ACM SIGSOFT International Symposium
+  on Software Testing and Analysis (ISSTA '23)}, pages 423--435, New York, NY,
+  USA, 2023. ACM.
+\newblock \doi{10.1145/3597926.3598067}.
+
+\bibitem[Yang et~al.(2024)Yang, Deng, Lu, Yao, Liu, Jabbarvand, and
+  Zhang]{yang2024whitefox}
+Chenyuan Yang, Yinlin Deng, Runyu Lu, Jiayi Yao, Jiawei Liu, Reyhaneh
+  Jabbarvand, and Lingming Zhang.
+\newblock {WhiteFox}: White-box compiler fuzzing empowered by large language
+  models.
+\newblock \emph{Proceedings of the ACM on Programming Languages}, 8\penalty0
+  (OOPSLA2):\penalty0 709--735, 2024.
+\newblock \doi{10.1145/3689736}.
+
+\bibitem[Zhang et~al.(2018)Zhang, Chen, Cheung, Xiong, and Zhang]{zhangtf}
+Yuhao Zhang, Yifan Chen, Shing-Chi Cheung, Yingfei Xiong, and Lu~Zhang.
+\newblock An empirical study on {TensorFlow} program bugs.
+\newblock In \emph{Proceedings of the 27th ACM SIGSOFT International Symposium
+  on Software Testing and Analysis (ISSTA '18)}, pages 129--140, New York, NY,
+  USA, 2018. ACM.
+\newblock \doi{10.1145/3213846.3213866}.
+
+\bibitem[Islam et~al.(2019)Islam, Nguyen, Pan, and Rajan]{islam}
+Md~Johirul Islam, Giang Nguyen, Rangeet Pan, and Hridesh Rajan.
+\newblock A comprehensive study on deep learning bug characteristics.
+\newblock In \emph{Proceedings of the 2019 27th ACM Joint Meeting on European
+  Software Engineering Conference and Symposium on the Foundations of Software
+  Engineering (ESEC/FSE '19)}, pages 510--520, New York, NY, USA, 2019. ACM.
+\newblock \doi{10.1145/3338906.3338955}.
+
+\bibitem[Humbatova et~al.(2020)Humbatova, Jahangirova, Bavota, Riccio, Stocco,
+  and Tonella]{humbatova}
+Nargiz Humbatova, Gunel Jahangirova, Gabriele Bavota, Vincenzo Riccio, Andrea
+  Stocco, and Paolo Tonella.
+\newblock Taxonomy of real faults in deep learning systems.
+\newblock In \emph{Proceedings of the ACM/IEEE 42nd International Conference on
+  Software Engineering (ICSE '20)}, pages 1110--1121, New York, NY, USA, 2020.
+  ACM.
+\newblock \doi{10.1145/3377811.3380395}.
+
+\bibitem[Shen et~al.(2021)Shen, Ma, Chen, Tian, Cheung, and Chen]{shen2021}
+Qingchao Shen, Haoyang Ma, Junjie Chen, Yong-Qiang Tian, Shing-Chi Cheung, and
+  Xiang Chen.
+\newblock A comprehensive study of deep learning compiler bugs.
+\newblock In \emph{Proceedings of the 29th ACM Joint Meeting on European
+  Software Engineering Conference and Symposium on the Foundations of Software
+  Engineering (ESEC/FSE '21)}, pages 968--980, New York, NY, USA, 2021. ACM.
+\newblock \doi{10.1145/3468264.3468591}.
+
+\bibitem[Zhang et~al.(2022)Zhang, Harman, Ma, and Liu]{zhangml}
+Jie~M. Zhang, Mark Harman, Lei Ma, and Yang Liu.
+\newblock Machine learning testing: Survey, landscapes and horizons.
+\newblock \emph{IEEE Transactions on Software Engineering}, 48\penalty0
+  (1):\penalty0 1--36, 2022.
+\newblock \doi{10.1109/TSE.2019.2962027}.
 
 \bibitem[Liu et~al.(2026)Liu, Zhong, Bi, Zhang, Chen, Chen, Liu, and
   Ma]{liuinference}
@@ -202,7 +354,6 @@ Mugeng Liu, Siqi Zhong, Weichen Bi, Yixuan Zhang, Zhiyang Chen, Zhenpeng Chen,
 \newblock \emph{ACM Transactions on Software Engineering and Methodology},
   35\penalty0 (9), 2026.
 \newblock \doi{10.1145/3788873}.
-\newblock Article 284.
 
 \bibitem[{vLLM issue tracker}(2026)]{vllmreport}
 {vLLM issue tracker}.
@@ -221,60 +372,11 @@ Mugeng Liu, Siqi Zhong, Weichen Bi, Yixuan Zhang, Zhiyang Chen, Zhenpeng Chen,
   return wrong results or crash, {SGLang} issue 30188, 2026.
 \newblock URL \url{https://github.com/sgl-project/sglang/issues/30188}.
 
-\bibitem[Firestone et~al.(2025)Firestone, Ugare, Singh, and
-  Misailovic]{utf8plumbing}
-Preston Firestone, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic.
-\newblock {UTF-8} plumbing: Byte-level tokenizers unavoidably enable {LLMs} to
-  generate ill-formed {UTF-8}.
-\newblock In \emph{Conference on Language Modeling}, 2025.
-\newblock URL
-  \url{https://misailo.cs.illinois.edu/papers/utf8plumbing-colm25.pdf}.
-
-\bibitem[{Ollama issue contributors}(2025)]{ollamabytes}
-{Ollama issue contributors}.
-\newblock Logprobs use the replacement character for partial {UTF-8} tokens,
-  issue 13497, 2025.
-\newblock URL \url{https://github.com/ollama/ollama/issues/13497}.
-
 \bibitem[Karvonen et~al.(2025)Karvonen, Reuter, Rinberg, Marks, Garriga-Alonso,
   and Warr]{difr}
 Adam Karvonen, Daniel Reuter, Roy Rinberg, Luke Marks, Adri{\'a}
   Garriga-Alonso, and Keri Warr.
 \newblock {DiFR}: Inference verification despite nondeterminism, 2025.
-\newblock URL \url{https://arxiv.org/abs/2511.20621}.
-
-\bibitem[{oMLX contributors}(2026{\natexlab{a}})]{omlx}
-{oMLX contributors}.
-\newblock Return log probabilities on chat completions, pull request 4859,
-  2026{\natexlab{a}}.
-\newblock URL \url{https://github.com/jundot/omlx/pull/4859}.
-
-\bibitem[{oMLX contributors}(2026{\natexlab{b}})]{omlxproposal}
-{oMLX contributors}.
-\newblock Return log probabilities on non-streaming chat completions, pull
-  request 4380, 2026{\natexlab{b}}.
-\newblock URL \url{https://github.com/jundot/omlx/pull/4380}.
-
-\bibitem[{slipstr34m}(2026)]{mlxstream}
-{slipstr34m}.
-\newblock Fix logprobs being silently dropped from streamed responses, {MLX-LM}
-  pull request 1630, 2026.
-\newblock URL \url{https://github.com/ml-explore/mlx-lm/pull/1630}.
-
-\bibitem[Wang et~al.(2024)Wang, Ma, Hu, Weber-Genzel, R{\"o}ttger, Kreuter,
-  Hovy, and Plank]{firsttoken}
-Xinpeng Wang, Bolei Ma, Chengzhi Hu, Leon Weber-Genzel, Paul R{\"o}ttger,
-  Frauke Kreuter, Dirk Hovy, and Barbara Plank.
-\newblock {``My Answer is C''}: First-token probabilities do not match text
-  answers in instruction-tuned language models.
-\newblock In \emph{Findings of the Association for Computational Linguistics:
-  {ACL} 2024}, pages 7407--7416, 2024.
-\newblock \doi{10.18653/v1/2024.findings-acl.441}.
-
-\bibitem[Wang and Sang(2026)]{censoring}
-Wenbo Wang and Di~Sang.
-\newblock Interface-induced trajectory censoring, 2026.
-\newblock URL \url{https://arxiv.org/abs/2609.03966v3}.
 
 \bibitem[Xin et~al.(2026)Xin, Feng, Guo, Wu, and Yin]{detent}
 Peixu Xin, Runchuan Feng, Jiazhen Guo, Kan Wu, and Ming Yin.
@@ -282,19 +384,56 @@ Peixu Xin, Runchuan Feng, Jiazhen Guo, Kan Wu, and Ming Yin.
   speed, 2026.
 \newblock URL \url{https://arxiv.org/abs/2611.10611}.
 
-\bibitem[Chauvin et~al.(2025)Chauvin, Le~Merrer, Ta{\"i}ani, and
+\bibitem[Yao et~al.(2025)Yao, Liu, Zhang, Dong, Shang, and
+  Gao]{yao2025offpolicy}
+Feng Yao, Liyuan Liu, Dinghuai Zhang, Chengyu Dong, Jingbo Shang, and Jianfeng
+  Gao.
+\newblock Your efficient {RL} framework secretly brings you off-policy {RL}
+  training, 2025.
+\newblock URL \url{https://fengyao.notion.site/off-policy-rl}.
+
+\bibitem[Zhong et~al.(2026)Zhong, Ling, Pi, Wei, Yu, Fox, Wu, and
+  Yu]{zhong2026vexact}
+Tianle Zhong, Neiwen Ling, Yifan Pi, Zijun Wei, Tianshu Yu, Geoffrey Fox, Peng
+  Wu, and Xiao Yu.
+\newblock Diagnosing training inference mismatch in {LLM} reinforcement
+  learning via a zero-mismatch reference, 2026.
+
+\bibitem[Kang et~al.(2026)Kang, Yang, Chen, and Li]{kang2026rocm}
+Xinyu Kang, Yuhan Yang, Yuankai Chen, and Liz Li.
+\newblock Debugging logprob mismatches in {LLM} reinforcement learning.
+\newblock AMD ROCm Blogs, sep 2026.
+\newblock URL
+  \url{https://rocm.blogs.amd.com/software-tools-optimization/logprob-debug/README.html}.
+
+\bibitem[Wang and Sang(2026)]{censoring}
+Wenbo Wang and Di~Sang.
+\newblock Interface-induced trajectory censoring, 2026.
+\newblock URL \url{https://arxiv.org/abs/2609.03966v3}.
+
+\bibitem[Chauvin et~al.(2026)Chauvin, Le~Merrer, Ta{\"i}ani, and
   Tredan]{monitor}
 Timoth{\'e}e Chauvin, Erwan Le~Merrer, Fran{\c c}ois Ta{\"i}ani, and Gilles
   Tredan.
-\newblock Log probability tracking of {LLM APIs}, 2025.
-\newblock URL \url{https://arxiv.org/abs/2512.03816}.
+\newblock Log probability tracking of {LLM APIs}.
+\newblock International Conference on Learning Representations (ICLR 2026),
+  2026.
 
-\bibitem[Chen(2026)]{rewardfail}
-Yufeiyang Chen.
-\newblock When the verifier cannot decide: Tracing {Math-Verify} failures
-  through an {RLVR} reward pipeline.
-\newblock Public technical manuscript, 2026.
-\newblock URL
-  \url{https://github.com/feiiiiii5/rewardfail/blob/da00bd6/paper/rewardfail-preprint-2026-11-03.pdf}.
+\bibitem[Wang et~al.(2024)Wang, Ma, Hu, Weber-Genzel, R{\"o}ttger, Kreuter,
+  Hovy, and Plank]{firsttoken}
+Xinpeng Wang, Bolei Ma, Chengzhi Hu, Leon Weber-Genzel, Paul R{\"o}ttger,
+  Frauke Kreuter, Dirk Hovy, and Barbara Plank.
+\newblock ``my answer is {C}'': First-token probabilities do not match text
+  answers in instruction-tuned language models.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL 2024}, pages 7407--7416, Bangkok, Thailand, 2024. Association for
+  Computational Linguistics.
+\newblock \doi{10.18653/v1/2024.findings-acl.441}.
+
+\bibitem[{oMLX contributors}(2026)]{omlx}
+{oMLX contributors}.
+\newblock Return log probabilities on chat completions, pull requests 4380 and
+  4859, 2026.
+\newblock URL \url{https://github.com/jundot/omlx/pull/4859}.
 
 \end{thebibliography}

@@ -1,0 +1,1062 @@
+{
+  "study": "2026-11-24 full-transport MLX-LM 0.32.2 patch live audit",
+  "protocol": {
+    "prompts": [
+      "en-sky",
+      "en-code",
+      "vi-greet",
+      "zh-poem"
+    ],
+    "max_tokens": 16,
+    "temperature": 0.8,
+    "prompt_cache_size": 0,
+    "widths": [
+      5,
+      1
+    ],
+    "stream_parity": true,
+    "positions_per_width_per_arm": 64,
+    "memory_guard": "GREEN (1) and YELLOW (2) proceed; RED (>=4) or process-family RSS breach pauses with exit code 75"
+  },
+  "patch_release": {
+    "version": "0.32.2",
+    "source": "https://pypi.org/project/mlx-lm/0.32.2/",
+    "wheel_sha256": "5c0991248cfff5872503d74f466d2532dd8cb7fb3670cb9be7a06d7305dadc04",
+    "server_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+    "patched_server_sha256": "92aa68f18077d585077be6c48cd6c40591ccd10c3f411187c6c05f3ee512b1a9",
+    "patch_sha256": "67165f481bb4bf498982ae201008765136de87c098935f857a77d09f29e21ced"
+  },
+  "offline_checks": {
+    "sample-in-list": "stock uses first alternative; patch uses sampled record",
+    "sample-outside-list": "stock uses first alternative; patch uses sampled record",
+    "same-score-different-id": "stock uses first alternative; patch uses sampled record",
+    "stop-only": "stock uses first alternative; patch uses sampled record",
+    "text-completion": "stock uses first alternative; patch uses sampled record",
+    "no-candidates": "identical entire response",
+    "no-metadata": "identical entire response",
+    "no-generated-positions": "identical entire response",
+    "missing-token-strings-explicit-error": "explicit ValueError raised",
+    "empty-candidate-tuple-preserved": "sampled pair retained on empty candidate row",
+    "length-mismatch-strict": "strict ValueError raised",
+    "stream-single-token-candidates": "streaming emits exact sampled rows even with logprobs=False",
+    "stream-multibyte-coalesced-chunk": "empty-delta prefix token buffered and flushed in order",
+    "stream-stop-eos-flush": "stop EOS token logprob flushed on finish chunk",
+    "stream-length-no-duplicate-finish": "length finish chunk omits duplicate logprobs"
+  },
+  "models": {
+    "smollm2_135m": {
+      "stock": {
+        "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+        "patch_applied": false,
+        "server_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+        "width5": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 44,
+              "fail": 20
+            },
+            "I2": {
+              "pass": 46,
+              "fail": 18
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "fail": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "fail": 4
+            },
+            "I2": {
+              "fail": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "fail": 4
+            }
+          }
+        },
+        "width1": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 47,
+              "fail": 17
+            },
+            "I2": {
+              "pass": 49,
+              "fail": 15
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "fail": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "fail": 4
+            },
+            "I2": {
+              "fail": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "fail": 4
+            }
+          }
+        },
+        "text_and_rows": [
+          {
+            "tag": "en-sky",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "en-code",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "vi-greet",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "zh-poem",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          }
+        ],
+        "memory": [
+          {
+            "tag": "en-sky",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 835.25,
+            "metal_peak_mb": 295.268,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "en-code",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 832.09,
+            "metal_peak_mb": 295.268,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "vi-greet",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 832.22,
+            "metal_peak_mb": 295.268,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "zh-poem",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 817.05,
+            "metal_peak_mb": 302.88,
+            "metal_cache_mb": 0.0
+          }
+        ]
+      },
+      "patched": {
+        "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+        "patch_applied": true,
+        "server_sha256": "92aa68f18077d585077be6c48cd6c40591ccd10c3f411187c6c05f3ee512b1a9",
+        "width5": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 64
+            },
+            "I2": {
+              "pass": 64
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "pass": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "pass": 4
+            },
+            "I2": {
+              "pass": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "pass": 4
+            }
+          }
+        },
+        "width1": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 64
+            },
+            "I2": {
+              "pass": 64
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "pass": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "pass": 4
+            },
+            "I2": {
+              "pass": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "pass": 4
+            }
+          }
+        },
+        "text_and_rows": [
+          {
+            "tag": "en-sky",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "en-code",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "vi-greet",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "zh-poem",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          }
+        ],
+        "memory": [
+          {
+            "tag": "en-sky",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 859.86,
+            "metal_peak_mb": 295.268,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "en-code",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 860.12,
+            "metal_peak_mb": 295.268,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "vi-greet",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 860.88,
+            "metal_peak_mb": 295.268,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "zh-poem",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 861.42,
+            "metal_peak_mb": 299.849,
+            "metal_cache_mb": 0.0
+          }
+        ]
+      }
+    },
+    "qwen25_3b": {
+      "stock": {
+        "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+        "patch_applied": false,
+        "server_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+        "width5": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 57,
+              "fail": 7
+            },
+            "I2": {
+              "pass": 57,
+              "fail": 7
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "fail": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "fail": 4
+            },
+            "I2": {
+              "fail": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "fail": 4
+            }
+          }
+        },
+        "width1": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 54,
+              "fail": 10
+            },
+            "I2": {
+              "pass": 54,
+              "fail": 10
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "fail": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "fail": 4
+            },
+            "I2": {
+              "fail": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "fail": 4
+            }
+          }
+        },
+        "text_and_rows": [
+          {
+            "tag": "en-sky",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "en-code",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "vi-greet",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "zh-poem",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          }
+        ],
+        "memory": [
+          {
+            "tag": "en-sky",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1584.58,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "en-code",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1585.75,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "vi-greet",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1586.78,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "zh-poem",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1588.66,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          }
+        ]
+      },
+      "patched": {
+        "model": "mlx-community/Qwen2.5-3B-Instruct-4bit",
+        "patch_applied": true,
+        "server_sha256": "92aa68f18077d585077be6c48cd6c40591ccd10c3f411187c6c05f3ee512b1a9",
+        "width5": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 64
+            },
+            "I2": {
+              "pass": 64
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "pass": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "pass": 4
+            },
+            "I2": {
+              "pass": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "pass": 4
+            }
+          }
+        },
+        "width1": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 64
+            },
+            "I2": {
+              "pass": 64
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "pass": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "pass": 4
+            },
+            "I2": {
+              "pass": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "pass": 4
+            }
+          }
+        },
+        "text_and_rows": [
+          {
+            "tag": "en-sky",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "en-code",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "vi-greet",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "zh-poem",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          }
+        ],
+        "memory": [
+          {
+            "tag": "en-sky",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1601.52,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "en-code",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1603.7,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "vi-greet",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1604.09,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "zh-poem",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 1605.31,
+            "metal_peak_mb": 1787.821,
+            "metal_cache_mb": 0.0
+          }
+        ]
+      }
+    },
+    "qwen25_7b": {
+      "stock": {
+        "model": "mlx-community/Qwen2.5-7B-Instruct-4bit",
+        "patch_applied": false,
+        "server_sha256": "8d475058966cf90afcf8cb857f218c2b9dbc01ad1c506d9726de655a90d80723",
+        "width5": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 62,
+              "fail": 2
+            },
+            "I2": {
+              "pass": 62,
+              "fail": 2
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "fail": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "fail": 2,
+              "pass": 2
+            },
+            "I2": {
+              "fail": 2,
+              "pass": 2
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "fail": 4
+            }
+          }
+        },
+        "width1": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 61,
+              "fail": 3
+            },
+            "I2": {
+              "pass": 61,
+              "fail": 3
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "fail": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "fail": 2,
+              "pass": 2
+            },
+            "I2": {
+              "fail": 2,
+              "pass": 2
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "fail": 4
+            }
+          }
+        },
+        "text_and_rows": [
+          {
+            "tag": "en-sky",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "en-code",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "vi-greet",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "zh-poem",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 0,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 0,
+            "w1_usage_tokens": 16
+          }
+        ],
+        "memory": [
+          {
+            "tag": "en-sky",
+            "pressure_levels": [
+              1
+            ],
+            "family_rss_mib": 4020.8,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "en-code",
+            "pressure_levels": [
+              1,
+              2
+            ],
+            "family_rss_mib": 4011.2,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "vi-greet",
+            "pressure_levels": [
+              2
+            ],
+            "family_rss_mib": 3857.75,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "zh-poem",
+            "pressure_levels": [
+              2
+            ],
+            "family_rss_mib": 3859.03,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          }
+        ]
+      },
+      "patched": {
+        "model": "mlx-community/Qwen2.5-7B-Instruct-4bit",
+        "patch_applied": true,
+        "server_sha256": "92aa68f18077d585077be6c48cd6c40591ccd10c3f411187c6c05f3ee512b1a9",
+        "width5": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 64
+            },
+            "I2": {
+              "pass": 64
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "pass": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "pass": 4
+            },
+            "I2": {
+              "pass": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "pass": 4
+            }
+          }
+        },
+        "width1": {
+          "requests": 4,
+          "positions": 64,
+          "per_position": {
+            "I1": {
+              "pass": 64
+            },
+            "I2": {
+              "pass": 64
+            },
+            "I3": {
+              "pass": 64
+            },
+            "I4": {
+              "abstain": 64
+            },
+            "I5": {
+              "pass": 64
+            }
+          },
+          "per_request": {
+            "I1": {
+              "pass": 4
+            },
+            "I2": {
+              "pass": 4
+            },
+            "I3": {
+              "pass": 4
+            },
+            "I4": {
+              "abstain": 4
+            },
+            "I5": {
+              "pass": 4
+            }
+          }
+        },
+        "text_and_rows": [
+          {
+            "tag": "en-sky",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "en-code",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "vi-greet",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          },
+          {
+            "tag": "zh-poem",
+            "w5_same_text_k0_vs_k": true,
+            "w5_same_text_stream": true,
+            "w5_stream_logprob_rows": 16,
+            "w5_usage_tokens": 16,
+            "w1_same_text_k0_vs_k": true,
+            "w1_same_text_stream": true,
+            "w1_stream_logprob_rows": 16,
+            "w1_usage_tokens": 16
+          }
+        ],
+        "memory": [
+          {
+            "tag": "en-sky",
+            "pressure_levels": [
+              1,
+              2
+            ],
+            "family_rss_mib": 4068.86,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "en-code",
+            "pressure_levels": [
+              2
+            ],
+            "family_rss_mib": 4070.83,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "vi-greet",
+            "pressure_levels": [
+              2
+            ],
+            "family_rss_mib": 4069.58,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          },
+          {
+            "tag": "zh-poem",
+            "pressure_levels": [
+              2
+            ],
+            "family_rss_mib": 4071.33,
+            "metal_peak_mb": 4230.886,
+            "metal_cache_mb": 0.0
+          }
+        ]
+      }
+    }
+  }
+}

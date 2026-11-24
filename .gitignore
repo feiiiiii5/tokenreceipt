@@ -12,3 +12,6 @@ __pycache__/
 /paper/preprint/source/*.log
 /paper/preprint/source/*.out
 /paper/preprint/source/main.pdf
+
+# Thesis administration files contain personal student data.
+/毕业设计/
