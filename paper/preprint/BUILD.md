@@ -1,6 +1,6 @@
 # Building the TokenReceipt preprint
 
-The signed preprint was revised on November 23, 2026. Extract [`tokenreceipt-arxiv-source.zip`](tokenreceipt-arxiv-source.zip) or work in [`source/`](source/). The source uses the standard LaTeX `article` class and includes the compiled bibliography (`main.bbl`) and all four vector figures (`mechanism.pdf`, `prompt-results.pdf`, `routing-geval.pdf`, `learning.pdf`).
+The signed preprint was revised on November 24, 2026. Extract [`tokenreceipt-arxiv-source.zip`](tokenreceipt-arxiv-source.zip) or work in [`source/`](source/). The source uses the standard LaTeX `article` class and includes the compiled bibliography (`main.bbl`) and all four vector figures (`mechanism.pdf`, `prompt-results.pdf`, `routing-geval.pdf`, `learning.pdf`).
 
 Build locally with Tectonic (the public PDF was built with Tectonic 0.17.0):
 

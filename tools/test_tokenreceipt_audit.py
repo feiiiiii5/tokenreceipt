@@ -201,6 +201,40 @@ class TokenReceiptAuditTests(unittest.TestCase):
         v = check_slot(matched)
         self.assertEqual(v["I5"].status, "pass")
 
+    def test_joint_row_omission_isolates_i3_without_false_i5(self):
+        from unittest.mock import patch
+        import tokenreceipt_audit as audit_mod
+
+        base_ns = {
+            "choices": [
+                {
+                    "finish_reason": "stop",
+                    "message": {"content": "ok"},
+                    "logprobs": {"content": [{"token": "ok", "logprob": -0.1, "bytes": [111, 107], "top_logprobs": []}]},
+                }
+            ],
+            "usage": {"completion_tokens": 2},
+        }
+        sse = [
+            {
+                "choices": [
+                    {
+                        "delta": {"content": "ok"},
+                        "logprobs": {"content": [{"token": "ok", "logprob": -0.1, "bytes": [111, 107], "top_logprobs": []}]},
+                    }
+                ]
+            },
+            {"choices": [{"delta": {}, "finish_reason": "stop"}], "usage": {"completion_tokens": 2}},
+        ]
+        adapter = audit_mod.OpenAICompatibleHTTPAdapter("http://127.0.0.1:9999")
+        with patch.object(audit_mod, "_http_post_json", side_effect=[base_ns, base_ns]), patch.object(
+            audit_mod, "_http_post_sse", return_value=sse
+        ):
+            res = adapter.probe_prompt("hi", study_id="joint-omit", seed=1, top_k=5, check_stream=True)
+        summary = summarize_slots([res["slots_k"]])
+        self.assertEqual(summary["per_position"]["I3"], {"pass": 1, "fail": 1})
+        self.assertEqual(summary["per_position"]["I5"], {"pass": 1, "abstain": 1})
+
 
 if __name__ == "__main__":
     unittest.main()

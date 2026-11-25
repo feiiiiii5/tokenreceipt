@@ -1,4 +1,4 @@
-\begin{thebibliography}{61}
+\begin{thebibliography}{60}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,6 +16,13 @@
 \newblock Fix logprobs being silently dropped from streamed responses, {MLX-LM}
   pull request 1630, 2026.
 \newblock URL \url{https://github.com/ml-explore/mlx-lm/pull/1630}.
+
+\bibitem[Geifman and El-Yaniv(2017)]{geifman2017selective}
+Yonatan Geifman and Ran El-Yaniv.
+\newblock Selective classification for deep neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems 30 (NIPS
+  '17)}, pages 5140--5150, Red Hook, NY, USA, 2017. Curran Associates, Inc.
+\newblock \doi{10.48550/arXiv.1705.08500}.
 
 \bibitem[{Inspect AI contributors}(2026)]{inspect}
 {Inspect AI contributors}.
@@ -42,6 +49,22 @@ Yang Liu, Dan Iter, Yichong Xu, Shuohang Wang, Ruochen Xu, and Chenguang Zhu.
 \newblock Completions api: best of several generations, 2026{\natexlab{a}}.
 \newblock URL
   \url{https://developers.openai.com/api/reference/resources/completions/methods/create}.
+
+\bibitem[Guo et~al.(2017)Guo, Pleiss, Sun, and Weinberger]{guo2017calibration}
+Chuan Guo, Geoff Pleiss, Yu~Sun, and Kilian~Q. Weinberger.
+\newblock On calibration of modern neural networks.
+\newblock In \emph{Proceedings of the 34th International Conference on Machine
+  Learning (ICML '17)}, volume~70 of \emph{Proceedings of Machine Learning
+  Research}, pages 1321--1330, Sydney, Australia, 2017. PMLR.
+
+\bibitem[Chauvin et~al.(2026)Chauvin, Le~Merrer, Ta{\"i}ani, and
+  Tredan]{monitor}
+Timoth{\'e}e Chauvin, Erwan Le~Merrer, Fran{\c c}ois Ta{\"i}ani, and Gilles
+  Tredan.
+\newblock Log probability tracking of {LLM APIs}.
+\newblock In \emph{Proceedings of the International Conference on Learning
+  Representations (ICLR '26)}, 2026.
+\newblock \doi{10.48550/arXiv.2512.03816}.
 
 \bibitem[Schulman et~al.(2017)Schulman, Wolski, Dhariwal, Radford, and
   Klimov]{ppo}
@@ -95,7 +118,8 @@ Tsong~Yueh Chen, Fei-Ching Kuo, Huai Liu, Pak-Lok Poon, Dave Towey, T.~H. Tse,
 Preston Firestone, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic.
 \newblock {UTF-8} plumbing: Byte-level tokenizers unavoidably enable {LLMs} to
   generate ill-formed {UTF-8}.
-\newblock Conference on Language Modeling (COLM 2025), 2025.
+\newblock In \emph{Proceedings of the Conference on Language Modeling (COLM
+  '25)}, 2025.
 \newblock URL
   \url{https://misailo.cs.illinois.edu/papers/utf8plumbing-colm25.pdf}.
 
@@ -105,6 +129,11 @@ Preston Firestone, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic.
 \newblock URL
   \url{https://developers.openai.com/api/docs/guides/advanced-usage}.
 
+\bibitem[{vLLM contributors}(2026)]{vllm}
+{vLLM contributors}.
+\newblock Sampling parameters and generated-token log probabilities, 2026.
+\newblock URL \url{https://docs.vllm.ai/en/latest/api/vllm/sampling_params/}.
+
 \bibitem[{OpenAI}(2026{\natexlab{c}})]{chatschema}
 {OpenAI}.
 \newblock Chat completions api reference, output token log probabilities and
@@ -112,23 +141,28 @@ Preston Firestone, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic.
 \newblock URL
   \url{https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create}.
 
+\bibitem[{Ollama contributors}(2026)]{ollamarel}
+{Ollama contributors}.
+\newblock {Ollama} v0.40.17, 2026.
+\newblock URL \url{https://github.com/ollama/ollama/releases/tag/v0.40.17}.
+
 \bibitem[{Ollama issue contributors}(2025)]{ollamabytes}
 {Ollama issue contributors}.
 \newblock Logprobs use the replacement character for partial utf-8 tokens,
   issue 13497, 2025.
 \newblock URL \url{https://github.com/ollama/ollama/issues/13497}.
 
-\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{a}})]{qwen7b}
+\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{a}})]{qwen3b}
 {Qwen Team and MLX Community}.
-\newblock {Qwen2.5-7B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{a}}.
-\newblock URL
-  \url{https://huggingface.co/mlx-community/Qwen2.5-7B-Instruct-4bit}.
-
-\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{b}})]{qwen3b}
-{Qwen Team and MLX Community}.
-\newblock {Qwen2.5-3B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{b}}.
+\newblock {Qwen2.5-3B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{a}}.
 \newblock URL
   \url{https://huggingface.co/mlx-community/Qwen2.5-3B-Instruct-4bit/tree/4f83f8f146fdf28b512a06562b671d7af4fab457}.
+
+\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{b}})]{qwen7b}
+{Qwen Team and MLX Community}.
+\newblock {Qwen2.5-7B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{b}}.
+\newblock URL
+  \url{https://huggingface.co/mlx-community/Qwen2.5-7B-Instruct-4bit}.
 
 \bibitem[{MLX Community}(2024)]{qwen}
 {MLX Community}.
@@ -141,6 +175,11 @@ Preston Firestone, Shubham Ugare, Gagandeep Singh, and Sasa Misailovic.
 \newblock Change 829: support for chat parameters and a revised probability
   response format, 2026.
 \newblock URL \url{https://github.com/ml-explore/mlx-lm/pull/829}.
+
+\bibitem[{SGLang contributors}(2026)]{sglangrel}
+{SGLang contributors}.
+\newblock {SGLang} v0.5.23, 2026.
+\newblock URL \url{https://github.com/sgl-project/sglang/releases/tag/v0.5.23}.
 
 \bibitem[{llama.cpp contributors}(2026)]{llama}
 {llama.cpp contributors}.
@@ -160,40 +199,11 @@ Thomas Kim.
 \newblock URL
   \url{https://github.com/EricLBuehler/mistral.rs/releases/tag/v0.9.5}.
 
-\bibitem[{NLLB Team}(2022)]{flores}
-{NLLB Team}.
-\newblock No language left behind: Scaling human-centered machine translation,
-  2022.
-
-\bibitem[{vLLM contributors}(2026)]{vllm}
-{vLLM contributors}.
-\newblock Sampling parameters and generated-token log probabilities, 2026.
-\newblock URL \url{https://docs.vllm.ai/en/latest/api/vllm/sampling_params/}.
-
-\bibitem[{SGLang contributors}(2026)]{sglangrel}
-{SGLang contributors}.
-\newblock {SGLang} v0.5.23, 2026.
-\newblock URL \url{https://github.com/sgl-project/sglang/releases/tag/v0.5.23}.
-
 \bibitem[{OpenNMT contributors}(2026)]{ct2heldout}
 {OpenNMT contributors}.
 \newblock {CTranslate2} v4.9.0: Generator and generation-result bindings, 2026.
 \newblock URL
   \url{https://github.com/OpenNMT/CTranslate2/tree/a22ba1c63ee35d1a0d25db149aa2a66d36a6a732/python/cpp}.
-
-\bibitem[Geifman and El-Yaniv(2017)]{geifman2017selective}
-Yonatan Geifman and Ran El-Yaniv.
-\newblock Selective classification for deep neural networks.
-\newblock In \emph{Advances in Neural Information Processing Systems 30 (NIPS
-  '17)}, pages 5140--5150, Red Hook, NY, USA, 2017. Curran Associates, Inc.
-\newblock \doi{10.48550/arXiv.1705.08500}.
-
-\bibitem[Guo et~al.(2017)Guo, Pleiss, Sun, and Weinberger]{guo2017calibration}
-Chuan Guo, Geoff Pleiss, Yu~Sun, and Kilian~Q. Weinberger.
-\newblock On calibration of modern neural networks.
-\newblock In \emph{Proceedings of the 34th International Conference on Machine
-  Learning (ICML '17)}, volume~70 of \emph{Proceedings of Machine Learning
-  Research}, pages 1321--1330, Sydney, Australia, 2017. PMLR.
 
 \bibitem[Clark et~al.(2018)Clark, Cowhey, Etzioni, Khot, Sabharwal, Schoenick,
   and Tafjord]{arc}
@@ -201,12 +211,6 @@ Peter Clark, Isaac Cowhey, Oren Etzioni, Tushar Khot, Ashish Sabharwal, Carissa
   Schoenick, and Oyvind Tafjord.
 \newblock Think you have solved question answering? try {ARC}, the {AI2}
   reasoning challenge, 2018.
-
-\bibitem[{Qwen Team and MLX Community}(2024{\natexlab{c}})]{qwenarc}
-{Qwen Team and MLX Community}.
-\newblock {Qwen2.5-1.5B-Instruct}, 4-bit mlx checkpoint, 2024{\natexlab{c}}.
-\newblock URL
-  \url{https://huggingface.co/mlx-community/Qwen2.5-1.5B-Instruct-4bit/tree/8b403126fc14f14cfc99bb4cfa72ecbc129ea677}.
 
 \bibitem[Socher et~al.(2013)Socher, Perelygin, Wu, Chuang, Manning, Ng, and
   Potts]{sst}
@@ -410,14 +414,6 @@ Xinyu Kang, Yuhan Yang, Yuankai Chen, and Liz Li.
 Wenbo Wang and Di~Sang.
 \newblock Interface-induced trajectory censoring, 2026.
 \newblock URL \url{https://arxiv.org/abs/2609.03966v3}.
-
-\bibitem[Chauvin et~al.(2026)Chauvin, Le~Merrer, Ta{\"i}ani, and
-  Tredan]{monitor}
-Timoth{\'e}e Chauvin, Erwan Le~Merrer, Fran{\c c}ois Ta{\"i}ani, and Gilles
-  Tredan.
-\newblock Log probability tracking of {LLM APIs}.
-\newblock International Conference on Learning Representations (ICLR 2026),
-  2026.
 
 \bibitem[Wang et~al.(2024)Wang, Ma, Hu, Weber-Genzel, R{\"o}ttger, Kreuter,
   Hovy, and Plank]{firsttoken}

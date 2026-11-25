@@ -12,4 +12,4 @@ Protocol: three checkpoints (`HuggingFaceTB/SmolLM2-135M-Instruct`, `mlx-communi
 
 Stock streaming responses carried no logprob rows (`I5`). Across 384 patched positions, every invariant passed, and the generated text matched between `top_logprobs` 0, the requested width, and streaming.
 
-Stock failure counts depend on sampling, so they differ from the separate November 23 run in [`../downstream_3b/live_audit_summary.json`](../downstream_3b/live_audit_summary.json). That earlier run used the 11-check patch evaluated in the preprint, which corrected `I1`/`I2` but left streaming `I5` unchanged.
+Stock failure counts depend on sampling, so they differ from the separate November 23 run in [`../downstream_3b/live_audit_summary.json`](../downstream_3b/live_audit_summary.json). That earlier run used the 11-check patch evaluated in the November 23 preprint, which corrected `I1`/`I2` but left streaming `I5` unchanged.

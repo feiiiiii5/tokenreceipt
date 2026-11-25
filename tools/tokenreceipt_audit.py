@@ -521,11 +521,15 @@ class OpenAICompatibleHTTPAdapter:
             stream_bytes = None
             if sse_chunks is not None:
                 if same_text_stream:
-                    stream_has_lp = pos < len(stream_rows)
-                    if stream_has_lp:
-                        stream_token = stream_rows[pos].get("token")
-                        stream_score = stream_rows[pos].get("logprob")
-                        stream_bytes = stream_rows[pos].get("bytes")
+                    if pos < len(rowsk):
+                        stream_has_lp = pos < len(stream_rows)
+                        if stream_has_lp:
+                            stream_token = stream_rows[pos].get("token")
+                            stream_score = stream_rows[pos].get("logprob")
+                            stream_bytes = stream_rows[pos].get("bytes")
+                    else:
+                        # Position omitted by both non-streaming and streaming (I3 row-omission, not I5 drift)
+                        stream_has_lp = None
                 else:
                     if len(stream_rows) == 0 and len(rowsk) > 0:
                         stream_has_lp = False

@@ -1,0 +1,123 @@
+{
+  "model": "mlx-community/Qwen2.5-7B-Instruct-4bit",
+  "questions": 50,
+  "group_size": 4,
+  "rollouts": 200,
+  "positions": 8328,
+  "wrong_ids": 847,
+  "wrong_scores": 844,
+  "wrong_score_rate": 0.1013,
+  "mixed_reward_groups": 7,
+  "all_wrong_groups": 5,
+  "all_correct_groups": 38,
+  "rollouts_in_mixed_groups": 28,
+  "rollout_accuracy": 0.845,
+  "epsilons": {
+    "0.1": {
+      "eps": 0.1,
+      "neg_adv": {
+        "positions": 662,
+        "score_corrupt": 110,
+        "hard_zeroed": 101,
+        "hard_zeroed_rate": 0.1526,
+        "hard_zeroed_of_score_corrupt": 0.9182,
+        "hard_zeroed_of_inflated_corrupt": 0.9182,
+        "attenuated": 9,
+        "amplified_r_gt_1": 0,
+        "mean_grad_mult": 0.8468,
+        "mean_grad_mult_on_corrupt": 0.0782
+      },
+      "pos_adv": {
+        "positions": 681,
+        "score_corrupt": 92,
+        "hard_zeroed_r_gt_1p_eps": 0,
+        "hard_zeroed_rate": 0.0,
+        "attenuated": 92,
+        "attenuated_rate": 0.1351,
+        "amplified": 0,
+        "mean_grad_mult": 0.9251,
+        "mean_grad_mult_on_corrupt": 0.4456
+      }
+    },
+    "0.2": {
+      "eps": 0.2,
+      "neg_adv": {
+        "positions": 662,
+        "score_corrupt": 110,
+        "hard_zeroed": 95,
+        "hard_zeroed_rate": 0.1435,
+        "hard_zeroed_of_score_corrupt": 0.8636,
+        "hard_zeroed_of_inflated_corrupt": 0.8636,
+        "attenuated": 15,
+        "amplified_r_gt_1": 0,
+        "mean_grad_mult": 0.8545,
+        "mean_grad_mult_on_corrupt": 0.1244
+      },
+      "pos_adv": {
+        "positions": 681,
+        "score_corrupt": 92,
+        "hard_zeroed_r_gt_1p_eps": 0,
+        "hard_zeroed_rate": 0.0,
+        "attenuated": 92,
+        "attenuated_rate": 0.1351,
+        "amplified": 0,
+        "mean_grad_mult": 0.9251,
+        "mean_grad_mult_on_corrupt": 0.4456
+      }
+    },
+    "0.28": {
+      "eps": 0.28,
+      "neg_adv": {
+        "positions": 662,
+        "score_corrupt": 110,
+        "hard_zeroed": 91,
+        "hard_zeroed_rate": 0.1375,
+        "hard_zeroed_of_score_corrupt": 0.8273,
+        "hard_zeroed_of_inflated_corrupt": 0.8273,
+        "attenuated": 19,
+        "amplified_r_gt_1": 0,
+        "mean_grad_mult": 0.8591,
+        "mean_grad_mult_on_corrupt": 0.152
+      },
+      "pos_adv": {
+        "positions": 681,
+        "score_corrupt": 92,
+        "hard_zeroed_r_gt_1p_eps": 0,
+        "hard_zeroed_rate": 0.0,
+        "attenuated": 92,
+        "attenuated_rate": 0.1351,
+        "amplified": 0,
+        "mean_grad_mult": 0.9251,
+        "mean_grad_mult_on_corrupt": 0.4456
+      }
+    }
+  },
+  "bootstrap_95ci_eps02": {
+    "neg_hard_zeroed_rate_ci": [
+      0.1099,
+      0.1807
+    ],
+    "neg_grad_mult_on_corrupt_ci": [
+      0.0585,
+      0.196
+    ],
+    "pos_attenuated_rate_ci": [
+      0.0989,
+      0.1685
+    ],
+    "seq_mean_spurious_kl_ci": [
+      0.0444,
+      0.064
+    ]
+  },
+  "spurious_kl_step0": {
+    "rollouts_nonzero_kl": 181,
+    "rollout_mean_kl_avg": 0.054102,
+    "rollout_mean_kl_median": 0.039346,
+    "rollout_mean_kl_max": 0.267625,
+    "per_corrupted_position_kl_mean": 0.571286,
+    "per_corrupted_position_kl_median": 0.264993,
+    "per_corrupted_position_kl_max": 7.656424,
+    "all_positions_kl_mean": 0.057897
+  }
+}
