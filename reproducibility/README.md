@@ -51,6 +51,10 @@ The IFEval and patch projections replace actual token IDs with equality classes 
 
 The replay and comparison projections carry scores, equality classes and measured render or byte outcomes. The CTranslate2 projection carries scores, ranks, normalization terms and comparisons from six study-authored prompts. Its optional live recipe can regenerate full vectors and repeat the decoder-input observation. The offline checks regrade the supplied observations. Rerendering original benchmark responses or recalculating the original full-vocabulary arrays requires the corresponding retained records or a new capture.
 
+## November 25 live probes and TriviaQA routing
+
+The [November 25 projections](live_gpu_2026_11_25/README.md) describe black-box SGLang/vLLM checks and a separate TriviaQA routing confirmation. Run `python3 -B live_gpu_2026_11_25/verify_triviaqa.py` to recompute calibration and wrong-answer false accepts from text-free rows for the live MLX-LM cohort and two controlled score-injection cohorts.
+
 ## SST-2 learning endpoint
 
 With NumPy installed, run `python3 -B verify_learning.py`. The saved archive contains numeric labels, seed IDs and correct-action log probabilities at the initial and final policies. It contains no review text, token sequences, example IDs, or model parameters. With 128 training seeds and 384 held-out items, the expected accuracy changes by −1.8974 percentage points, with a seed-only 95% bootstrap interval of [−2.6566, −1.1583] and a crossed seed/item interval of [−2.8136, −1.0159]. The script recomputes the endpoint, seed means, and both intervals. This stage starts from recorded policy outputs. [Endpoint values and intervals](evidence/sst2-expected.json)

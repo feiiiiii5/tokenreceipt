@@ -1,0 +1,102 @@
+{
+  "env": {
+    "vllm_version": "0.34.0",
+    "torch_version": "2.14.0",
+    "python_version": "3.12.3",
+    "serving_chat_relpath": "vllm/entrypoints/openai/chat_completion/serving.py",
+    "serving_chat_sha256": "e1963254a29c630dfc558a1b8e7d0e3f2e3c6843f34984f96207032102d166bf",
+    "gpu_name": "Tesla T4",
+    "gpu_vram_mib": 15360,
+    "gpu_cc": "7.5",
+    "dtype": "half",
+    "model_primary": "Qwen/Qwen2.5-3B-Instruct",
+    "model_secondary": "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+  },
+  "suite_sha256": "598b87ccdd9a4aa8b1b4d4a91d5cce8a33e3975903c42817399a35b2798c76df",
+  "qwen_36": {
+    "requests": 36,
+    "positions": 382,
+    "per_position": {
+      "I1": {
+        "pass": 382
+      },
+      "I2": {
+        "pass": 381,
+        "fail": 1
+      },
+      "I3": {
+        "pass": 382
+      },
+      "I4": {
+        "pass": 382
+      },
+      "I5": {
+        "pass": 278,
+        "abstain": 104
+      }
+    },
+    "per_request": {
+      "I1": {
+        "pass": 36
+      },
+      "I2": {
+        "pass": 35,
+        "fail": 1
+      },
+      "I3": {
+        "pass": 36
+      },
+      "I4": {
+        "pass": 36
+      },
+      "I5": {
+        "pass": 24,
+        "abstain": 12
+      }
+    }
+  },
+  "qwen_extra": {
+    "completions_count_mismatches": 0,
+    "completions_positive_or_none": 0,
+    "prefix_cache_same_text_pairs": 6,
+    "prefix_cache_max_diff": 0.0
+  },
+  "tinyllama_utf8_eos_12": {
+    "requests": 12,
+    "positions": 146,
+    "per_position": {
+      "I1": {
+        "pass": 146
+      },
+      "I2": {
+        "pass": 146
+      },
+      "I3": {
+        "pass": 146
+      },
+      "I4": {
+        "pass": 146
+      },
+      "I5": {
+        "pass": 146
+      }
+    },
+    "per_request": {
+      "I1": {
+        "pass": 12
+      },
+      "I2": {
+        "pass": 12
+      },
+      "I3": {
+        "pass": 12
+      },
+      "I4": {
+        "pass": 12
+      },
+      "I5": {
+        "pass": 12
+      }
+    }
+  }
+}

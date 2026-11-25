@@ -1,0 +1,1829 @@
+{
+  "env": {
+    "sglang_version": "0.5.23",
+    "torch_version": "2.14.1",
+    "python_version": "3.12.3",
+    "serving_chat_relpath": "sglang/srt/entrypoints/openai/serving_chat.py",
+    "serving_chat_sha256_orig": "b5af9a2be0d566d0340611f963dae566d9bbd00e5a78d3e443a6a184abea6930",
+    "serving_chat_sha256_patched": "4742261b7b9da361d767e2d0c416bc5ad8c6d2a5a1cf7303080ca119d6c36b41",
+    "gpu_name": "Tesla T4",
+    "gpu_vram_mib": 15360,
+    "gpu_cc": "7.5",
+    "dtype": "half",
+    "model_primary": "Qwen/Qwen2.5-3B-Instruct",
+    "model_secondary": "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+  },
+  "suite_sha256": "598b87ccdd9a4aa8b1b4d4a91d5cce8a33e3975903c42817399a35b2798c76df",
+  "qwen_plain_36": {
+    "requests": 36,
+    "positions": 384,
+    "per_position": {
+      "I1": {
+        "pass": 351,
+        "fail": 33
+      },
+      "I2": {
+        "pass": 309,
+        "fail": 75
+      },
+      "I3": {
+        "pass": 384
+      },
+      "I4": {
+        "pass": 384
+      },
+      "I5": {
+        "fail": 114,
+        "pass": 44,
+        "abstain": 226
+      }
+    },
+    "per_request": {
+      "I1": {
+        "pass": 33,
+        "fail": 3
+      },
+      "I2": {
+        "fail": 20,
+        "pass": 16
+      },
+      "I3": {
+        "pass": 36
+      },
+      "I4": {
+        "pass": 36
+      },
+      "I5": {
+        "fail": 14,
+        "pass": 3,
+        "abstain": 19
+      }
+    }
+  },
+  "qwen_plain_extra_endpoints": {
+    "completions_count_mismatches": 0,
+    "completions_positive_or_none": 0,
+    "generate_count_mismatches": 0
+  },
+  "parser_flag_tested": "qwen3",
+  "qwen_parser_utf8_eos_12": {
+    "requests": 12,
+    "positions": 92,
+    "per_position": {
+      "I1": {
+        "fail": 92
+      },
+      "I2": {
+        "pass": 68,
+        "fail": 24
+      },
+      "I3": {
+        "pass": 92
+      },
+      "I4": {
+        "fail": 92
+      },
+      "I5": {
+        "pass": 92
+      }
+    },
+    "per_request": {
+      "I1": {
+        "fail": 12
+      },
+      "I2": {
+        "fail": 10,
+        "pass": 2
+      },
+      "I3": {
+        "pass": 12
+      },
+      "I4": {
+        "fail": 12
+      },
+      "I5": {
+        "pass": 12
+      }
+    }
+  },
+  "qwen_patched_utf8_eos_12": {
+    "requests": 12,
+    "positions": 92,
+    "per_position": {
+      "I1": {
+        "pass": 70,
+        "fail": 22
+      },
+      "I2": {
+        "pass": 67,
+        "fail": 25
+      },
+      "I3": {
+        "pass": 92
+      },
+      "I4": {
+        "pass": 92
+      },
+      "I5": {
+        "pass": 92
+      }
+    },
+    "per_request": {
+      "I1": {
+        "pass": 10,
+        "fail": 2
+      },
+      "I2": {
+        "fail": 10,
+        "pass": 2
+      },
+      "I3": {
+        "pass": 12
+      },
+      "I4": {
+        "pass": 12
+      },
+      "I5": {
+        "pass": 12
+      }
+    }
+  },
+  "tinyllama_plain_utf8_eos_12": {
+    "requests": 12,
+    "positions": 146,
+    "per_position": {
+      "I1": {
+        "fail": 144,
+        "pass": 2
+      },
+      "I2": {
+        "fail": 77,
+        "pass": 58,
+        "abstain": 11
+      },
+      "I3": {
+        "pass": 146
+      },
+      "I4": {
+        "fail": 144,
+        "pass": 2
+      },
+      "I5": {
+        "pass": 84,
+        "fail": 62
+      }
+    },
+    "per_request": {
+      "I1": {
+        "fail": 11,
+        "pass": 1
+      },
+      "I2": {
+        "fail": 11,
+        "abstain": 1
+      },
+      "I3": {
+        "pass": 12
+      },
+      "I4": {
+        "fail": 11,
+        "pass": 1
+      },
+      "I5": {
+        "pass": 6,
+        "fail": 6
+      }
+    }
+  },
+  "tinyllama_patched_utf8_eos_12": {
+    "requests": 12,
+    "positions": 146,
+    "per_position": {
+      "I1": {
+        "fail": 144,
+        "pass": 2
+      },
+      "I2": {
+        "fail": 77,
+        "pass": 58,
+        "abstain": 11
+      },
+      "I3": {
+        "pass": 146
+      },
+      "I4": {
+        "fail": 144,
+        "pass": 2
+      },
+      "I5": {
+        "pass": 146
+      }
+    },
+    "per_request": {
+      "I1": {
+        "fail": 11,
+        "pass": 1
+      },
+      "I2": {
+        "fail": 11,
+        "abstain": 1
+      },
+      "I3": {
+        "pass": 12
+      },
+      "I4": {
+        "fail": 11,
+        "pass": 1
+      },
+      "I5": {
+        "pass": 12
+      }
+    }
+  },
+  "wp3b_plain": {
+    "n_prompts": 60,
+    "same_text_count": 58,
+    "total_ns_rows": 1313,
+    "total_stream_rows": 1266,
+    "total_dropped_rows": 47,
+    "requests_with_drops": 21,
+    "mean_lp_bias_nats": -0.029762,
+    "max_abs_lp_bias_nats": 0.156261,
+    "routing_flips_at_neg035": 2,
+    "rows": [
+      {
+        "idx": 0,
+        "id": "wp3b-00-zh",
+        "lang": "zh",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.590462673889912,
+        "stream_mean_lp": -0.5904634477547006,
+        "mean_lp_bias": -7.738647885835448e-07
+      },
+      {
+        "idx": 1,
+        "id": "wp3b-00-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.43395207879674064,
+        "stream_mean_lp": -0.43321855567630035,
+        "mean_lp_bias": 0.0007335231204402826
+      },
+      {
+        "idx": 2,
+        "id": "wp3b-00-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.24937668617788677,
+        "stream_mean_lp": -0.24828879900284515,
+        "mean_lp_bias": 0.0010878871750416297
+      },
+      {
+        "idx": 3,
+        "id": "wp3b-00-emoji",
+        "lang": "emoji",
+        "usage_tokens": 23,
+        "ns_rows": 23,
+        "stream_rows": 20,
+        "dropped_rows": 3,
+        "same_text": true,
+        "ns_mean_lp": -0.3101617359281897,
+        "stream_mean_lp": -0.35577978105279157,
+        "mean_lp_bias": -0.04561804512460188
+      },
+      {
+        "idx": 4,
+        "id": "wp3b-00-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2195918042662394,
+        "stream_mean_lp": -0.2199247035485996,
+        "mean_lp_bias": -0.00033289928236021615
+      },
+      {
+        "idx": 5,
+        "id": "wp3b-01-zh",
+        "lang": "zh",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.7436527431709692,
+        "stream_mean_lp": -0.7425342241400964,
+        "mean_lp_bias": 0.0011185190308727888
+      },
+      {
+        "idx": 6,
+        "id": "wp3b-01-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4258468710301789,
+        "stream_mean_lp": -0.42718957859547874,
+        "mean_lp_bias": -0.001342707565299861
+      },
+      {
+        "idx": 7,
+        "id": "wp3b-01-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.15904558967713456,
+        "stream_mean_lp": -0.15915196428416797,
+        "mean_lp_bias": -0.00010637460703341595
+      },
+      {
+        "idx": 8,
+        "id": "wp3b-01-emoji",
+        "lang": "emoji",
+        "usage_tokens": 23,
+        "ns_rows": 23,
+        "stream_rows": 20,
+        "dropped_rows": 3,
+        "same_text": true,
+        "ns_mean_lp": -0.33666569708957367,
+        "stream_mean_lp": -0.387783313449421,
+        "mean_lp_bias": -0.05111761635984735
+      },
+      {
+        "idx": 9,
+        "id": "wp3b-01-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2522866970057673,
+        "stream_mean_lp": -0.2524691887318795,
+        "mean_lp_bias": -0.00018249172611223274
+      },
+      {
+        "idx": 10,
+        "id": "wp3b-02-zh",
+        "lang": "zh",
+        "usage_tokens": 17,
+        "ns_rows": 17,
+        "stream_rows": 16,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6178118240696837,
+        "stream_mean_lp": -0.6558957206996183,
+        "mean_lp_bias": -0.03808389662993461
+      },
+      {
+        "idx": 11,
+        "id": "wp3b-02-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45144998882570536,
+        "stream_mean_lp": -0.45163483339695176,
+        "mean_lp_bias": -0.00018484457124640086
+      },
+      {
+        "idx": 12,
+        "id": "wp3b-02-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14807798553041115,
+        "stream_mean_lp": -0.1482874919021621,
+        "mean_lp_bias": -0.00020950637175093378
+      },
+      {
+        "idx": 13,
+        "id": "wp3b-02-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 15,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.5500352384260727,
+        "stream_mean_lp": -0.6983380539956519,
+        "mean_lp_bias": -0.14830281556957914
+      },
+      {
+        "idx": 14,
+        "id": "wp3b-02-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2560307116018142,
+        "stream_mean_lp": -0.254252694969144,
+        "mean_lp_bias": 0.0017780166326701874
+      },
+      {
+        "idx": 15,
+        "id": "wp3b-03-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 17,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6107358528875516,
+        "stream_mean_lp": -0.6473654027945218,
+        "mean_lp_bias": -0.036629549906970205
+      },
+      {
+        "idx": 16,
+        "id": "wp3b-03-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4514389685953499,
+        "stream_mean_lp": -0.45229174036751374,
+        "mean_lp_bias": -0.0008527717721638628
+      },
+      {
+        "idx": 17,
+        "id": "wp3b-03-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14929945516951193,
+        "stream_mean_lp": -0.14946509694724833,
+        "mean_lp_bias": -0.0001656417777363972
+      },
+      {
+        "idx": 18,
+        "id": "wp3b-03-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 15,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.5554006452644812,
+        "stream_mean_lp": -0.703362113174641,
+        "mean_lp_bias": -0.14796146791015985
+      },
+      {
+        "idx": 19,
+        "id": "wp3b-03-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22133301962456167,
+        "stream_mean_lp": -0.2211162224460471,
+        "mean_lp_bias": 0.0002167971785145828
+      },
+      {
+        "idx": 20,
+        "id": "wp3b-04-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 17,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6093828249387216,
+        "stream_mean_lp": -0.6450070851818,
+        "mean_lp_bias": -0.03562426024307841
+      },
+      {
+        "idx": 21,
+        "id": "wp3b-04-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45325610651877923,
+        "stream_mean_lp": -0.4527778508196813,
+        "mean_lp_bias": 0.0004782556990979292
+      },
+      {
+        "idx": 22,
+        "id": "wp3b-04-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14654082771418567,
+        "stream_mean_lp": -0.14599607397697886,
+        "mean_lp_bias": 0.0005447537372068045
+      },
+      {
+        "idx": 23,
+        "id": "wp3b-04-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 15,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.5634992106503489,
+        "stream_mean_lp": -0.7125514086328925,
+        "mean_lp_bias": -0.14905219798254354
+      },
+      {
+        "idx": 24,
+        "id": "wp3b-04-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22083189737046874,
+        "stream_mean_lp": -0.22177673705391499,
+        "mean_lp_bias": -0.0009448396834462469
+      },
+      {
+        "idx": 25,
+        "id": "wp3b-05-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 17,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6104534785530026,
+        "stream_mean_lp": -0.6467819993139368,
+        "mean_lp_bias": -0.03632852076093418
+      },
+      {
+        "idx": 26,
+        "id": "wp3b-05-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4524239642731421,
+        "stream_mean_lp": -0.45264764358338044,
+        "mean_lp_bias": -0.00022367931023836718
+      },
+      {
+        "idx": 27,
+        "id": "wp3b-05-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14852557427866486,
+        "stream_mean_lp": -0.14839718914072364,
+        "mean_lp_bias": 0.00012838513794122264
+      },
+      {
+        "idx": 28,
+        "id": "wp3b-05-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 14,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.5364609776957331,
+        "stream_mean_lp": -0.6905246488743647,
+        "mean_lp_bias": -0.15406367117863162
+      },
+      {
+        "idx": 29,
+        "id": "wp3b-05-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2233952539946813,
+        "stream_mean_lp": -0.22393009744289807,
+        "mean_lp_bias": -0.0005348434482167763
+      },
+      {
+        "idx": 30,
+        "id": "wp3b-06-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 17,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6101038145827462,
+        "stream_mean_lp": -0.6441060485183911,
+        "mean_lp_bias": -0.03400223393564494
+      },
+      {
+        "idx": 31,
+        "id": "wp3b-06-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45318520271841106,
+        "stream_mean_lp": -0.4534306136135153,
+        "mean_lp_bias": -0.00024541089510421443
+      },
+      {
+        "idx": 32,
+        "id": "wp3b-06-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.1502842527008094,
+        "stream_mean_lp": -0.15001969565097775,
+        "mean_lp_bias": 0.0002645570498316374
+      },
+      {
+        "idx": 33,
+        "id": "wp3b-06-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 15,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.5844601795484103,
+        "stream_mean_lp": -0.7407211282599292,
+        "mean_lp_bias": -0.15626094871151885
+      },
+      {
+        "idx": 34,
+        "id": "wp3b-06-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2222548430131989,
+        "stream_mean_lp": -0.2224297449552258,
+        "mean_lp_bias": -0.000174901942026906
+      },
+      {
+        "idx": 35,
+        "id": "wp3b-07-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 17,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6045853489192976,
+        "stream_mean_lp": -0.6408546307951944,
+        "mean_lp_bias": -0.03626928187589684
+      },
+      {
+        "idx": 36,
+        "id": "wp3b-07-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4531677045059723,
+        "stream_mean_lp": -0.4532889705759544,
+        "mean_lp_bias": -0.00012126606998208445
+      },
+      {
+        "idx": 37,
+        "id": "wp3b-07-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14997173825137602,
+        "stream_mean_lp": -0.14993954519347122,
+        "mean_lp_bias": 3.2193057904805755e-05
+      },
+      {
+        "idx": 38,
+        "id": "wp3b-07-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 14,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.521560864174134,
+        "stream_mean_lp": -0.6700217609420633,
+        "mean_lp_bias": -0.14846089676792928
+      },
+      {
+        "idx": 39,
+        "id": "wp3b-07-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.21857571916231677,
+        "stream_mean_lp": -0.21867400724368244,
+        "mean_lp_bias": -9.828808136566614e-05
+      },
+      {
+        "idx": 40,
+        "id": "wp3b-08-zh",
+        "lang": "zh",
+        "usage_tokens": 21,
+        "ns_rows": 21,
+        "stream_rows": 20,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6060618674957714,
+        "stream_mean_lp": -0.6357019464449195,
+        "mean_lp_bias": -0.029640078949148108
+      },
+      {
+        "idx": 41,
+        "id": "wp3b-08-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4538690656615169,
+        "stream_mean_lp": -0.4548611146754335,
+        "mean_lp_bias": -0.000992049013916585
+      },
+      {
+        "idx": 42,
+        "id": "wp3b-08-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.1520595101167904,
+        "stream_mean_lp": -0.1517332814475291,
+        "mean_lp_bias": 0.000326228669261297
+      },
+      {
+        "idx": 43,
+        "id": "wp3b-08-emoji",
+        "lang": "emoji",
+        "usage_tokens": 12,
+        "ns_rows": 12,
+        "stream_rows": 14,
+        "dropped_rows": -2,
+        "same_text": false,
+        "ns_mean_lp": -1.008700502415498,
+        "stream_mean_lp": -0.6679562815192769,
+        "mean_lp_bias": 0.34074422089622114
+      },
+      {
+        "idx": 44,
+        "id": "wp3b-08-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22260711141615275,
+        "stream_mean_lp": -0.22251308556375685,
+        "mean_lp_bias": 9.402585239590144e-05
+      },
+      {
+        "idx": 45,
+        "id": "wp3b-09-zh",
+        "lang": "zh",
+        "usage_tokens": 21,
+        "ns_rows": 21,
+        "stream_rows": 20,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6051429454783136,
+        "stream_mean_lp": -0.6349838110136943,
+        "mean_lp_bias": -0.02984086553538068
+      },
+      {
+        "idx": 46,
+        "id": "wp3b-09-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45469839420790475,
+        "stream_mean_lp": -0.4539677251654363,
+        "mean_lp_bias": 0.0007306690424684348
+      },
+      {
+        "idx": 47,
+        "id": "wp3b-09-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.15071193610113673,
+        "stream_mean_lp": -0.15109447049235314,
+        "mean_lp_bias": -0.0003825343912164103
+      },
+      {
+        "idx": 48,
+        "id": "wp3b-09-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 14,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.5140443904613458,
+        "stream_mean_lp": -0.6614306609007404,
+        "mean_lp_bias": -0.14738627043939467
+      },
+      {
+        "idx": 49,
+        "id": "wp3b-09-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22077824186393022,
+        "stream_mean_lp": -0.22029784182421963,
+        "mean_lp_bias": 0.00048040003971058787
+      },
+      {
+        "idx": 50,
+        "id": "wp3b-10-zh",
+        "lang": "zh",
+        "usage_tokens": 17,
+        "ns_rows": 17,
+        "stream_rows": 16,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.61881365181505,
+        "stream_mean_lp": -0.6587406654452934,
+        "mean_lp_bias": -0.039927013630243424
+      },
+      {
+        "idx": 51,
+        "id": "wp3b-10-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45125045242245204,
+        "stream_mean_lp": -0.45199852187704437,
+        "mean_lp_bias": -0.0007480694545923261
+      },
+      {
+        "idx": 52,
+        "id": "wp3b-10-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22261258086973582,
+        "stream_mean_lp": -0.22258205638748496,
+        "mean_lp_bias": 3.052448225085436e-05
+      },
+      {
+        "idx": 53,
+        "id": "wp3b-10-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 14,
+        "dropped_rows": 4,
+        "same_text": true,
+        "ns_mean_lp": -0.5327179843237025,
+        "stream_mean_lp": -0.6848905947985031,
+        "mean_lp_bias": -0.15217261047480057
+      },
+      {
+        "idx": 54,
+        "id": "wp3b-10-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.21251387013525877,
+        "stream_mean_lp": -0.21180432097757299,
+        "mean_lp_bias": 0.0007095491576857849
+      },
+      {
+        "idx": 55,
+        "id": "wp3b-11-zh",
+        "lang": "zh",
+        "usage_tokens": 17,
+        "ns_rows": 17,
+        "stream_rows": 16,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -0.6111846357063555,
+        "stream_mean_lp": -0.6494667175722952,
+        "mean_lp_bias": -0.03828208186593973
+      },
+      {
+        "idx": 56,
+        "id": "wp3b-11-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": false,
+        "ns_mean_lp": -0.435618953683426,
+        "stream_mean_lp": -0.44869500666391104,
+        "mean_lp_bias": -0.013076052980485031
+      },
+      {
+        "idx": 57,
+        "id": "wp3b-11-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.20669233458344602,
+        "stream_mean_lp": -0.2073781046597102,
+        "mean_lp_bias": -0.0006857700762641916
+      },
+      {
+        "idx": 58,
+        "id": "wp3b-11-emoji",
+        "lang": "emoji",
+        "usage_tokens": 12,
+        "ns_rows": 12,
+        "stream_rows": 11,
+        "dropped_rows": 1,
+        "same_text": true,
+        "ns_mean_lp": -1.045756536225478,
+        "stream_mean_lp": -1.1180948371236974,
+        "mean_lp_bias": -0.07233830089821947
+      },
+      {
+        "idx": 59,
+        "id": "wp3b-11-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2122450105757423,
+        "stream_mean_lp": -0.211276966599551,
+        "mean_lp_bias": 0.0009680439761912962
+      }
+    ]
+  },
+  "wp3b_patched": {
+    "n_prompts": 60,
+    "same_text_count": 58,
+    "total_ns_rows": 1313,
+    "total_stream_rows": 1319,
+    "total_dropped_rows": -6,
+    "requests_with_drops": 0,
+    "mean_lp_bias_nats": 8e-06,
+    "max_abs_lp_bias_nats": 0.001778,
+    "routing_flips_at_neg035": 0,
+    "rows": [
+      {
+        "idx": 0,
+        "id": "wp3b-00-zh",
+        "lang": "zh",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.590462673889912,
+        "stream_mean_lp": -0.5904634477547006,
+        "mean_lp_bias": -7.738647885835448e-07
+      },
+      {
+        "idx": 1,
+        "id": "wp3b-00-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.43395207879674064,
+        "stream_mean_lp": -0.43321855567630035,
+        "mean_lp_bias": 0.0007335231204402826
+      },
+      {
+        "idx": 2,
+        "id": "wp3b-00-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.24937668617788677,
+        "stream_mean_lp": -0.24828879900284515,
+        "mean_lp_bias": 0.0010878871750416297
+      },
+      {
+        "idx": 3,
+        "id": "wp3b-00-emoji",
+        "lang": "emoji",
+        "usage_tokens": 23,
+        "ns_rows": 23,
+        "stream_rows": 23,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.3101617359281897,
+        "stream_mean_lp": -0.30938256924908414,
+        "mean_lp_bias": 0.0007791666791055474
+      },
+      {
+        "idx": 4,
+        "id": "wp3b-00-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2195918042662394,
+        "stream_mean_lp": -0.2199247035485996,
+        "mean_lp_bias": -0.00033289928236021615
+      },
+      {
+        "idx": 5,
+        "id": "wp3b-01-zh",
+        "lang": "zh",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.7436527431709692,
+        "stream_mean_lp": -0.7425342241400964,
+        "mean_lp_bias": 0.0011185190308727888
+      },
+      {
+        "idx": 6,
+        "id": "wp3b-01-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4258468710301789,
+        "stream_mean_lp": -0.42718957859547874,
+        "mean_lp_bias": -0.001342707565299861
+      },
+      {
+        "idx": 7,
+        "id": "wp3b-01-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.15904558967713456,
+        "stream_mean_lp": -0.15915196428416797,
+        "mean_lp_bias": -0.00010637460703341595
+      },
+      {
+        "idx": 8,
+        "id": "wp3b-01-emoji",
+        "lang": "emoji",
+        "usage_tokens": 23,
+        "ns_rows": 23,
+        "stream_rows": 23,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.33666569708957367,
+        "stream_mean_lp": -0.33721496648934135,
+        "mean_lp_bias": -0.0005492693997676823
+      },
+      {
+        "idx": 9,
+        "id": "wp3b-01-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2522866970057673,
+        "stream_mean_lp": -0.2524691887318795,
+        "mean_lp_bias": -0.00018249172611223274
+      },
+      {
+        "idx": 10,
+        "id": "wp3b-02-zh",
+        "lang": "zh",
+        "usage_tokens": 17,
+        "ns_rows": 17,
+        "stream_rows": 17,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6178118240696837,
+        "stream_mean_lp": -0.6173198530961921,
+        "mean_lp_bias": 0.0004919709734916289
+      },
+      {
+        "idx": 11,
+        "id": "wp3b-02-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45144998882570536,
+        "stream_mean_lp": -0.45163483339695176,
+        "mean_lp_bias": -0.00018484457124640086
+      },
+      {
+        "idx": 12,
+        "id": "wp3b-02-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14807798553041115,
+        "stream_mean_lp": -0.1482874919021621,
+        "mean_lp_bias": -0.00020950637175093378
+      },
+      {
+        "idx": 13,
+        "id": "wp3b-02-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 19,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.5500352384260727,
+        "stream_mean_lp": -0.551327201945252,
+        "mean_lp_bias": -0.0012919635191792622
+      },
+      {
+        "idx": 14,
+        "id": "wp3b-02-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2560307116018142,
+        "stream_mean_lp": -0.254252694969144,
+        "mean_lp_bias": 0.0017780166326701874
+      },
+      {
+        "idx": 15,
+        "id": "wp3b-03-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6107358528875516,
+        "stream_mean_lp": -0.6114056912479605,
+        "mean_lp_bias": -0.0006698383604089031
+      },
+      {
+        "idx": 16,
+        "id": "wp3b-03-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4514389685953499,
+        "stream_mean_lp": -0.45229174036751374,
+        "mean_lp_bias": -0.0008527717721638628
+      },
+      {
+        "idx": 17,
+        "id": "wp3b-03-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14929945516951193,
+        "stream_mean_lp": -0.14946509694724833,
+        "mean_lp_bias": -0.0001656417777363972
+      },
+      {
+        "idx": 18,
+        "id": "wp3b-03-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 19,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.5554006452644812,
+        "stream_mean_lp": -0.5552939095170787,
+        "mean_lp_bias": 0.0001067357474024977
+      },
+      {
+        "idx": 19,
+        "id": "wp3b-03-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22133301962456167,
+        "stream_mean_lp": -0.2211162224460471,
+        "mean_lp_bias": 0.0002167971785145828
+      },
+      {
+        "idx": 20,
+        "id": "wp3b-04-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6093828249387216,
+        "stream_mean_lp": -0.6091784773683079,
+        "mean_lp_bias": 0.0002043475704137654
+      },
+      {
+        "idx": 21,
+        "id": "wp3b-04-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45325610651877923,
+        "stream_mean_lp": -0.4527778508196813,
+        "mean_lp_bias": 0.0004782556990979292
+      },
+      {
+        "idx": 22,
+        "id": "wp3b-04-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14654082771418567,
+        "stream_mean_lp": -0.14599607397697886,
+        "mean_lp_bias": 0.0005447537372068045
+      },
+      {
+        "idx": 23,
+        "id": "wp3b-04-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 19,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.5634992106503489,
+        "stream_mean_lp": -0.5625486290071071,
+        "mean_lp_bias": 0.0009505816432417991
+      },
+      {
+        "idx": 24,
+        "id": "wp3b-04-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22083189737046874,
+        "stream_mean_lp": -0.22177673705391499,
+        "mean_lp_bias": -0.0009448396834462469
+      },
+      {
+        "idx": 25,
+        "id": "wp3b-05-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6104534785530026,
+        "stream_mean_lp": -0.6108547123161164,
+        "mean_lp_bias": -0.00040123376311385073
+      },
+      {
+        "idx": 26,
+        "id": "wp3b-05-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4524239642731421,
+        "stream_mean_lp": -0.45264764358338044,
+        "mean_lp_bias": -0.00022367931023836718
+      },
+      {
+        "idx": 27,
+        "id": "wp3b-05-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14852557427866486,
+        "stream_mean_lp": -0.14839718914072364,
+        "mean_lp_bias": 0.00012838513794122264
+      },
+      {
+        "idx": 28,
+        "id": "wp3b-05-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.5364609776957331,
+        "stream_mean_lp": -0.5370833560436049,
+        "mean_lp_bias": -0.0006223783478718214
+      },
+      {
+        "idx": 29,
+        "id": "wp3b-05-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2233952539946813,
+        "stream_mean_lp": -0.22393009744289807,
+        "mean_lp_bias": -0.0005348434482167763
+      },
+      {
+        "idx": 30,
+        "id": "wp3b-06-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6101038145827462,
+        "stream_mean_lp": -0.6083274519421846,
+        "mean_lp_bias": 0.0017763626405615796
+      },
+      {
+        "idx": 31,
+        "id": "wp3b-06-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45318520271841106,
+        "stream_mean_lp": -0.4534306136135153,
+        "mean_lp_bias": -0.00024541089510421443
+      },
+      {
+        "idx": 32,
+        "id": "wp3b-06-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.1502842527008094,
+        "stream_mean_lp": -0.15001969565097775,
+        "mean_lp_bias": 0.0002645570498316374
+      },
+      {
+        "idx": 33,
+        "id": "wp3b-06-emoji",
+        "lang": "emoji",
+        "usage_tokens": 19,
+        "ns_rows": 19,
+        "stream_rows": 19,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.5844601795484103,
+        "stream_mean_lp": -0.5847911122851102,
+        "mean_lp_bias": -0.00033093273669981826
+      },
+      {
+        "idx": 34,
+        "id": "wp3b-06-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2222548430131989,
+        "stream_mean_lp": -0.2224297449552258,
+        "mean_lp_bias": -0.000174901942026906
+      },
+      {
+        "idx": 35,
+        "id": "wp3b-07-zh",
+        "lang": "zh",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6045853489192976,
+        "stream_mean_lp": -0.6052564698725796,
+        "mean_lp_bias": -0.0006711209532820339
+      },
+      {
+        "idx": 36,
+        "id": "wp3b-07-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4531677045059723,
+        "stream_mean_lp": -0.4532889705759544,
+        "mean_lp_bias": -0.00012126606998208445
+      },
+      {
+        "idx": 37,
+        "id": "wp3b-07-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.14997173825137602,
+        "stream_mean_lp": -0.14993954519347122,
+        "mean_lp_bias": 3.2193057904805755e-05
+      },
+      {
+        "idx": 38,
+        "id": "wp3b-07-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.521560864174134,
+        "stream_mean_lp": -0.521136864098706,
+        "mean_lp_bias": 0.00042400007542808815
+      },
+      {
+        "idx": 39,
+        "id": "wp3b-07-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.21857571916231677,
+        "stream_mean_lp": -0.21867400724368244,
+        "mean_lp_bias": -9.828808136566614e-05
+      },
+      {
+        "idx": 40,
+        "id": "wp3b-08-zh",
+        "lang": "zh",
+        "usage_tokens": 21,
+        "ns_rows": 21,
+        "stream_rows": 21,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6060618674957714,
+        "stream_mean_lp": -0.605434313520445,
+        "mean_lp_bias": 0.0006275539753264336
+      },
+      {
+        "idx": 41,
+        "id": "wp3b-08-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.4538690656615169,
+        "stream_mean_lp": -0.4548611146754335,
+        "mean_lp_bias": -0.000992049013916585
+      },
+      {
+        "idx": 42,
+        "id": "wp3b-08-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.1520595101167904,
+        "stream_mean_lp": -0.1517332814475291,
+        "mean_lp_bias": 0.000326228669261297
+      },
+      {
+        "idx": 43,
+        "id": "wp3b-08-emoji",
+        "lang": "emoji",
+        "usage_tokens": 12,
+        "ns_rows": 12,
+        "stream_rows": 18,
+        "dropped_rows": -6,
+        "same_text": false,
+        "ns_mean_lp": -1.008700502415498,
+        "stream_mean_lp": -0.5195304330774317,
+        "mean_lp_bias": 0.4891700693380663
+      },
+      {
+        "idx": 44,
+        "id": "wp3b-08-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22260711141615275,
+        "stream_mean_lp": -0.22251308556375685,
+        "mean_lp_bias": 9.402585239590144e-05
+      },
+      {
+        "idx": 45,
+        "id": "wp3b-09-zh",
+        "lang": "zh",
+        "usage_tokens": 21,
+        "ns_rows": 21,
+        "stream_rows": 21,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6051429454783136,
+        "stream_mean_lp": -0.6047503863667425,
+        "mean_lp_bias": 0.00039255911157110024
+      },
+      {
+        "idx": 46,
+        "id": "wp3b-09-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45469839420790475,
+        "stream_mean_lp": -0.4539677251654363,
+        "mean_lp_bias": 0.0007306690424684348
+      },
+      {
+        "idx": 47,
+        "id": "wp3b-09-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.15071193610113673,
+        "stream_mean_lp": -0.15109447049235314,
+        "mean_lp_bias": -0.0003825343912164103
+      },
+      {
+        "idx": 48,
+        "id": "wp3b-09-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.5140443904613458,
+        "stream_mean_lp": -0.5144550960696187,
+        "mean_lp_bias": -0.0004107056082729432
+      },
+      {
+        "idx": 49,
+        "id": "wp3b-09-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22077824186393022,
+        "stream_mean_lp": -0.22029784182421963,
+        "mean_lp_bias": 0.00048040003971058787
+      },
+      {
+        "idx": 50,
+        "id": "wp3b-10-zh",
+        "lang": "zh",
+        "usage_tokens": 17,
+        "ns_rows": 17,
+        "stream_rows": 17,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.61881365181505,
+        "stream_mean_lp": -0.6199974060817861,
+        "mean_lp_bias": -0.0011837542667361145
+      },
+      {
+        "idx": 51,
+        "id": "wp3b-10-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.45125045242245204,
+        "stream_mean_lp": -0.45199852187704437,
+        "mean_lp_bias": -0.0007480694545923261
+      },
+      {
+        "idx": 52,
+        "id": "wp3b-10-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.22261258086973582,
+        "stream_mean_lp": -0.22258205638748496,
+        "mean_lp_bias": 3.052448225085436e-05
+      },
+      {
+        "idx": 53,
+        "id": "wp3b-10-emoji",
+        "lang": "emoji",
+        "usage_tokens": 18,
+        "ns_rows": 18,
+        "stream_rows": 18,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.5327179843237025,
+        "stream_mean_lp": -0.5327014993983347,
+        "mean_lp_bias": 1.6484925367876713e-05
+      },
+      {
+        "idx": 54,
+        "id": "wp3b-10-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.21251387013525877,
+        "stream_mean_lp": -0.21180432097757299,
+        "mean_lp_bias": 0.0007095491576857849
+      },
+      {
+        "idx": 55,
+        "id": "wp3b-11-zh",
+        "lang": "zh",
+        "usage_tokens": 17,
+        "ns_rows": 17,
+        "stream_rows": 17,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.6111846357063555,
+        "stream_mean_lp": -0.61126873914862,
+        "mean_lp_bias": -8.410344226450484e-05
+      },
+      {
+        "idx": 56,
+        "id": "wp3b-11-vi",
+        "lang": "vi",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": false,
+        "ns_mean_lp": -0.435618953683426,
+        "stream_mean_lp": -0.44869500666391104,
+        "mean_lp_bias": -0.013076052980485031
+      },
+      {
+        "idx": 57,
+        "id": "wp3b-11-fr",
+        "lang": "fr",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.20669233458344602,
+        "stream_mean_lp": -0.2073781046597102,
+        "mean_lp_bias": -0.0006857700762641916
+      },
+      {
+        "idx": 58,
+        "id": "wp3b-11-emoji",
+        "lang": "emoji",
+        "usage_tokens": 12,
+        "ns_rows": 12,
+        "stream_rows": 12,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -1.045756536225478,
+        "stream_mean_lp": -1.0460403313239415,
+        "mean_lp_bias": -0.0002837950984635462
+      },
+      {
+        "idx": 59,
+        "id": "wp3b-11-en",
+        "lang": "en",
+        "usage_tokens": 24,
+        "ns_rows": 24,
+        "stream_rows": 24,
+        "dropped_rows": 0,
+        "same_text": true,
+        "ns_mean_lp": -0.2122450105757423,
+        "stream_mean_lp": -0.211276966599551,
+        "mean_lp_bias": 0.0009680439761912962
+      }
+    ]
+  }
+}
